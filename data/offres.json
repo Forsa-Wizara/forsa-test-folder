@@ -1,0 +1,725 @@
+{
+  "referentiel_offres": [
+    {
+      "id_offre": "weekend_boost_fibre",
+      "nom_commercial": "WEEK-END BOOST",
+      "famille": "INTERNET",
+      "sous_famille": "BOOST_TEMPORAIRE",
+      "technologies": ["FTTH", "Idoom Fibre"],
+      "segments_cibles": ["RESIDENTIEL"],
+      "sous_segments": ["ABONNES_IDOOM_FIBRE"],
+      "client_type": "B2C",
+      "locataire": false,
+      "conventionne": false,
+      "types_clients_exclus": ["CONVENTIONNES", "LOCATAIRES", "GAMERS"],
+      "type_offre": "OPTION_SUR_ABONNEMENT",
+      "engagement_mois": null,
+      "numero_document": "AT/DG/DCMI/DCGP/CQC/SR/V2.0/FR/159/2025",
+      "canaux_activation": ["Espace client", "My Idoom"],
+      "periode_activation": {
+        "type": "HEBDOMADAIRE",
+        "details": "Vendredi 00h01 à samedi 23h59"
+      },
+      "validite": {
+        "type": "TEMPORELLE",
+        "duree_heures": 48
+      },
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 120,
+        "debit_initial_max_mbps": 1000,
+        "debits_final_disponibles_mbps": [240, 480, 600, 1000, 1500]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": null,
+        "ping_optimise": true
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "Augmentation temporaire du débit internet le week-end",
+        "Profiter de débits ultra-rapides (jusqu'à 1.5 Gbps)",
+        "Adapté au streaming, gaming et téléchargements intensifs"
+      ],
+      "limitations": [
+        "Non accessible aux clients Idoom Fibre avec débit <= 60 Mbps",
+        "Non accessible aux clients conventionnés",
+        "Non accessible aux clients locataires",
+        "Non accessible aux clients Idoom Fibre Gamers"
+      ],
+      "conditions_particulieres": [
+        "Déduction de 3 à 6 jours de la durée d'abonnement selon le débit choisi",
+        "La déduction de jours varie en fonction du débit initial et du débit boosté"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "DEDUCTION_JOURS",
+          "unite_prix": "JOURS_DEDUCTION",
+          "lignes": [
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 240,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 480,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 600,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 1000,
+              "valeur": 5
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 1500,
+              "valeur": 6
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 480,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 600,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 1000,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 1500,
+              "valeur": 5
+            },
+            {
+              "debit_initial_mbps": 480,
+              "debit_final_mbps": 600,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 480,
+              "debit_final_mbps": 1000,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 480,
+              "debit_final_mbps": 1500,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 600,
+              "debit_final_mbps": 1000,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 600,
+              "debit_final_mbps": 1500,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 1000,
+              "debit_final_mbps": 1500,
+              "valeur": 3
+            }
+          ]
+        }
+      ],
+      "produits_associes": [],
+      "modes_paiement": [],
+      "documents_a_fournir": [],
+      "notes": []
+    },
+    {
+      "id_offre": "moohtarif_tpe_prof",
+      "nom_commercial": "MOOHTARIF",
+      "famille": "INTERNET",
+      "sous_famille": "PRO_TPE_LIBERAUX",
+      "technologies": ["ADSL", "VDSL", "FTTH", "Idoom Fibre"],
+      "segments_cibles": ["PRO"],
+      "sous_segments": ["TPE", "PROFESSIONS_LIBERALES"],
+      "client_type": "B2B",
+      "locataire": false,
+      "conventionne": false,
+      "types_clients_exclus": ["ASSURANCES_AGREEES"],
+      "type_offre": "ABONNEMENT_INTERNET",
+      "engagement_mois": 12,
+      "numero_document": "AT/DG/DCMI/DCGP/CQC/SR/V3.0/FR/135/2025",
+      "canaux_activation": ["Agence commerciale"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 15,
+        "debit_initial_max_mbps": 120,
+        "debits_final_disponibles_mbps": [15, 30, 60, 120, 240, 300, 500, 1200]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": 0.3,
+        "ping_optimise": false
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "Débits améliorés et tarifs révisés pour TPE et professions libérales",
+        "Appels illimités vers le réseau Algérie Télécom (via offre Idoom Fixe associée)",
+        "Adresse IP fixe possible à 500 DA/mois",
+        "Accès à des tarifs préférentiels sur certains équipements et solutions (dépôt-vente)"
+      ],
+      "limitations": [
+        "Offres VDSL 50 et 100 Mbps soumises à éligibilité",
+        "Débit 1.2 Gbps soumis à éligibilité et ONT Wifi 6"
+      ],
+      "conditions_particulieres": [
+        "Engagement 12 mois pour une nouvelle souscription",
+        "Upload de 30% du Download pour les clients MOOHTARIF Fibre avec débit >= 30 Mbps",
+        "Nouvelle offre annule et remplace l'offre MOOHTARIF actuelle"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "ABONNEMENT_ADSL_VDSL",
+          "unite_prix": "DA_MOIS",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2500,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 20,
+              "tarif_actuel_da": 2700,
+              "tarif_nouveau_da": 2650
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 50,
+              "tarif_actuel_da": 2900,
+              "tarif_nouveau_da": 2850
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 100,
+              "tarif_actuel_da": 3100,
+              "tarif_nouveau_da": 3050
+            }
+          ]
+        },
+        {
+          "type_tableau": "ABONNEMENT_FIBRE",
+          "unite_prix": "DA_MOIS",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2500,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 30,
+              "tarif_actuel_da": 2700,
+              "tarif_nouveau_da": 2700
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 60,
+              "tarif_actuel_da": 2900,
+              "tarif_nouveau_da": 2900
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 120,
+              "tarif_actuel_da": 3100,
+              "tarif_nouveau_da": 3100
+            },
+            {
+              "debit_initial_mbps": 200,
+              "debit_final_mbps": 240,
+              "tarif_actuel_da": 3300,
+              "tarif_nouveau_da": 3300
+            },
+            {
+              "debit_initial_mbps": 300,
+              "debit_final_mbps": 300,
+              "tarif_actuel_da": 3500,
+              "tarif_nouveau_da": 3500
+            },
+            {
+              "debit_initial_mbps": 500,
+              "debit_final_mbps": 500,
+              "tarif_actuel_da": 4500,
+              "tarif_nouveau_da": 4500
+            },
+            {
+              "debit_initial_mbps": 1000,
+              "debit_final_mbps": 1200,
+              "tarif_actuel_da": 5200,
+              "tarif_nouveau_da": 5200
+            }
+          ]
+        }
+      ],
+      "produits_associes": [
+        {
+          "type_produit": "ONT_FIBRE",
+          "designation": "ONT FTTH",
+          "tarif_actuel_da_ttc": 14200,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "Offert pour toute souscription de 3 mois ou plus à une offre Idoom Fibre MOOHTARIF"
+          ]
+        },
+        {
+          "type_produit": "INSTALLATION_FIBRE",
+          "designation": "Frais d'installation FTTH",
+          "tarif_actuel_da_ttc": 6000,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "Offerts pour toute souscription de 3 mois ou plus"
+          ]
+        }
+      ],
+      "modes_paiement": [
+        "Paiement en agence",
+        "Paiement électronique (TPE, e-paiement) donnant accès à des avantages supplémentaires"
+      ],
+      "documents_a_fournir": [
+        "Pièce d'identité",
+        "Justificatif d'adresse",
+        "Preuve d'appartenance à une des catégories cibles (RC, carte professionnelle, agrément, etc.)"
+      ],
+      "notes": [
+        "Les agences d'assurances agréées doivent souscrire à l'offre professionnelle et non à MOOHTARIF",
+        "Clients MOOHTARIF avec TPE (paiement électronique) : modem ONT + installation offerts avec conditions spécifiques"
+      ]
+    },
+    {
+      "id_offre": "moohtarif_locataire",
+      "nom_commercial": "MOOHTARIF LOCATAIRE",
+      "famille": "INTERNET",
+      "sous_famille": "PRO_TPE_LIBERAUX_LOCATAIRES",
+      "technologies": ["ADSL", "VDSL", "FTTH", "Idoom Fibre"],
+      "segments_cibles": ["PRO"],
+      "sous_segments": ["TPE", "PROFESSIONS_LIBERALES_SANS_JUSTIFICATIF_ADRESSE"],
+      "client_type": "B2B",
+      "locataire": true,
+      "conventionne": false,
+      "types_clients_exclus": [],
+      "type_offre": "ABONNEMENT_INTERNET",
+      "engagement_mois": 12,
+      "numero_document": "AT/DG/DCMI/DCGP/CQC/BI/4.0/FR/160/2025",
+      "canaux_activation": ["Agence commerciale"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 15,
+        "debit_initial_max_mbps": 120,
+        "debits_final_disponibles_mbps": [15, 30, 60, 120, 240, 300, 500, 1200]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": 0.3,
+        "ping_optimise": false
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "Offre dédiée aux TPE et professions libérales sans justificatif d'adresse",
+        "Appels vers lignes fixes Algérie Télécom gratuits (PSTN, VOIP & VOLTE)",
+        "Accès Idoom Fixe inclus à 250 DA/mois",
+        "Solutions dépôt-vente avec tarifs remisés sous conditions"
+      ],
+      "limitations": [
+        "Appels internationaux et vers mobiles soumis à restriction avec coût mensuel de 50 DA",
+        "Débit 1.2 Gbps soumis à éligibilité et ONT Wifi 6"
+      ],
+      "conditions_particulieres": [
+        "Engagement 12 mois et impossibilité de descendre à une offre inférieure pendant cette période",
+        "La nouvelle offre annule et remplace l'offre MOOHTARIF LOCATAIRE actuelle",
+        "Client MOOHTARIF LOCATAIRE ouvre droit à une seule acquisition de produits/solutions dépôt-vente remisés pour une offre >= 20 Mbps"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "ABONNEMENT_ADSL_VDSL",
+          "unite_prix": "DA_MOIS",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2800,
+              "tarif_nouveau_da": 2800
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 20,
+              "tarif_actuel_da": 3000,
+              "tarif_nouveau_da": 2950
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 50,
+              "tarif_actuel_da": 3200,
+              "tarif_nouveau_da": 3150
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 100,
+              "tarif_actuel_da": 3400,
+              "tarif_nouveau_da": 3350
+            }
+          ]
+        },
+        {
+          "type_tableau": "ABONNEMENT_FIBRE",
+          "unite_prix": "DA_MOIS",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2800,
+              "tarif_nouveau_da": 2800
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 30,
+              "tarif_actuel_da": 3000,
+              "tarif_nouveau_da": 3000
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 60,
+              "tarif_actuel_da": 3200,
+              "tarif_nouveau_da": 3200
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 120,
+              "tarif_actuel_da": 3400,
+              "tarif_nouveau_da": 3400
+            },
+            {
+              "debit_initial_mbps": 200,
+              "debit_final_mbps": 240,
+              "tarif_actuel_da": 3600,
+              "tarif_nouveau_da": 3600
+            },
+            {
+              "debit_initial_mbps": 300,
+              "debit_final_mbps": 300,
+              "tarif_actuel_da": 3800,
+              "tarif_nouveau_da": 3800
+            },
+            {
+              "debit_initial_mbps": 500,
+              "debit_final_mbps": 500,
+              "tarif_actuel_da": 4800,
+              "tarif_nouveau_da": 4800
+            },
+            {
+              "debit_initial_mbps": 1000,
+              "debit_final_mbps": 1200,
+              "tarif_actuel_da": 5500,
+              "tarif_nouveau_da": 5500
+            }
+          ]
+        }
+      ],
+      "produits_associes": [
+        {
+          "type_produit": "ONT_FIBRE",
+          "designation": "ONT FTTH",
+          "tarif_actuel_da_ttc": 14200,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "Offert pour toute souscription de 3 mois ou plus à une offre Fibre"
+          ]
+        },
+        {
+          "type_produit": "INSTALLATION_FIBRE",
+          "designation": "Frais d'installation FTTH",
+          "tarif_actuel_da_ttc": 6000,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "Offerts pour toute souscription de 3 mois ou plus"
+          ]
+        }
+      ],
+      "modes_paiement": [],
+      "documents_a_fournir": [
+        "Demande manuscrite",
+        "Pièce d'identité nationale valide",
+        "Document permettant de confirmer l'adresse d'installation",
+        "Preuve d'appartenance à une des catégories cibles (RC, carte professionnelle, agrément, convention ANSEJ/CNAC/ANGEM, carte fiscale)"
+      ],
+      "notes": [
+        "Appels internationaux et mobiles soumis à des restrictions (50 DA/mois)",
+        "L'offre comprend un accès Idoom Fixe au coût inclus de 250 DA/mois"
+      ]
+    },
+    {
+      "id_offre": "idoom_fibre_gamers",
+      "nom_commercial": "Idoom Fibre Gamers",
+      "famille": "INTERNET",
+      "sous_famille": "RESIDENTIEL_GAMING",
+      "technologies": ["FTTH", "Idoom Fibre"],
+      "segments_cibles": ["RESIDENTIEL"],
+      "sous_segments": ["GAMERS"],
+      "client_type": "B2C",
+      "locataire": false,
+      "conventionne": false,
+      "types_clients_exclus": [],
+      "type_offre": "ABONNEMENT_INTERNET",
+      "engagement_mois": 12,
+      "numero_document": "AT/DG/DCIM/DCGP/CQC/SR/V5.0/FR/160/2025",
+      "canaux_activation": ["Agence commerciale"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 30,
+        "debit_initial_max_mbps": 1200,
+        "debits_final_disponibles_mbps": [60, 120, 240, 480, 600, 1000, 1500]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": 0.6,
+        "ping_optimise": true
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "Débits jusqu'à 1.5 Gbps conçus pour le gaming",
+        "Upload jusqu'à 60% du débit (jusqu'à 900 Mbps)",
+        "Modem optique + 1 mois de connexion + frais d'installation offerts",
+        "Tarifs compétitifs pour les paliers élevés"
+      ],
+      "limitations": [
+        "Débits 1 Gbps et 1.5 Gbps soumis à éligibilité",
+        "Nouvelle offre remplace et annule l'ancienne offre Gamers"
+      ],
+      "conditions_particulieres": [
+        "Engagement 12 mois pour les nouveaux abonnés"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "ABONNEMENT_FIBRE_GAMERS",
+          "unite_prix": "DA_MOIS",
+          "lignes": [
+            {
+              "debit_initial_mbps": 30,
+              "debit_final_mbps": 60,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "debit_initial_mbps": 60,
+              "debit_final_mbps": 120,
+              "tarif_nouveau_da": 2800
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 240,
+              "tarif_nouveau_da": 3000
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 480,
+              "tarif_nouveau_da": 3400
+            },
+            {
+              "debit_initial_mbps": 300,
+              "debit_final_mbps": 600,
+              "tarif_nouveau_da": 4000
+            },
+            {
+              "debit_initial_mbps": 500,
+              "debit_final_mbps": 1000,
+              "tarif_nouveau_da": 4600
+            },
+            {
+              "debit_initial_mbps": 1200,
+              "debit_final_mbps": 1500,
+              "tarif_nouveau_da": 5200
+            }
+          ]
+        }
+      ],
+      "produits_associes": [],
+      "modes_paiement": [],
+      "documents_a_fournir": [],
+      "notes": [
+        "Le conseiller doit promouvoir les accessoires gaming disponibles (casques, claviers, souris, etc.) pour favoriser le cross-selling"
+      ]
+    },
+    {
+      "id_offre": "kits_branchement_ftth",
+      "nom_commercial": "Kits de branchement FTTH",
+      "famille": "HARDWARE",
+      "sous_famille": "KITS_BRANCHEMENT",
+      "technologies": ["FTTH"],
+      "segments_cibles": ["RESIDENTIEL", "PRO"],
+      "sous_segments": [],
+      "client_type": "B2C_B2B",
+      "locataire": null,
+      "conventionne": null,
+      "types_clients_exclus": [],
+      "type_offre": "VENTE_EQUIPMENT",
+      "engagement_mois": null,
+      "numero_document": "Mode operatoire kits FTTH interne FR",
+      "canaux_activation": ["Agence commerciale", "Point de présence"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": null,
+      "caracteristiques_debit": null,
+      "tarification": [],
+      "avantages_principaux": [
+        "Permet le remplacement rapide des kits de branchement FTTH intérieurs et extérieurs",
+        "Prix TTC incluant la TVA et les frais d'installation"
+      ],
+      "limitations": [
+        "Utilisé principalement lorsque la coupure est causée par le client",
+        "Achat à effectuer dans un délai de 48 heures après diagnostic"
+      ],
+      "conditions_particulieres": [
+        "Si le client ne procède pas à l'achat du kit dans les 48 heures, la signalisation est clôturée",
+        "L'installation est effectuée dans un délai maximum de 48 heures après l'achat du kit"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "KIT_INTERIEUR",
+          "unite_prix": "DA_TTC",
+          "lignes": [
+            {
+              "type_kit": "Intérieur 10m",
+              "longueur_metres": 10,
+              "tarif_nouveau_da": 1700
+            },
+            {
+              "type_kit": "Intérieur 20m",
+              "longueur_metres": 20,
+              "tarif_nouveau_da": 1900
+            },
+            {
+              "type_kit": "Intérieur 30m",
+              "longueur_metres": 30,
+              "tarif_nouveau_da": 2100
+            },
+            {
+              "type_kit": "Intérieur 40m",
+              "longueur_metres": 40,
+              "tarif_nouveau_da": 2200
+            }
+          ]
+        },
+        {
+          "type_tableau": "KIT_EXTERIEUR",
+          "unite_prix": "DA_TTC",
+          "lignes": [
+            {
+              "type_kit": "Extérieur 30m",
+              "longueur_metres": 30,
+              "tarif_nouveau_da": 2150
+            },
+            {
+              "type_kit": "Extérieur 50m",
+              "longueur_metres": 50,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "type_kit": "Extérieur 80m",
+              "longueur_metres": 80,
+              "tarif_nouveau_da": 3100
+            }
+          ]
+        }
+      ],
+      "produits_associes": [],
+      "modes_paiement": [],
+      "documents_a_fournir": [],
+      "notes": [
+        "Le mode opératoire décrit aussi la fiche d'intervention et les champs à remplir (diagnostic, responsabilité, coordonnées, etc.)"
+      ]
+    },
+    {
+      "id_offre": "idoom_4g_lte_sans_engagement",
+      "nom_commercial": "Idoom 4G LTE Sans Engagement",
+      "famille": "4G",
+      "sous_famille": "RESIDENTIEL_SANS_ENGAGEMENT",
+      "technologies": ["4G", "LTE"],
+      "segments_cibles": ["RESIDENTIEL"],
+      "sous_segments": ["NOUVEAUX_CLIENTS", "ETUDIANTS_EN_CITE_UNIVERSITAIRE"],
+      "client_type": "B2C",
+      "locataire": null,
+      "conventionne": false,
+      "types_clients_exclus": [],
+      "type_offre": "PACK_DATA_VOIX",
+      "engagement_mois": 0,
+      "numero_document": "Nouvelle offre Idoom 4G LTE Sans Engagement 2025",
+      "canaux_activation": ["Agence commerciale", "Espace client", "My Idoom", "Baridi-Mob", "Win-paye", "E-paiement"],
+      "periode_activation": null,
+      "validite": {
+        "type": "CALENDAIRE_VOLUME",
+        "duree_jours": 90
+      },
+      "debits_eligibles": null,
+      "caracteristiques_debit": {
+        "upload_ratio": null,
+        "ping_optimise": false
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "Modem offert",
+        "Volume 1 To avec débit illimité",
+        "Validité de 90 jours",
+        "Appels illimités vers le réseau Algérie Télécom"
+      ],
+      "limitations": [],
+      "conditions_particulieres": [
+        "Nouvelle offre remplace toutes les anciennes offres IDOOM 4G LTE (anciens packs supprimés)",
+        "Rechargement possible avant la fin des 90 jours et cumulable"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "PACK_UNIQUE",
+          "unite_prix": "DA_TTC",
+          "lignes": [
+            {
+              "condition": "Souscription nouvelle offre Idoom 4G LTE Data & Voix Sans Engagement",
+              "volume_to": 1,
+              "validite_jours": 90,
+              "tarif_nouveau_da": 7500
+            }
+          ]
+        }
+      ],
+      "produits_associes": [
+        {
+          "type_produit": "MODEM_4G",
+          "designation": "Modem 4G LTE",
+          "tarif_actuel_da_ttc": null,
+          "tarif_nouveau_da_ttc": 0,
+          "conditions": [
+            "Modem offert à la souscription de l'offre"
+          ]
+        }
+      ],
+      "modes_paiement": [
+        "Agence commerciale",
+        "Espace client",
+        "My Idoom",
+        "Baridi-Mob",
+        "Win-paye",
+        "E-paiement"
+      ],
+      "documents_a_fournir": [
+        "Justificatif d'adresse en cours de validité (ou carte de résidence universitaire pour les étudiants)",
+        "Copie de la pièce d'identité ou passeport"
+      ],
+      "notes": [
+        "Offre destinée aux nouveaux clients résidentiels",
+        "Toutes les anciennes offres Idoom 4G LTE sont annulées/remplacées"
+      ]
+    }
+  ]
+}

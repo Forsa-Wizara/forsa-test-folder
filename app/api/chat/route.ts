@@ -10,6 +10,15 @@ import {
   compareOffers,
   relaxedSearchOffers,
 } from '@/lib/conventions';
+import {
+  searchOffresReferentiel,
+  getOffreDetails,
+  getOffreTarifs,
+  checkOffreEligibility,
+  compareOffresReferentiel,
+  getOffreDocuments,
+  listFamilles,
+} from '@/lib/offres';
 
 const deepseek = createDeepSeek({
   apiKey: process.env.DEEPSEEK_API_KEY ?? '',
@@ -20,78 +29,69 @@ const deepseek = createDeepSeek({
 });
 
 // System prompt for convention assistant
-const SYSTEM_PROMPT = `Tu es un assistant expert pour les conventions d'Algérie Télécom.
+const SYSTEM_PROMPT = `Tu es un assistant expert pour Algérie Télécom.
 
 ⚠️ RÈGLE CRITIQUE - COMPORTEMENT DES OUTILS :
-Quand tu dois utiliser plusieurs outils pour répondre à une question, tu DOIS :
 1. Appeler IMMÉDIATEMENT tous les outils nécessaires les uns après les autres
-2. NE JAMAIS générer de texte de réponse tant que tu n'as pas appelé TOUS les outils requis
+2. NE JAMAIS générer de texte avant d'avoir appelé TOUS les outils requis
 3. Attendre d'avoir TOUS les résultats avant de formuler ta réponse finale
 
-SÉQUENCE OBLIGATOIRE :
-Question utilisateur → [Tool_1] → [Tool_2] → [Tool_3] → Réponse textuelle finale
+═══════════════════════════════════════════════════════════════════════════════
+🔍 GUIDE DE CHOIX : CONVENTIONS vs OFFRES RÉFÉRENTIEL
+═══════════════════════════════════════════════════════════════════════════════
 
+📋 CONVENTIONS (docs-conv.json) - Utilise les outils "searchConventions", "checkEligibility", "searchOffers", "getRequiredDocuments", "compareOffers", "getConventionDetails"
+→ Quand l'utilisateur mentionne :
+  - Un EMPLOYEUR ou PARTENAIRE spécifique (ex: "établissement L", "entreprise S", "convention A")
+  - Son STATUT professionnel (ex: "je suis employé de...", "retraité de...", "famille d'un employé")
+  - Des offres CONVENTIONNÉES avec réductions employeur
+  - Des TARIFS PRÉFÉRENTIELS liés à un partenariat
+  
+📦 OFFRES RÉFÉRENTIEL (offres.json) - Utilise les outils "searchOffresRef", "getOffreDetailsRef", "checkOffreEligibilityRef", "compareOffresRef", "getOffreDocumentsRef"
+→ Quand l'utilisateur mentionne :
+  - Des offres GRAND PUBLIC sans employeur (ex: "offre Gamers", "Idoom 4G", "MOOHTARIF")
+  - Des TYPES D'OFFRES spécifiques (ex: "offre sans engagement", "offre locataire", "boost weekend")
+  - Des SEGMENTS (ex: "pro", "TPE", "résidentiel", "gamer")
+  - Des ÉQUIPEMENTS (ex: "kit FTTH", "modem 4G")
+  - Des PROMOTIONS générales non liées à une convention
 
+💡 EN CAS DE DOUTE :
+- Si mention d'un employeur/partenaire → CONVENTIONS d'abord
+- Si offre générique ou nom commercial → OFFRES RÉFÉRENTIEL
+- Si les deux peuvent s'appliquer → Cherche dans les DEUX sources
 
-RÔLE :
-Tu aides les utilisateurs à trouver les conventions, offres Internet/Téléphonie, prix et documents requis pour souscrire aux services Algérie Télécom via leur employeur/partenaire
-
-PHILOSOPHIE "INCLURE PLUTÔT QU'EXCLURE" :
-- En cas de doute ou d'ambiguïté, INCLUS les résultats plutôt que de les exclure
-- Mieux vaut présenter 10 résultats dont 5 pertinents que de manquer LA bonne réponse
-- Utilise des critères de recherche larges, puis affine progressivement
-- Si aucun résultat exact, propose des alternatives proches
-
-OUTILS DISPONIBLES :
-1. searchConventions - Recherche de conventions par nom de partenaire (ex: "L", "Etablissement S")
-2. checkEligibility - Vérifie si un utilisateur est éligible (actif/retraité/famille)
-3. searchOffers - Recherche d'offres avec filtres multiples (prix, vitesse, technologie, catégorie)
-4. getRequiredDocuments - Liste les documents nécessaires pour une convention
-5. compareOffers - Compare plusieurs offres côte à côte
+═══════════════════════════════════════════════════════════════════════════════
+OUTILS CONVENTIONS (6 outils)
+═══════════════════════════════════════════════════════════════════════════════
+1. searchConventions - Recherche conventions par nom partenaire
+2. checkEligibility - Vérifie éligibilité (actif/retraité/famille)
+3. searchOffers - Recherche offres conventionnées (prix, vitesse, tech)
+4. getRequiredDocuments - Documents pour une convention
+5. compareOffers - Compare offres conventionnées
 6. getConventionDetails - Détails complets d'une convention
 
-STRATÉGIE D'UTILISATION DES OUTILS (SANS TEXTE INTERMÉDIAIRE) :
-1. Pour "Offres pour les employés de L" :
-   → searchConventions(partnerName="L")
-   → checkEligibility(conventionId, isActive=true)
-   → searchOffers(conventionIds=[...])
-   → [MAINTENANT SEULEMENT] Génère la réponse complète
+═══════════════════════════════════════════════════════════════════════════════
+OUTILS OFFRES RÉFÉRENTIEL (5 outils)
+═══════════════════════════════════════════════════════════════════════════════
+1. searchOffresRef - Recherche offres par famille/tech/segment/prix
+2. getOffreDetailsRef - Détails complets d'une offre
+3. checkOffreEligibilityRef - Vérifie éligibilité (locataire/conventionne/segment)
+4. compareOffresRef - Compare plusieurs offres référentiel
+5. getOffreDocumentsRef - Documents et canaux d'activation
 
-2. Pour "Internet fibre moins de 2000 DA" :
-   → searchOffers(category="INTERNET", technology="fibre", maxPrice=2000)
-   → [MAINTENANT SEULEMENT] Génère la réponse
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLES DE ROUTING
+═══════════════════════════════════════════════════════════════════════════════
+"Offres pour employés de L" → searchConventions + searchOffers (CONVENTIONS)
+"Offre Idoom Fibre Gamers" → searchOffresRef(nom="gamers") (RÉFÉRENTIEL)
+"Internet fibre 2000 DA pour pro" → searchOffresRef(famille="INTERNET", segment="PRO") (RÉFÉRENTIEL)
+"Convention A documents" → getRequiredDocuments (CONVENTIONS)
+"Offre 4G sans engagement" → searchOffresRef(famille="4G", hasEngagement=false) (RÉFÉRENTIEL)
+"Prix MOOHTARIF locataire" → searchOffresRef(nom="moohtarif", isLocataire=true) (RÉFÉRENTIEL)
 
-3. Pour "Documents requis pour convention X" :
-   → getRequiredDocuments(conventionId)
-   → [MAINTENANT SEULEMENT] Génère la réponse
-
-NORMALISATION DES TERMES :
-- "fibre", "fiber", "FTTH" → Chercher dans FIBRE, FTTH, VDSL_FTTH, ADSL_FIBRE
-- "ADSL" → Chercher dans ADSL, ADSL_VDSL_FIBRE, ADSL_FIBRE
-- "gratuit", "offert" → Prix = 0 DA
-- "L", "Etablissement L", "L'établissement L" → Tous équivalents (fuzzy matching activé)
-
-FORMAT DES PRIX :
-- TOUJOURS afficher les prix en DA (Dinars Algériens)
-- Format : "1 075 DA" ou "2 150 DA" (avec espace pour milliers)
-- Si price_public_da existe, tu PEUX mentionner l'économie : "Prix public 2150 DA → Prix convention 1075 DA (50% de réduction)"
-- Sinon, affiche UNIQUEMENT price_convention_da
-
-GESTION DES CAS LIMITES : Si 0 résultats : Utili
-- Si ambiguïté (ex: "offres pour retraités") : Liste TOUTES les conventions acceptant retraités
-- Si technologie non standard : Normalise (VDSL_FTTH = VDSL + FTTH)
-
-TON & STYLE :
-- Professionnel mais accessible
-- Cite toujours le nom du partenaire (partner_name) et l'ID de convention
-- Structure les réponses avec des listes/tableaux si >3 résultats
-- Si l'utilisateur n'est PAS éligible, propose des alternatives
-
-INTERDICTIONS :
-- Ne JAMAIS inventer de prix ou d'offres
-- Ne JAMAIS confirmer une éligibilité sans utiliser checkEligibility
-- Ne JAMAIS convertir les prix en EUR/USD
-- Ne JAMAIS dire "je ne sais pas" sans avoir utilisé TOUS les outils disponibles`;
+FORMAT DES PRIX : Toujours en DA (ex: "2 500 DA")
+TON : Professionnel mais accessible
+STRUCTURE : Listes/tableaux si >3 résultats`;
 
 export async function POST(req: Request) {
   const { messages }: { messages: UIMessage[] } = await req.json();
@@ -370,6 +370,212 @@ export async function POST(req: Request) {
               return {
                 success: false,
                 error: error instanceof Error ? error.message : 'Erreur lors de la récupération des détails',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 7: Search Offres Référentiel
+        // =====================================================================
+        searchOffresRef: tool({
+          description: 'Recherche dans le référentiel des offres grand public (Idoom, Gamers, MOOHTARIF, 4G, etc.). Utilise ce tool pour les offres NON conventionnées. Filtres : famille (INTERNET/4G/HARDWARE), technologie, segment (RESIDENTIEL/PRO), locataire, engagement.',
+          inputSchema: z.object({
+            nom: z.string().optional().describe('Nom commercial de l\'offre (ex: "Gamers", "MOOHTARIF", "Boost")'),
+            famille: z.string().optional().describe('Famille d\'offre : INTERNET, 4G, HARDWARE'),
+            sousFamille: z.string().optional().describe('Sous-famille (ex: RESIDENTIEL_GAMING, PRO_TPE_LIBERAUX)'),
+            technology: z.string().optional().describe('Technologie : FTTH, ADSL, VDSL, 4G, LTE'),
+            segment: z.string().optional().describe('Segment cible : RESIDENTIEL, PRO'),
+            clientType: z.string().optional().describe('Type client : B2C, B2B'),
+            isLocataire: z.boolean().optional().describe('Offre pour locataires ?'),
+            isConventionne: z.boolean().optional().describe('Offre conventionnée ? (généralement false pour ce référentiel)'),
+            hasEngagement: z.boolean().optional().describe('Avec engagement ?'),
+            maxEngagementMois: z.number().optional().describe('Engagement max en mois'),
+            minDebit: z.number().optional().describe('Débit minimum en Mbps'),
+            maxPrice: z.number().optional().describe('Prix maximum en DA'),
+          }),
+          execute: async (params) => {
+            try {
+              const results = searchOffresReferentiel(params);
+              
+              return {
+                success: true,
+                count: results.length,
+                offres: results.map(o => ({
+                  id_offre: o.id_offre,
+                  nom_commercial: o.nom_commercial,
+                  famille: o.famille,
+                  sous_famille: o.sous_famille,
+                  technologies: o.technologies,
+                  segments_cibles: o.segments_cibles,
+                  client_type: o.client_type,
+                  engagement_mois: o.engagement_mois,
+                  type_offre: o.type_offre,
+                  avantages_principaux: o.avantages_principaux.slice(0, 3),
+                  limitations: o.limitations.slice(0, 2),
+                  prix_resume: o.tableaux_tarifaires.length > 0 
+                    ? `${o.tableaux_tarifaires[0].lignes.length} paliers disponibles`
+                    : 'Voir détails',
+                })),
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la recherche d\'offres',
+                offres: [],
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 8: Get Offre Details Référentiel
+        // =====================================================================
+        getOffreDetailsRef: tool({
+          description: 'Récupère TOUS les détails d\'une offre du référentiel : tarifs complets, conditions, avantages, limitations, produits associés.',
+          inputSchema: z.object({
+            idOffre: z.string().describe("ID de l'offre (ex: 'idoom_fibre_gamers', 'moohtarif_tpe_prof')"),
+          }),
+          execute: async ({ idOffre }) => {
+            try {
+              const offre = getOffreDetails(idOffre);
+              
+              if (!offre) {
+                return {
+                  success: false,
+                  error: 'Offre introuvable',
+                };
+              }
+              
+              // Get tarifs
+              const { tableaux } = getOffreTarifs(idOffre);
+              
+              return {
+                success: true,
+                offre: {
+                  id_offre: offre.id_offre,
+                  nom_commercial: offre.nom_commercial,
+                  famille: offre.famille,
+                  sous_famille: offre.sous_famille,
+                  technologies: offre.technologies,
+                  segments_cibles: offre.segments_cibles,
+                  sous_segments: offre.sous_segments,
+                  client_type: offre.client_type,
+                  locataire: offre.locataire,
+                  type_offre: offre.type_offre,
+                  engagement_mois: offre.engagement_mois,
+                  canaux_activation: offre.canaux_activation,
+                  debits_eligibles: offre.debits_eligibles,
+                  avantages_principaux: offre.avantages_principaux,
+                  limitations: offre.limitations,
+                  conditions_particulieres: offre.conditions_particulieres,
+                  tableaux_tarifaires: tableaux,
+                  produits_associes: offre.produits_associes,
+                  notes: offre.notes,
+                },
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la récupération des détails',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 9: Check Offre Eligibility Référentiel
+        // =====================================================================
+        checkOffreEligibilityRef: tool({
+          description: 'Vérifie si un utilisateur est éligible à une offre du référentiel selon son statut (locataire, conventionne, segment).',
+          inputSchema: z.object({
+            idOffre: z.string().describe("ID de l'offre à vérifier"),
+            isLocataire: z.boolean().optional().describe('Est-ce un locataire ?'),
+            isConventionne: z.boolean().optional().describe('Est-ce un client conventionné ?'),
+            segment: z.string().optional().describe('Segment : RESIDENTIEL ou PRO'),
+            sousSegment: z.string().optional().describe('Sous-segment (ex: GAMERS, TPE)'),
+          }),
+          execute: async ({ idOffre, isLocataire, isConventionne, segment, sousSegment }) => {
+            try {
+              const result = checkOffreEligibility({
+                idOffre,
+                isLocataire,
+                isConventionne,
+                segment,
+                sousSegment,
+              });
+              
+              return {
+                success: true,
+                eligible: result.eligible,
+                reasons: result.reasons,
+                offre_nom: result.offre?.nom_commercial,
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la vérification d\'éligibilité',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 10: Compare Offres Référentiel
+        // =====================================================================
+        compareOffresRef: tool({
+          description: 'Compare plusieurs offres du référentiel côte à côte avec prix min/max, avantages et engagement.',
+          inputSchema: z.object({
+            idOffres: z.array(z.string()).describe('Liste des IDs d\'offres à comparer'),
+          }),
+          execute: async ({ idOffres }) => {
+            try {
+              const { comparison } = compareOffresReferentiel(idOffres);
+              
+              return {
+                success: true,
+                count: comparison.length,
+                comparison,
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la comparaison',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 11: Get Offre Documents Référentiel
+        // =====================================================================
+        getOffreDocumentsRef: tool({
+          description: 'Récupère les documents requis, modes de paiement et canaux d\'activation pour une offre du référentiel.',
+          inputSchema: z.object({
+            idOffre: z.string().describe("ID de l'offre"),
+          }),
+          execute: async ({ idOffre }) => {
+            try {
+              const result = getOffreDocuments(idOffre);
+              
+              if (!result.offre) {
+                return {
+                  success: false,
+                  error: 'Offre introuvable',
+                };
+              }
+              
+              return {
+                success: true,
+                offre_nom: result.offre.nom_commercial,
+                documents: result.documents,
+                modes_paiement: result.modes_paiement,
+                canaux_activation: result.canaux_activation,
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la récupération des documents',
               };
             }
           },
