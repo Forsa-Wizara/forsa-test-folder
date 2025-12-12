@@ -330,19 +330,6 @@ function buildIndexes(depots: DepotVente[]): void {
   }
 }
 
-/**
- * Clear cache
- */
-export function clearDepotsCache(): void {
-  depotsCache = null;
-  indexById = null;
-  indexByCategorie = null;
-  indexByTypeProduit = null;
-  indexByMarque = null;
-  indexBySegment = null;
-  indexByPartenaire = null;
-}
-
 // ============================================================================
 // O(1) LOOKUP FUNCTIONS
 // ============================================================================
@@ -497,7 +484,18 @@ function normalizeMarque(term: string): string[] {
   
   return mappings[termLower] || [term.toUpperCase()];
 }
-
+/**
+ * Clear cache
+ */
+export function clearDepotsCache(): void {
+  depotsCache = null;
+  indexById = null;
+  indexByCategorie = null;
+  indexByTypeProduit = null;
+  indexByMarque = null;
+  indexBySegment = null;
+  indexByPartenaire = null;
+}
 // ============================================================================
 // HELPER FUNCTIONS
 // ============================================================================

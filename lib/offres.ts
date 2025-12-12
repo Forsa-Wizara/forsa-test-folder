@@ -187,18 +187,6 @@ function buildIndexes(offres: OffreReferentiel[]): void {
   }
 }
 
-/**
- * Clear cache
- */
-export function clearOffresCache(): void {
-  offresCache = null;
-  indexById = null;
-  indexByFamille = null;
-  indexByTechnology = null;
-  indexByClientType = null;
-  indexBySegment = null;
-}
-
 // ============================================================================
 // O(1) LOOKUP FUNCTIONS
 // ============================================================================
@@ -306,6 +294,18 @@ function normalizeSegment(term: string): string[] {
   };
   
   return mappings[termLower] || [term.toUpperCase()];
+}
+
+/**
+ * Clear cache
+ */
+export function clearOffresCache(): void {
+  offresCache = null;
+  indexById = null;
+  indexByFamille = null;
+  indexByTechnology = null;
+  indexByClientType = null;
+  indexBySegment = null;
 }
 
 // ============================================================================

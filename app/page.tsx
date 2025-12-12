@@ -365,20 +365,7 @@ export default function Chat() {
       );
     }
     
-    // Fallback: render raw JSON for unknown tools
-    if (part.type.startsWith('tool-')) {
-      return (
-        <details key={key} className="my-2">
-          <summary className="text-xs text-zinc-500 cursor-pointer hover:text-zinc-400">
-            Debug: {part.type}
-          </summary>
-          <pre className="text-xs text-zinc-600 bg-zinc-900 p-2 rounded mt-1 overflow-x-auto">
-            {JSON.stringify(part, null, 2)}
-          </pre>
-        </details>
-      );
-    }
-    
+    // Ignore unknown tools silently
     return null;
   };
 

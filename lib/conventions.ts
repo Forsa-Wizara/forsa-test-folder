@@ -58,10 +58,13 @@ export type Offer = z.infer<typeof OfferSchema>;
 export type Convention = z.infer<typeof ConventionSchema>;
 
 // ============================================================================
-// CACHE SINGLETON
+// CACHE SINGLETON AVEC INDEXATION O(1)
 // ============================================================================
 
 let conventionsCache: Convention[] | null = null;
+let indexById: Map<string, Convention> | null = null;
+let indexByPartnerName: Map<string, Convention> | null = null;
+let indexByAlias: Map<string, Convention[]> | null = null;
 
 /**
  * Load conventions from JSON file (cached after first load)
@@ -80,7 +83,10 @@ export function loadConventions(): Convention[] {
     const conventions = z.array(ConventionSchema).parse(rawData);
     conventionsCache = conventions;
     
-    console.log(`✅ Loaded ${conventions.length} conventions from JSON`);
+    // Build indexes for O(1) lookups
+    buildConventionIndexes(conventions);
+    
+    console.log(`✅ Loaded ${conventions.length} conventions with indexes`);
     return conventions;
   } catch (error) {
     console.error('❌ Error loading conventions:', error);
@@ -89,10 +95,63 @@ export function loadConventions(): Convention[] {
 }
 
 /**
+ * Build all indexes for O(1) lookups
+ */
+function buildConventionIndexes(conventions: Convention[]): void {
+  indexById = new Map();
+  indexByPartnerName = new Map();
+  indexByAlias = new Map();
+  
+  for (const conv of conventions) {
+    // Index by convention_id
+    indexById.set(conv.convention_id, conv);
+    
+    // Index by partner_name (case-insensitive)
+    indexByPartnerName.set(conv.partner_name.toLowerCase(), conv);
+    
+    // Index by aliases (case-insensitive)
+    for (const alias of conv.aliases) {
+      const key = alias.toLowerCase();
+      if (!indexByAlias.has(key)) {
+        indexByAlias.set(key, []);
+      }
+      indexByAlias.get(key)!.push(conv);
+    }
+  }
+}
+
+/**
+ * Get convention by ID - O(1) lookup
+ */
+export function getConventionById(conventionId: string): Convention | null {
+  loadConventions(); // Ensure loaded
+  return indexById?.get(conventionId) ?? null;
+}
+
+/**
+ * Get convention by partner name - O(1) lookup
+ */
+export function getConventionByPartnerName(partnerName: string): Convention | null {
+  loadConventions(); // Ensure loaded
+  return indexByPartnerName?.get(partnerName.toLowerCase()) ?? null;
+}
+
+/**
+ * Get conventions by alias - O(1) lookup
+ */
+export function getConventionsByAlias(alias: string): Convention[] {
+  loadConventions(); // Ensure loaded
+  return indexByAlias?.get(alias.toLowerCase()) ?? [];
+}
+
+/**
  * Clear cache (useful for testing or reloading)
  */
 export function clearCache(): void {
   conventionsCache = null;
+  indexById = null;
+  indexByPartnerName = null;
+  indexByAlias = null;
 }
 
 // ============================================================================
@@ -236,8 +295,22 @@ export interface SearchConventionsParams {
 
 /**
  * Search conventions by partner name or client type
+ * OPTIMIZED: Uses O(1) index lookups when possible
  */
 export function searchConventions(params: SearchConventionsParams): Convention[] {
+  loadConventions(); // Ensure loaded
+  
+  // Fast path: exact partner name lookup O(1)
+  if (params.partnerName && !params.useFuzzy && !params.clientType) {
+    const exact = getConventionByPartnerName(params.partnerName);
+    if (exact) return [exact];
+    
+    // Try aliases
+    const byAlias = getConventionsByAlias(params.partnerName);
+    if (byAlias.length > 0) return byAlias;
+  }
+  
+  // Otherwise use standard filtering
   const conventions = loadConventions();
   let results = [...conventions];
   
@@ -281,8 +354,8 @@ export function checkEligibility(params: CheckEligibilityParams): {
   reasons: string[];
   convention: Convention | null;
 } {
-  const conventions = loadConventions();
-  const convention = conventions.find(c => c.convention_id === params.conventionId);
+  // OPTIMIZED: O(1) lookup by ID
+  const convention = getConventionById(params.conventionId);
   
   if (!convention) {
     return {
@@ -431,10 +504,10 @@ export function getRequiredDocuments(conventionId: string): {
 
 /**
  * Get full details of a convention
+ * OPTIMIZED: O(1) lookup using index
  */
 export function getConventionDetails(conventionId: string): Convention | null {
-  const conventions = loadConventions();
-  return conventions.find(c => c.convention_id === conventionId) || null;
+  return getConventionById(conventionId);
 }
 
 /**
