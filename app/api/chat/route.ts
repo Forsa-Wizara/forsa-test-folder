@@ -1,4 +1,4 @@
-import { streamText, UIMessage, convertToModelMessages, tool } from 'ai';
+import { streamText,stepCountIs , UIMessage, convertToModelMessages, tool } from 'ai';
 import { z } from 'zod';
 import { createDeepSeek } from '@ai-sdk/deepseek';
 import {
@@ -31,13 +31,7 @@ Quand tu dois utiliser plusieurs outils pour répondre à une question, tu DOIS 
 SÉQUENCE OBLIGATOIRE :
 Question utilisateur → [Tool_1] → [Tool_2] → [Tool_3] → Réponse textuelle finale
 
-❌ COMPORTEMENT INTERDIT :
-Question → [Tool_1] → texte → [Tool_2] → texte → [Tool_3] → texte final
 
-✅ COMPORTEMENT REQUIS :
-Question → [Tool_1] → [Tool_2] → [Tool_3] → texte final complet
-
-Tu ne dois générer du texte QU'UNE SEULE FOIS, après avoir utilisé tous les outils nécessaires.
 
 RÔLE :
 Tu aides les utilisateurs à trouver les conventions, offres Internet/Téléphonie, prix et documents requis pour souscrire aux services Algérie Télécom via leur employeur/partenaire
@@ -83,9 +77,7 @@ FORMAT DES PRIX :
 - Si price_public_da existe, tu PEUX mentionner l'économie : "Prix public 2150 DA → Prix convention 1075 DA (50% de réduction)"
 - Sinon, affiche UNIQUEMENT price_convention_da
 
-GESTION DES CAS LIMITES :
-- Si 0 résultats : Utilise searchOffers avec relaxedSearchOffers pour élargir les critères
-- Si utilisateur dit "L" sans précision : Cherche "L'établissement L" ET ses variantes
+GESTION DES CAS LIMITES : Si 0 résultats : Utili
 - Si ambiguïté (ex: "offres pour retraités") : Liste TOUTES les conventions acceptant retraités
 - Si technologie non standard : Normalise (VDSL_FTTH = VDSL + FTTH)
 
@@ -109,7 +101,8 @@ export async function POST(req: Request) {
       model: deepseek('deepseek-v3.1'),
       system: SYSTEM_PROMPT,
       messages: convertToModelMessages(messages),
-      temperature: 0.3, // Lower temperature for more deterministic tool calling
+      temperature: 0.3,
+      stopWhen: stepCountIs(5),
       tools: {
         // =====================================================================
         // TOOL 1: Search Conventions

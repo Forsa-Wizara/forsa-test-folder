@@ -238,7 +238,9 @@ function EligibilityResult({ data }: EligibilityResultProps) {
 
 export default function Chat() {
   const [input, setInput] = useState('');
-  const { messages, sendMessage, status } = useChat();
+  const { messages, sendMessage, status } = useChat({
+     // Permet 10 enchaînements automatiques de tools
+  });
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const isLoading = status === 'streaming';
 
