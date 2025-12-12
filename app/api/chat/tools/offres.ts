@@ -10,30 +10,83 @@ import {
 } from '@/lib/offres';
 
 // =====================================================================
-// TOOL 7: Search Offres Référentiel
+// TOOL 7: Query Offres (UNIFIÉ: search + details + documents)
 // =====================================================================
-export const searchOffresRef = tool({
-  description: 'Recherche dans le référentiel des offres grand public (Idoom, Gamers, MOOHTARIF, 4G, etc.). Utilise ce tool pour les offres NON conventionnées. Filtres : famille (INTERNET/4G/HARDWARE), technologie, segment (RESIDENTIEL/PRO), locataire, engagement.',
+export const queryOffres = tool({
+  description: 'Outil UNIFIÉ pour rechercher des offres référentiel (Idoom, Gamers, MOOHTARIF) OU récupérer les détails complets (tarifs, canaux, documents) d\'une offre spécifique.',
   inputSchema: z.object({
-    nom: z.string().optional().describe('Nom commercial de l\'offre (ex: "Gamers", "MOOHTARIF", "Boost")'),
-    famille: z.string().optional().describe('Famille d\'offre : INTERNET, 4G, HARDWARE'),
+    // Search mode - filtres multiples
+    nom: z.string().optional().describe('Nom commercial pour RECHERCHE (ex: "Gamers", "MOOHTARIF", "Boost")'),
+    famille: z.string().optional().describe('Famille : INTERNET, 4G, HARDWARE'),
     sousFamille: z.string().optional().describe('Sous-famille (ex: RESIDENTIEL_GAMING, PRO_TPE_LIBERAUX)'),
     technology: z.string().optional().describe('Technologie : FTTH, ADSL, VDSL, 4G, LTE'),
-    segment: z.string().optional().describe('Segment cible : RESIDENTIEL, PRO'),
+    segment: z.string().optional().describe('Segment : RESIDENTIEL, PRO'),
     clientType: z.string().optional().describe('Type client : B2C, B2B'),
     isLocataire: z.boolean().optional().describe('Offre pour locataires ?'),
-    isConventionne: z.boolean().optional().describe('Offre conventionnée ? (généralement false pour ce référentiel)'),
+    isConventionne: z.boolean().optional().describe('Offre conventionnée ?'),
     hasEngagement: z.boolean().optional().describe('Avec engagement ?'),
     maxEngagementMois: z.number().optional().describe('Engagement max en mois'),
     minDebit: z.number().optional().describe('Débit minimum en Mbps'),
     maxPrice: z.number().optional().describe('Prix maximum en DA'),
+    // Details mode
+    idOffre: z.string().optional().describe('ID offre pour récupérer DÉTAILS COMPLETS (tarifs, canaux, documents, conditions)'),
   }),
   execute: async (params) => {
     try {
-      const results = searchOffresReferentiel(params);
+      const { idOffre, ...searchParams } = params;
+      
+      // MODE DETAILS : Si idOffre fourni
+      if (idOffre) {
+        const offre = getOffreDetails(idOffre);
+        
+        if (!offre) {
+          return {
+            success: false,
+            error: 'Offre introuvable',
+          };
+        }
+        
+        // Get tarifs
+        const { tableaux } = getOffreTarifs(idOffre);
+        
+        // Get documents
+        const { documents, modes_paiement, canaux_activation } = getOffreDocuments(idOffre);
+        
+        return {
+          success: true,
+          mode: 'details',
+          offre: {
+            id_offre: offre.id_offre,
+            nom_commercial: offre.nom_commercial,
+            famille: offre.famille,
+            sous_famille: offre.sous_famille,
+            technologies: offre.technologies,
+            segments_cibles: offre.segments_cibles,
+            sous_segments: offre.sous_segments,
+            client_type: offre.client_type,
+            locataire: offre.locataire,
+            type_offre: offre.type_offre,
+            engagement_mois: offre.engagement_mois,
+            canaux_activation,
+            debits_eligibles: offre.debits_eligibles,
+            avantages_principaux: offre.avantages_principaux,
+            limitations: offre.limitations,
+            conditions_particulieres: offre.conditions_particulieres,
+            tableaux_tarifaires: tableaux,
+            produits_associes: offre.produits_associes,
+            documents,
+            modes_paiement,
+            notes: offre.notes,
+          },
+        };
+      }
+      
+      // MODE SEARCH : Sinon recherche avec filtres
+      const results = searchOffresReferentiel(searchParams);
       
       return {
         success: true,
+        mode: 'search',
         count: results.length,
         offres: results.map(o => ({
           id_offre: o.id_offre,
@@ -55,63 +108,7 @@ export const searchOffresRef = tool({
     } catch (error) {
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Erreur lors de la recherche d\'offres',
-        offres: [],
-      };
-    }
-  },
-});
-
-// =====================================================================
-// TOOL 8: Get Offre Details Référentiel
-// =====================================================================
-export const getOffreDetailsRef = tool({
-  description: 'Récupère TOUS les détails d\'une offre du référentiel : tarifs complets, conditions, avantages, limitations, produits associés.',
-  inputSchema: z.object({
-    idOffre: z.string().describe("ID de l'offre (ex: 'idoom_fibre_gamers', 'moohtarif_tpe_prof')"),
-  }),
-  execute: async ({ idOffre }) => {
-    try {
-      const offre = getOffreDetails(idOffre);
-      
-      if (!offre) {
-        return {
-          success: false,
-          error: 'Offre introuvable',
-        };
-      }
-      
-      // Get tarifs
-      const { tableaux } = getOffreTarifs(idOffre);
-      
-      return {
-        success: true,
-        offre: {
-          id_offre: offre.id_offre,
-          nom_commercial: offre.nom_commercial,
-          famille: offre.famille,
-          sous_famille: offre.sous_famille,
-          technologies: offre.technologies,
-          segments_cibles: offre.segments_cibles,
-          sous_segments: offre.sous_segments,
-          client_type: offre.client_type,
-          locataire: offre.locataire,
-          type_offre: offre.type_offre,
-          engagement_mois: offre.engagement_mois,
-          canaux_activation: offre.canaux_activation,
-          debits_eligibles: offre.debits_eligibles,
-          avantages_principaux: offre.avantages_principaux,
-          limitations: offre.limitations,
-          conditions_particulieres: offre.conditions_particulieres,
-          tableaux_tarifaires: tableaux,
-          produits_associes: offre.produits_associes,
-          notes: offre.notes,
-        },
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Erreur lors de la récupération des détails',
+        error: error instanceof Error ? error.message : 'Erreur lors de la requête offres',
       };
     }
   },
@@ -155,7 +152,7 @@ export const checkOffreEligibilityRef = tool({
 });
 
 // =====================================================================
-// TOOL 10: Compare Offres Référentiel
+// TOOL 8: Compare Offres Référentiel
 // =====================================================================
 export const compareOffresRef = tool({
   description: 'Compare plusieurs offres du référentiel côte à côte avec prix min/max, avantages et engagement.',
@@ -180,37 +177,4 @@ export const compareOffresRef = tool({
   },
 });
 
-// =====================================================================
-// TOOL 11: Get Offre Documents Référentiel
-// =====================================================================
-export const getOffreDocumentsRef = tool({
-  description: 'Récupère les documents requis, modes de paiement et canaux d\'activation pour une offre du référentiel.',
-  inputSchema: z.object({
-    idOffre: z.string().describe("ID de l'offre"),
-  }),
-  execute: async ({ idOffre }) => {
-    try {
-      const result = getOffreDocuments(idOffre);
-      
-      if (!result.offre) {
-        return {
-          success: false,
-          error: 'Offre introuvable',
-        };
-      }
-      
-      return {
-        success: true,
-        offre_nom: result.offre.nom_commercial,
-        documents: result.documents,
-        modes_paiement: result.modes_paiement,
-        canaux_activation: result.canaux_activation,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Erreur lors de la récupération des documents',
-      };
-    }
-  },
-});
+

@@ -1,20 +1,16 @@
 // Convention tools
 export {
-  searchConventions,
+  queryConventions,
   checkEligibility,
   searchOffers,
-  getRequiredDocuments,
   compareOffers,
-  getConventionDetails,
 } from './conventions';
 
 // Offres référentiel tools
 export {
-  searchOffresRef,
-  getOffreDetailsRef,
+  queryOffres,
   checkOffreEligibilityRef,
   compareOffresRef,
-  getOffreDocumentsRef,
 } from './offres';
 
 // Depot vente tools

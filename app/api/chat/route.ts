@@ -3,18 +3,14 @@ import { createDeepSeek } from '@ai-sdk/deepseek';
 import { SYSTEM_PROMPT } from './prompt';
 import {
   // Convention tools
-  searchConventions,
   checkEligibility,
   searchOffers,
-  getRequiredDocuments,
+  
   compareOffers,
-  getConventionDetails,
+
   // Offres référentiel tools
-  searchOffresRef,
-  getOffreDetailsRef,
   checkOffreEligibilityRef,
   compareOffresRef,
-  getOffreDocumentsRef,
   // Depot vente tools
   searchDepotsVente,
   getDepotDetailsRef,
@@ -43,18 +39,14 @@ export async function POST(req: Request) {
       stopWhen: stepCountIs(5),
       tools: {
         // Convention tools
-        searchConventions,
+        
         checkEligibility,
         searchOffers,
-        getRequiredDocuments,
+        
         compareOffers,
-        getConventionDetails,
-        // Offres référentiel tools
-        searchOffresRef,
-        getOffreDetailsRef,
+      
         checkOffreEligibilityRef,
         compareOffresRef,
-        getOffreDocumentsRef,
         // Depot vente tools
         searchDepotsVente,
         getDepotDetailsRef,

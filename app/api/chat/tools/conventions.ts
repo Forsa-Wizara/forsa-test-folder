@@ -11,16 +11,49 @@ import {
 } from '@/lib/conventions';
 
 // =====================================================================
-// TOOL 1: Search Conventions
+// TOOL 1: Query Conventions (UNIFIÉ: search + details + documents)
 // =====================================================================
-export const searchConventions = tool({
-  description: 'Recherche des conventions par nom de partenaire, alias, ou type de client (B2C/B2B). Utilise le fuzzy matching pour trouver des correspondances même avec des fautes de frappe. Retourne une liste de conventions avec leurs IDs, noms, et éligibilités.',
+export const queryConventions = tool({
+  description: 'Outil UNIFIÉ pour rechercher des conventions par partenaire OU récupérer les détails complets (éligibilité, documents, offres) d\'une convention spécifique. Utilise fuzzy matching pour les recherches.',
   inputSchema: z.object({
-    partnerName: z.string().optional().describe('Nom du partenaire ou alias (ex: "L", "Etablissement S", "A"). Le fuzzy matching est automatique.'),
-    clientType: z.enum(['B2C', 'B2B']).optional().describe('Type de client : B2C (particuliers) ou B2B (entreprises)'),
+    // Search mode
+    partnerName: z.string().optional().describe('Nom du partenaire ou alias pour RECHERCHE (ex: "L", "Etablissement S"). Fuzzy matching automatique.'),
+    clientType: z.enum(['B2C', 'B2B']).optional().describe('Type de client pour filtrer : B2C (particuliers) ou B2B (entreprises)'),
+    // Details mode
+    conventionId: z.string().optional().describe('ID de convention pour récupérer DÉTAILS COMPLETS (éligibilité, documents, offres)'),
   }),
-  execute: async ({ partnerName, clientType }) => {
+  execute: async ({ partnerName, clientType, conventionId }) => {
     try {
+      // MODE DETAILS : Si conventionId fourni
+      if (conventionId) {
+        const convention = getConventionDetailsLib(conventionId);
+        
+        if (!convention) {
+          return {
+            success: false,
+            error: 'Convention introuvable',
+          };
+        }
+        
+        const { documents } = getRequiredDocumentsLib(conventionId);
+        
+        return {
+          success: true,
+          mode: 'details',
+          convention: {
+            convention_id: convention.convention_id,
+            partner_name: convention.partner_name,
+            aliases: convention.aliases,
+            client_type: convention.client_type,
+            eligibility: convention.eligibility,
+            documents,
+            offers: convention.offers,
+            notes: convention.notes,
+          },
+        };
+      }
+      
+      // MODE SEARCH : Sinon recherche par partenaire
       const results = searchConventionsLib({
         partnerName,
         clientType,
@@ -29,6 +62,7 @@ export const searchConventions = tool({
       
       return {
         success: true,
+        mode: 'search',
         count: results.length,
         conventions: results.map(c => ({
           convention_id: c.convention_id,
@@ -42,8 +76,7 @@ export const searchConventions = tool({
     } catch (error) {
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Erreur lors de la recherche de conventions',
-        conventions: [],
+        error: error instanceof Error ? error.message : 'Erreur lors de la requête conventions',
       };
     }
   },
@@ -162,42 +195,7 @@ export const searchOffers = tool({
 });
 
 // =====================================================================
-// TOOL 4: Get Required Documents
-// =====================================================================
-export const getRequiredDocuments = tool({
-  description: 'Récupère la liste complète des documents requis pour souscrire à une convention spécifique. Retourne un tableau de chaînes de caractères décrivant chaque document.',
-  inputSchema: z.object({
-    conventionId: z.string().describe("ID de la convention (ex: 'conv_l', 'conv_s')"),
-  }),
-  execute: async ({ conventionId }) => {
-    try {
-      const result = getRequiredDocumentsLib(conventionId);
-      
-      if (!result.convention) {
-        return {
-          success: false,
-          error: 'Convention introuvable',
-        };
-      }
-      
-      return {
-        success: true,
-        convention_id: result.convention.convention_id,
-        partner_name: result.convention.partner_name,
-        documents: result.documents,
-        notes: result.convention.notes,
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Erreur lors de la récupération des documents',
-      };
-    }
-  },
-});
-
-// =====================================================================
-// TOOL 5: Compare Offers
+// TOOL 4: Compare Offers
 // =====================================================================
 export const compareOffers = tool({
   description: 'Compare plusieurs offres côte à côte avec calcul automatique des économies si prix public disponible. Utile pour aider l\'utilisateur à choisir entre plusieurs options.',
@@ -240,43 +238,4 @@ export const compareOffers = tool({
   },
 });
 
-// =====================================================================
-// TOOL 6: Get Convention Details
-// =====================================================================
-export const getConventionDetails = tool({
-  description: 'Récupère TOUS les détails d\'une convention : éligibilité complète, documents, toutes les offres, notes. Utilise cet outil pour avoir une vue exhaustive d\'une convention.',
-  inputSchema: z.object({
-    conventionId: z.string().describe("ID de la convention (ex: 'conv_l', 'conv_s')"),
-  }),
-  execute: async ({ conventionId }) => {
-    try {
-      const convention = getConventionDetailsLib(conventionId);
-      
-      if (!convention) {
-        return {
-          success: false,
-          error: 'Convention introuvable',
-        };
-      }
-      
-      return {
-        success: true,
-        convention: {
-          convention_id: convention.convention_id,
-          partner_name: convention.partner_name,
-          aliases: convention.aliases,
-          client_type: convention.client_type,
-          eligibility: convention.eligibility,
-          documents: convention.documents,
-          offers: convention.offers,
-          notes: convention.notes,
-        },
-      };
-    } catch (error) {
-      return {
-        success: false,
-        error: error instanceof Error ? error.message : 'Erreur lors de la récupération des détails',
-      };
-    }
-  },
-});
+
