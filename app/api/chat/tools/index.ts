@@ -15,9 +15,7 @@ export {
 
 // Depot vente tools
 export {
-  searchDepotsVente,
-  getDepotDetailsRef,
+  queryDepots,
   checkDepotEligibilityRef,
   compareDepotsRef,
-  getDepotSAVRef,
 } from './depot';

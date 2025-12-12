@@ -1,25 +1,22 @@
 import { streamText, stepCountIs, UIMessage, convertToModelMessages } from 'ai';
 import { createDeepSeek } from '@ai-sdk/deepseek';
 import { SYSTEM_PROMPT } from './prompt';
-import {queryOffres} from './tools/offres';
-import { queryConventions } from './tools/conventions';
 import {
   // Convention tools
+  queryConventions,
   checkEligibility,
   searchOffers,
-  
   compareOffers,
 
   // Offres référentiel tools
+  queryOffres,
   checkOffreEligibilityRef,
   compareOffresRef,
 
   // Depot vente tools
-  searchDepotsVente,
-  getDepotDetailsRef,
+  queryDepots,
   checkDepotEligibilityRef,
   compareDepotsRef,
-  getDepotSAVRef,
 } from './tools';
 
 const deepseek = createDeepSeek({
@@ -41,20 +38,21 @@ export async function POST(req: Request) {
       temperature: 0.3,
       stopWhen: stepCountIs(5),
       tools: {
-        // Convention tools
+        // Convention tools (4)
         queryConventions,
         checkEligibility,
         searchOffers,
         compareOffers,
+
+        // Offres référentiel tools (3)
+        queryOffres,
         checkOffreEligibilityRef,
         compareOffresRef,
-        queryOffres,
-        // Depot vente tools
-        searchDepotsVente,
-        getDepotDetailsRef,
+
+        // Depot vente tools (3)
+        queryDepots,
         checkDepotEligibilityRef,
         compareDepotsRef,
-        getDepotSAVRef,
       },
     });
 
