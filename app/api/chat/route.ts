@@ -1,6 +1,8 @@
 import { streamText, stepCountIs, UIMessage, convertToModelMessages } from 'ai';
 import { createDeepSeek } from '@ai-sdk/deepseek';
 import { SYSTEM_PROMPT } from './prompt';
+import {queryOffres} from './tools/offres';
+import { queryConventions } from './tools/conventions';
 import {
   // Convention tools
   checkEligibility,
@@ -11,6 +13,7 @@ import {
   // Offres référentiel tools
   checkOffreEligibilityRef,
   compareOffresRef,
+
   // Depot vente tools
   searchDepotsVente,
   getDepotDetailsRef,
@@ -39,14 +42,13 @@ export async function POST(req: Request) {
       stopWhen: stepCountIs(5),
       tools: {
         // Convention tools
-        
+        queryConventions,
         checkEligibility,
         searchOffers,
-        
         compareOffers,
-      
         checkOffreEligibilityRef,
         compareOffresRef,
+        queryOffres,
         // Depot vente tools
         searchDepotsVente,
         getDepotDetailsRef,
