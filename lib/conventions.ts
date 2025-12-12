@@ -1,6 +1,6 @@
 import { z } from 'zod';
-import fs from 'fs';
-import path from 'path';
+import { prisma } from './prisma';
+import { memoizeLRU, createSearchKey } from './cache-utils';
 
 // ============================================================================
 // ZOD SCHEMAS & TYPES
@@ -58,29 +58,141 @@ export type Offer = z.infer<typeof OfferSchema>;
 export type Convention = z.infer<typeof ConventionSchema>;
 
 // ============================================================================
-// CACHE SINGLETON
+// CACHE SINGLETON WITH INDEXES
 // ============================================================================
 
 let conventionsCache: Convention[] | null = null;
+let indexById: Map<string, Convention> | null = null;
+let indexByCategory: Map<string, Array<{ convention: Convention; offer: Offer }>> | null = null;
+let indexByTechnology: Map<string, Array<{ convention: Convention; offer: Offer }>> | null = null;
+let indexByPriceRange: Map<string, Array<{ convention: Convention; offer: Offer }>> | null = null;
+let normalizedSearchTerms: Map<string, Convention[]> | null = null;
 
 /**
- * Load conventions from JSON file (cached after first load)
+ * Build all indexes for O(1) and optimized lookups
  */
-export function loadConventions(): Convention[] {
+function buildIndexes(conventions: Convention[]): void {
+  indexById = new Map();
+  indexByCategory = new Map();
+  indexByTechnology = new Map();
+  indexByPriceRange = new Map();
+  normalizedSearchTerms = new Map();
+  
+  for (const convention of conventions) {
+    // Index by ID - O(1) lookup
+    indexById.set(convention.convention_id, convention);
+    
+    // Build normalized search terms (partner name + aliases)
+    const searchTerms = [convention.partner_name.toLowerCase(), ...convention.aliases.map(a => a.toLowerCase())];
+    for (const term of searchTerms) {
+      if (!normalizedSearchTerms.has(term)) {
+        normalizedSearchTerms.set(term, []);
+      }
+      normalizedSearchTerms.get(term)!.push(convention);
+    }
+    
+    // Index each offer
+    for (const offer of convention.offers) {
+      const item = { convention, offer };
+      
+      // Index by category
+      if (!indexByCategory.has(offer.category)) {
+        indexByCategory.set(offer.category, []);
+      }
+      indexByCategory.get(offer.category)!.push(item);
+      
+      // Index by technology
+      if (offer.technology) {
+        const techs = normalizeTechnology(offer.technology);
+        for (const tech of techs) {
+          if (!indexByTechnology.has(tech)) {
+            indexByTechnology.set(tech, []);
+          }
+          indexByTechnology.get(tech)!.push(item);
+        }
+      }
+      
+      // Index by price ranges (0-1000, 1000-2000, 2000-5000, 5000+)
+      const price = offer.price_convention_da;
+      let priceRange: string;
+      if (price < 1000) priceRange = '0-1000';
+      else if (price < 2000) priceRange = '1000-2000';
+      else if (price < 5000) priceRange = '2000-5000';
+      else priceRange = '5000+';
+      
+      if (!indexByPriceRange.has(priceRange)) {
+        indexByPriceRange.set(priceRange, []);
+      }
+      indexByPriceRange.get(priceRange)!.push(item);
+    }
+  }
+}
+
+/**
+ * Load conventions from database with Prisma
+ */
+export async function loadConventions(): Promise<Convention[]> {
   if (conventionsCache !== null) {
     return conventionsCache;
   }
 
   try {
-    const filePath = path.join(process.cwd(), 'data', 'docs-conv.json');
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const rawData = JSON.parse(fileContent);
+    const dbConventions = await prisma.convention.findMany({
+      include: {
+        eligibility: true,
+        offers: true,
+      },
+    });
     
-    // Validate with Zod
-    const conventions = z.array(ConventionSchema).parse(rawData);
+    // Transform database format to application format
+    const conventions: Convention[] = dbConventions.map(conv => ({
+      convention_id: conv.conventionId,
+      partner_name: conv.partnerName,
+      aliases: JSON.parse(conv.aliases),
+      client_type: conv.clientType as 'B2C' | 'B2B',
+      eligibility: {
+        active: conv.eligibility?.active ?? false,
+        retired: conv.eligibility?.retired ?? false,
+        family: conv.eligibility?.family ?? false,
+        family_details: conv.eligibility?.familyDetails ?? undefined,
+        subsidiaries: conv.eligibility?.subsidiaries ?? false,
+        widows_invalids: conv.eligibility?.widowsInvalids ?? false,
+        second_access: conv.eligibility?.secondAccess ?? false,
+        second_access_condition: conv.eligibility?.secondAccessCondition ?? undefined,
+        hierarchical: conv.eligibility?.hierarchical ?? false,
+        civil: conv.eligibility?.civil ?? false,
+        adherents: conv.eligibility?.adherents ?? false,
+        conditions: conv.eligibility?.conditions ? JSON.parse(conv.eligibility.conditions) : undefined,
+        details: conv.eligibility?.details ?? undefined,
+      },
+      documents: JSON.parse(conv.documents),
+      offers: conv.offers.map(offer => ({
+        category: offer.category as Offer['category'],
+        technology: offer.technology ?? undefined,
+        speed_mbps: offer.speedMbps ?? undefined,
+        plan: offer.plan ?? undefined,
+        volume_go: offer.volumeGo ?? undefined,
+        frequency: offer.frequency ?? undefined,
+        product: offer.product ?? undefined,
+        type: offer.type ?? undefined,
+        model: offer.model ?? undefined,
+        provider: offer.provider ?? undefined,
+        price_convention_da: offer.priceConventionDa,
+        price_public_da: offer.pricePublicDa ?? undefined,
+        discount: offer.discount ?? undefined,
+        condition: offer.condition ?? undefined,
+        label: offer.label ?? undefined,
+        note: offer.note ?? undefined,
+      })),
+      notes: conv.notes ?? undefined,
+    }));
+    
     conventionsCache = conventions;
     
-    console.log(`✅ Loaded ${conventions.length} conventions from JSON`);
+    // Build indexes for fast lookups
+    buildIndexes(conventions);
+    
+    console.log(`✅ Loaded ${conventions.length} conventions from database with optimized indexes`);
     return conventions;
   } catch (error) {
     console.error('❌ Error loading conventions:', error);
@@ -93,6 +205,11 @@ export function loadConventions(): Convention[] {
  */
 export function clearCache(): void {
   conventionsCache = null;
+  indexById = null;
+  indexByCategory = null;
+  indexByTechnology = null;
+  indexByPriceRange = null;
+  normalizedSearchTerms = null;
 }
 
 // ============================================================================
@@ -154,9 +271,9 @@ export function fuzzyMatch(search: string, target: string, threshold: number = 3
 }
 
 /**
- * Find conventions by fuzzy matching partner name or aliases
+ * Find conventions by fuzzy matching partner name or aliases - MEMOIZED
  */
-export function fuzzyMatchConvention(search: string, conventions: Convention[]): Convention[] {
+const _fuzzyMatchConvention = (search: string, conventions: Convention[]): Convention[] => {
   const matches: Array<{ convention: Convention; score: number }> = [];
   
   for (const conv of conventions) {
@@ -186,7 +303,13 @@ export function fuzzyMatchConvention(search: string, conventions: Convention[]):
   matches.sort((a, b) => a.score - b.score);
   
   return matches.map(m => m.convention);
-}
+};
+
+export const fuzzyMatchConvention = memoizeLRU(
+  _fuzzyMatchConvention,
+  50,
+  (search, conventions) => `fuzzy:${search.toLowerCase()}:${conventions.length}`
+);
 
 // ============================================================================
 // TERM NORMALIZATION
@@ -235,34 +358,43 @@ export interface SearchConventionsParams {
 }
 
 /**
- * Search conventions by partner name or client type
+ * Search conventions by partner name or client type - OPTIMIZED
  */
-export function searchConventions(params: SearchConventionsParams): Convention[] {
-  const conventions = loadConventions();
-  let results = [...conventions];
+const _searchConventions = async (params: SearchConventionsParams): Promise<Convention[]> => {
+  const conventions = await loadConventions();
+  let results: Convention[];
+  
+  // Use normalized search terms for O(1) lookup when possible
+  if (params.partnerName && normalizedSearchTerms) {
+    const searchLower = params.partnerName.toLowerCase().trim();
+    
+    // Try exact match first (O(1))
+    if (normalizedSearchTerms.has(searchLower)) {
+      results = normalizedSearchTerms.get(searchLower)!;
+    } else if (params.useFuzzy !== false) {
+      // Fall back to fuzzy matching only if exact fails
+      results = fuzzyMatchConvention(params.partnerName, conventions);
+    } else {
+      // Substring search
+      results = conventions.filter(c => 
+        c.partner_name.toLowerCase().includes(searchLower) ||
+        c.aliases.some(a => a.toLowerCase().includes(searchLower))
+      );
+    }
+  } else {
+    results = [...conventions];
+  }
   
   // Filter by client type
   if (params.clientType) {
     results = results.filter(c => c.client_type === params.clientType);
   }
   
-  // Filter by partner name
-  if (params.partnerName) {
-    if (params.useFuzzy !== false) {
-      // Use fuzzy matching (default)
-      results = fuzzyMatchConvention(params.partnerName, results);
-    } else {
-      // Exact matching
-      const searchLower = params.partnerName.toLowerCase();
-      results = results.filter(c => 
-        c.partner_name.toLowerCase().includes(searchLower) ||
-        c.aliases.some(a => a.toLowerCase().includes(searchLower))
-      );
-    }
-  }
-  
   return results;
 }
+
+// Export with memoization
+export const searchConventions = memoizeLRU(_searchConventions);
 
 export interface CheckEligibilityParams {
   conventionId: string;
@@ -274,15 +406,15 @@ export interface CheckEligibilityParams {
 }
 
 /**
- * Check if user is eligible for a specific convention
+ * Check if user is eligible for a specific convention - OPTIMIZED
  */
-export function checkEligibility(params: CheckEligibilityParams): {
+export async function checkEligibility(params: CheckEligibilityParams): Promise<{
   eligible: boolean;
   reasons: string[];
   convention: Convention | null;
-} {
-  const conventions = loadConventions();
-  const convention = conventions.find(c => c.convention_id === params.conventionId);
+}> {
+  await loadConventions(); // Ensure indexes are loaded
+  const convention = indexById?.get(params.conventionId);
   
   if (!convention) {
     return {
@@ -348,80 +480,102 @@ export interface SearchOffersParams {
 }
 
 /**
- * Search offers with multiple filters
+ * Search offers with multiple filters - OPTIMIZED with index usage and memoization
  */
-export function searchOffers(params: SearchOffersParams): Array<{
+const _searchOffers = async (params: SearchOffersParams): Promise<Array<{
   convention: Convention;
   offer: Offer;
-}> {
-  const conventions = loadConventions();
-  const results: Array<{ convention: Convention; offer: Offer }> = [];
+}>> => {
+  await loadConventions(); // Ensure indexes are loaded
+  let candidates: Array<{ convention: Convention; offer: Offer }>;
   
-  // Filter conventions
-  let targetConventions = conventions;
-  if (params.conventionIds && params.conventionIds.length > 0) {
-    targetConventions = conventions.filter(c => 
-      params.conventionIds!.includes(c.convention_id)
-    );
-  }
-  
-  // Search through offers
-  for (const convention of targetConventions) {
-    for (const offer of convention.offers) {
-      let matches = true;
-      
-      // Filter by category
-      if (params.category && offer.category !== params.category) {
-        matches = false;
-      }
-      
-      // Filter by technology (with normalization)
-      if (params.technology && offer.technology) {
-        const normalizedTechs = normalizeTechnology(params.technology);
-        if (!normalizedTechs.some(t => offer.technology?.includes(t))) {
-          matches = false;
-        }
-      }
-      
-      // Filter by speed range
-      if (params.minSpeed && offer.speed_mbps && offer.speed_mbps < params.minSpeed) {
-        matches = false;
-      }
-      if (params.maxSpeed && offer.speed_mbps && offer.speed_mbps > params.maxSpeed) {
-        matches = false;
-      }
-      
-      // Filter by max price
-      if (params.maxPrice && offer.price_convention_da > params.maxPrice) {
-        matches = false;
-      }
-      
-      // Filter by condition
-      if (params.condition && offer.condition && offer.condition !== params.condition) {
-        matches = false;
-      }
-      
-      if (matches) {
-        results.push({ convention, offer });
+  // Use the most selective index first for better performance
+  if (params.category && indexByCategory) {
+    // Start with category index (most selective)
+    candidates = indexByCategory.get(params.category) || [];
+  } else if (params.technology && indexByTechnology) {
+    // Use technology index
+    const techs = normalizeTechnology(params.technology);
+    const techResults: Set<{ convention: Convention; offer: Offer }> = new Set();
+    for (const tech of techs) {
+      (indexByTechnology.get(tech) || []).forEach(item => techResults.add(item));
+    }
+    candidates = Array.from(techResults);
+  } else if (params.maxPrice && indexByPriceRange) {
+    // Use price range index
+    candidates = [];
+    for (const [range, items] of indexByPriceRange) {
+      const maxRangePrice = range === '5000+' ? Infinity : parseInt(range.split('-')[1]);
+      if (maxRangePrice <= params.maxPrice + 1000) { // Small buffer
+        candidates.push(...items);
       }
     }
+  } else {
+    // Fall back to scanning all offers
+    const conventions = conventionsCache!;
+    candidates = [];
+    for (const convention of conventions) {
+      for (const offer of convention.offers) {
+        candidates.push({ convention, offer });
+      }
+    }
+  }
+  
+  // Filter by convention IDs if specified
+  if (params.conventionIds && params.conventionIds.length > 0) {
+    const idSet = new Set(params.conventionIds);
+    candidates = candidates.filter(c => idSet.has(c.convention.convention_id));
+  }
+  
+  // Apply remaining filters with early exit
+  const results: Array<{ convention: Convention; offer: Offer }> = [];
+  
+  for (const item of candidates) {
+    const { offer } = item;
+    
+    // Filter by category (if not already filtered)
+    if (params.category && offer.category !== params.category) continue;
+    
+    // Filter by technology (if not already filtered)
+    if (params.technology && offer.technology) {
+      const normalizedTechs = normalizeTechnology(params.technology);
+      if (!normalizedTechs.some(t => offer.technology?.includes(t))) continue;
+    }
+    
+    // Filter by speed range
+    if (params.minSpeed && offer.speed_mbps && offer.speed_mbps < params.minSpeed) continue;
+    if (params.maxSpeed && offer.speed_mbps && offer.speed_mbps > params.maxSpeed) continue;
+    
+    // Filter by max price
+    if (params.maxPrice && offer.price_convention_da > params.maxPrice) continue;
+    
+    // Filter by condition
+    if (params.condition && offer.condition && offer.condition !== params.condition) continue;
+    
+    results.push(item);
   }
   
   // Sort by price (ascending)
   results.sort((a, b) => a.offer.price_convention_da - b.offer.price_convention_da);
   
   return results;
-}
+};
+
+export const searchOffers = memoizeLRU(
+  _searchOffers,
+  100,
+  (params) => createSearchKey(params)
+);
 
 /**
- * Get required documents for a convention
+ * Get required documents for a convention - O(1) lookup
  */
-export function getRequiredDocuments(conventionId: string): {
+export async function getRequiredDocuments(conventionId: string): Promise<{
   convention: Convention | null;
   documents: string[];
-} {
-  const conventions = loadConventions();
-  const convention = conventions.find(c => c.convention_id === conventionId);
+}> {
+  await loadConventions(); // Ensure indexes are loaded
+  const convention = indexById?.get(conventionId);
   
   return {
     convention: convention || null,
@@ -430,23 +584,23 @@ export function getRequiredDocuments(conventionId: string): {
 }
 
 /**
- * Get full details of a convention
+ * Get full details of a convention - O(1) lookup
  */
-export function getConventionDetails(conventionId: string): Convention | null {
-  const conventions = loadConventions();
-  return conventions.find(c => c.convention_id === conventionId) || null;
+export async function getConventionDetails(conventionId: string): Promise<Convention | null> {
+  await loadConventions(); // Ensure indexes are loaded
+  return indexById?.get(conventionId) || null;
 }
 
 /**
- * Compare multiple offers
+ * Compare multiple offers - OPTIMIZED with O(1) lookups
  */
-export function compareOffers(offerIds: Array<{ conventionId: string; offerIndex: number }>): Array<{
+export async function compareOffers(offerIds: Array<{ conventionId: string; offerIndex: number }>): Promise<Array<{
   convention: Convention;
   offer: Offer;
   savings?: number;
   savingsPercent?: string;
-}> {
-  const conventions = loadConventions();
+}>> {
+  await loadConventions(); // Ensure indexes are loaded
   const results: Array<{
     convention: Convention;
     offer: Offer;
@@ -455,7 +609,7 @@ export function compareOffers(offerIds: Array<{ conventionId: string; offerIndex
   }> = [];
   
   for (const { conventionId, offerIndex } of offerIds) {
-    const convention = conventions.find(c => c.convention_id === conventionId);
+    const convention = indexById?.get(conventionId);
     if (!convention || !convention.offers[offerIndex]) {
       continue;
     }
@@ -489,12 +643,12 @@ export function compareOffers(offerIds: Array<{ conventionId: string; offerIndex
 /**
  * Progressively relax search criteria when no results found
  */
-export function relaxedSearchOffers(params: SearchOffersParams): {
+export async function relaxedSearchOffers(params: SearchOffersParams): Promise<{
   results: Array<{ convention: Convention; offer: Offer }>;
   relaxedCriteria: string[];
-} {
+}> {
   const relaxedCriteria: string[] = [];
-  let results = searchOffers(params);
+  let results = await searchOffers(params);
   
   if (results.length > 0) {
     return { results, relaxedCriteria };
@@ -502,11 +656,9 @@ export function relaxedSearchOffers(params: SearchOffersParams): {
   
   // Step 1: Relax price constraint by 20%
   if (params.maxPrice) {
-    const newMaxPrice = Math.ceil(params.maxPrice * 1.2);
+      const newMaxPrice = Math.ceil(params.maxPrice * 1.2);
     relaxedCriteria.push(`Prix max élargi à ${newMaxPrice} DA`);
-    results = searchOffers({ ...params, maxPrice: newMaxPrice });
-    
-    if (results.length > 0) {
+    results = await searchOffers({ ...params, maxPrice: newMaxPrice });    if (results.length > 0) {
       return { results, relaxedCriteria };
     }
   }
@@ -514,7 +666,7 @@ export function relaxedSearchOffers(params: SearchOffersParams): {
   // Step 2: Remove speed constraints
   if (params.minSpeed || params.maxSpeed) {
     relaxedCriteria.push('Contraintes de vitesse supprimées');
-    results = searchOffers({ ...params, minSpeed: undefined, maxSpeed: undefined });
+    results = await searchOffers({ ...params, minSpeed: undefined, maxSpeed: undefined });
     
     if (results.length > 0) {
       return { results, relaxedCriteria };
@@ -524,7 +676,7 @@ export function relaxedSearchOffers(params: SearchOffersParams): {
   // Step 3: Remove technology constraint
   if (params.technology) {
     relaxedCriteria.push('Contrainte de technologie supprimée');
-    results = searchOffers({ ...params, technology: undefined });
+    results = await searchOffers({ ...params, technology: undefined });
     
     if (results.length > 0) {
       return { results, relaxedCriteria };
@@ -534,7 +686,7 @@ export function relaxedSearchOffers(params: SearchOffersParams): {
   // Step 4: Keep only category
   if (params.category) {
     relaxedCriteria.push('Toutes les offres de la catégorie');
-    results = searchOffers({ category: params.category });
+    results = await searchOffers({ category: params.category });
   }
   
   return { results, relaxedCriteria };

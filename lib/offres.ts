@@ -4,8 +4,8 @@
 // ============================================================================
 
 import { z } from 'zod';
-import fs from 'fs';
-import path from 'path';
+import { prisma } from './prisma';
+import { memoizeLRU, createSearchKey } from './cache-utils';
 
 // ============================================================================
 // ZOD SCHEMAS & TYPES
@@ -112,26 +112,69 @@ let indexByClientType: Map<string, OffreReferentiel[]> | null = null;
 let indexBySegment: Map<string, OffreReferentiel[]> | null = null;
 
 /**
- * Load offres from JSON file (cached after first load)
+ * Load offres from database with Prisma (cached after first load)
  */
-export function loadOffres(): OffreReferentiel[] {
+export async function loadOffres(): Promise<OffreReferentiel[]> {
   if (offresCache !== null) {
     return offresCache;
   }
 
   try {
-    const filePath = path.join(process.cwd(), 'data', 'offres.json');
-    const fileContent = fs.readFileSync(filePath, 'utf-8');
-    const rawData = JSON.parse(fileContent);
+    const dbOffres = await prisma.offreReferentiel.findMany({
+      include: {
+        tableauxTarifaires: true,
+        produitsAssocies: true,
+      },
+    });
     
-    // Validate with Zod
-    const data = OffresDataSchema.parse(rawData);
-    offresCache = data.referentiel_offres;
+    // Transform database format to application format
+    const offres: OffreReferentiel[] = dbOffres.map(offre => ({
+      id_offre: offre.idOffre,
+      nom_commercial: offre.nomCommercial,
+      famille: offre.famille,
+      sous_famille: offre.sousFamille,
+      technologies: JSON.parse(offre.technologies),
+      segments_cibles: JSON.parse(offre.segmentsCibles),
+      sous_segments: JSON.parse(offre.sousSegments),
+      client_type: offre.clientType,
+      locataire: offre.locataire ?? undefined,
+      conventionne: offre.conventionne ?? undefined,
+      types_clients_exclus: JSON.parse(offre.typesClientsExclus),
+      type_offre: offre.typeOffre,
+      engagement_mois: offre.engagementMois ?? undefined,
+      numero_document: offre.numeroDocument,
+      canaux_activation: JSON.parse(offre.canauxActivation),
+      periode_activation: offre.periodeActivation ? JSON.parse(offre.periodeActivation) : undefined,
+      validite: offre.validite ? JSON.parse(offre.validite) : undefined,
+      debits_eligibles: offre.debitsEligibles ? JSON.parse(offre.debitsEligibles) : undefined,
+      caracteristiques_debit: offre.caracteristiquesDebit ? JSON.parse(offre.caracteristiquesDebit) : undefined,
+      tarification: JSON.parse(offre.tarification),
+      avantages_principaux: JSON.parse(offre.avantagesPrincipaux),
+      limitations: JSON.parse(offre.limitations),
+      conditions_particulieres: JSON.parse(offre.conditionsParticulieres),
+      tableaux_tarifaires: offre.tableauxTarifaires.map(t => ({
+        type_tableau: t.typeTableau,
+        unite_prix: t.unitePrix,
+        lignes: JSON.parse(t.lignes),
+      })),
+      produits_associes: offre.produitsAssocies.map(p => ({
+        type_produit: p.typeProduit,
+        designation: p.designation,
+        tarif_actuel_da_ttc: p.tarifActuelDaTtc ?? undefined,
+        tarif_nouveau_da_ttc: p.tarifNouveauDaTtc ?? undefined,
+        conditions: p.conditions ? JSON.parse(p.conditions) : undefined,
+      })),
+      modes_paiement: JSON.parse(offre.modesPaiement),
+      documents_a_fournir: JSON.parse(offre.documentsAFournir),
+      notes: JSON.parse(offre.notes),
+    }));
+    
+    offresCache = offres;
     
     // Build indexes
     buildIndexes(offresCache);
     
-    console.log(`✅ Loaded ${offresCache.length} offres from JSON`);
+    console.log(`✅ Loaded ${offresCache.length} offres from database`);
     return offresCache;
   } catch (error) {
     console.error('❌ Error loading offres:', error);
@@ -206,24 +249,24 @@ export function clearOffresCache(): void {
 /**
  * Get offre by ID - O(1)
  */
-export function getOffreById(id: string): OffreReferentiel | null {
-  loadOffres(); // Ensure loaded
+export async function getOffreById(id: string): Promise<OffreReferentiel | null> {
+  await loadOffres(); // Ensure loaded
   return indexById?.get(id) || null;
 }
 
 /**
  * Get offres by famille - O(1)
  */
-export function getOffresByFamille(famille: string): OffreReferentiel[] {
-  loadOffres();
+export async function getOffresByFamille(famille: string): Promise<OffreReferentiel[]> {
+  await loadOffres();
   return indexByFamille?.get(famille.toUpperCase()) || [];
 }
 
 /**
  * Get offres by technology - O(1)
  */
-export function getOffresByTechnology(technology: string): OffreReferentiel[] {
-  loadOffres();
+export async function getOffresByTechnology(technology: string): Promise<OffreReferentiel[]> {
+  await loadOffres();
   // Normalize technology
   const normalized = normalizeTech(technology);
   const results: Set<OffreReferentiel> = new Set();
@@ -239,8 +282,8 @@ export function getOffresByTechnology(technology: string): OffreReferentiel[] {
 /**
  * Get offres by client type - O(1)
  */
-export function getOffresByClientType(clientType: string): OffreReferentiel[] {
-  loadOffres();
+export async function getOffresByClientType(clientType: string): Promise<OffreReferentiel[]> {
+  await loadOffres();
   const key = clientType.toUpperCase();
   
   // Handle B2C_B2B which matches both
@@ -259,8 +302,8 @@ export function getOffresByClientType(clientType: string): OffreReferentiel[] {
 /**
  * Get offres by segment - O(1)
  */
-export function getOffresBySegment(segment: string): OffreReferentiel[] {
-  loadOffres();
+export async function getOffresBySegment(segment: string): Promise<OffreReferentiel[]> {
+  await loadOffres();
   return indexBySegment?.get(segment.toUpperCase()) || [];
 }
 
@@ -328,30 +371,37 @@ export interface SearchOffresParams {
 }
 
 /**
- * Search offres with multiple filters - OPTIMIZED
+ * Search offres with multiple filters - FURTHER OPTIMIZED with memoization
  */
-export function searchOffresReferentiel(params: SearchOffresParams): OffreReferentiel[] {
+const _searchOffresReferentiel = async (params: SearchOffresParams): Promise<OffreReferentiel[]> => {
   let candidates: OffreReferentiel[];
   
-  // Use the most selective index first
+  // Use the most selective index first for minimal candidates
   if (params.famille) {
-    candidates = getOffresByFamille(params.famille);
+    candidates = await getOffresByFamille(params.famille);
   } else if (params.technology) {
-    candidates = getOffresByTechnology(params.technology);
+    candidates = await getOffresByTechnology(params.technology);
   } else if (params.segment) {
     const normalized = normalizeSegment(params.segment);
-    candidates = normalized.flatMap(s => getOffresBySegment(s));
+    const resultSet = new Set<OffreReferentiel>();
+    for (const seg of normalized) {
+      (await getOffresBySegment(seg)).forEach(o => resultSet.add(o));
+    }
+    candidates = Array.from(resultSet);
   } else if (params.clientType) {
-    candidates = getOffresByClientType(params.clientType);
+    candidates = await getOffresByClientType(params.clientType);
   } else {
-    candidates = loadOffres();
+    candidates = await loadOffres();
   }
   
-  // Apply remaining filters with early exit
+  // Early exit if no candidates
+  if (candidates.length === 0) return [];
+  
   const results: OffreReferentiel[] = [];
   
-  for (const offre of candidates) {
-    // Filter by nom (fuzzy)
+  // Apply remaining filters with early continue for non-matches
+  candidateLoop: for (const offre of candidates) {
+    // Filter by nom (fuzzy) - most likely to eliminate candidates early
     if (params.nom) {
       const searchLower = params.nom.toLowerCase();
       if (!offre.nom_commercial.toLowerCase().includes(searchLower) &&
@@ -361,49 +411,55 @@ export function searchOffresReferentiel(params: SearchOffresParams): OffreRefere
     }
     
     // Filter by sous_famille
-    if (params.sousFamille && 
-        !offre.sous_famille.toUpperCase().includes(params.sousFamille.toUpperCase())) {
-      continue;
-    }
-    
-    // Filter by technology (if not already filtered)
-    if (params.technology && !params.famille) {
-      const normalized = normalizeTech(params.technology);
-      const hasMatch = offre.technologies.some(t => 
-        normalized.some(n => t.toUpperCase().includes(n))
-      );
-      if (!hasMatch) continue;
-    }
-    
-    // Filter by segment (if not already filtered)
-    if (params.segment && !params.famille && !params.technology) {
-      const normalized = normalizeSegment(params.segment);
-      const hasMatch = offre.segments_cibles.some(s => 
-        normalized.some(n => s.toUpperCase() === n)
-      );
-      if (!hasMatch) continue;
-    }
-    
-    // Filter by clientType (if not already filtered)
-    if (params.clientType && !params.famille && !params.technology && !params.segment) {
-      const clientUpper = params.clientType.toUpperCase();
-      if (offre.client_type.toUpperCase() !== clientUpper && 
-          offre.client_type.toUpperCase() !== 'B2C_B2B') {
+    if (params.sousFamille) {
+      if (!offre.sous_famille.toUpperCase().includes(params.sousFamille.toUpperCase())) {
         continue;
       }
     }
     
-    // Filter by locataire
-    if (params.isLocataire !== undefined && offre.locataire !== params.isLocataire) {
-      continue;
+    // Filter by technology (skip if already used as primary filter)
+    if (params.technology && !params.famille) {
+      const normalized = normalizeTech(params.technology);
+      let hasMatch = false;
+      for (const tech of offre.technologies) {
+        for (const norm of normalized) {
+          if (tech.toUpperCase().includes(norm)) {
+            hasMatch = true;
+            break;
+          }
+        }
+        if (hasMatch) break;
+      }
+      if (!hasMatch) continue;
     }
     
-    // Filter by conventionne
-    if (params.isConventionne !== undefined && offre.conventionne !== params.isConventionne) {
-      continue;
+    // Filter by segment (skip if already used as primary filter)
+    if (params.segment && !params.famille && !params.technology) {
+      const normalized = normalizeSegment(params.segment);
+      let hasMatch = false;
+      for (const seg of offre.segments_cibles) {
+        if (normalized.includes(seg.toUpperCase())) {
+          hasMatch = true;
+          break;
+        }
+      }
+      if (!hasMatch) continue;
     }
     
-    // Filter by engagement
+    // Filter by clientType (skip if already used as primary filter)
+    if (params.clientType && !params.famille && !params.technology && !params.segment) {
+      const clientUpper = params.clientType.toUpperCase();
+      const offreClient = offre.client_type.toUpperCase();
+      if (offreClient !== clientUpper && offreClient !== 'B2C_B2B') {
+        continue;
+      }
+    }
+    
+    // Boolean filters - fast checks
+    if (params.isLocataire !== undefined && offre.locataire !== params.isLocataire) continue;
+    if (params.isConventionne !== undefined && offre.conventionne !== params.isConventionne) continue;
+    
+    // Engagement filters
     if (params.hasEngagement !== undefined) {
       const hasEng = offre.engagement_mois != null && offre.engagement_mois > 0;
       if (hasEng !== params.hasEngagement) continue;
@@ -415,20 +471,25 @@ export function searchOffresReferentiel(params: SearchOffresParams): OffreRefere
       continue;
     }
     
-    // Filter by min debit
+    // Debit filter
     if (params.minDebit && offre.debits_eligibles) {
       const maxDebit = offre.debits_eligibles.debit_initial_max_mbps || 0;
       if (maxDebit < params.minDebit) continue;
     }
     
-    // Filter by max price (check tableaux_tarifaires)
+    // Price filter - check tableaux_tarifaires
     if (params.maxPrice) {
-      const hasAffordable = offre.tableaux_tarifaires.some(tableau =>
-        tableau.lignes.some(ligne => {
+      let hasAffordable = false;
+      for (const tableau of offre.tableaux_tarifaires) {
+        for (const ligne of tableau.lignes) {
           const prix = ligne.tarif_nouveau_da || ligne.tarif_actuel_da || 0;
-          return prix > 0 && prix <= params.maxPrice!;
-        })
-      );
+          if (prix > 0 && prix <= params.maxPrice) {
+            hasAffordable = true;
+            break;
+          }
+        }
+        if (hasAffordable) break;
+      }
       if (!hasAffordable) continue;
     }
     
@@ -436,23 +497,29 @@ export function searchOffresReferentiel(params: SearchOffresParams): OffreRefere
   }
   
   return results;
-}
+};
+
+export const searchOffresReferentiel = memoizeLRU(
+  _searchOffresReferentiel,
+  100,
+  (params) => createSearchKey(params)
+);
 
 /**
  * Get offre details by ID - O(1)
  */
-export function getOffreDetails(idOffre: string): OffreReferentiel | null {
-  return getOffreById(idOffre);
+export async function getOffreDetails(idOffre: string): Promise<OffreReferentiel | null> {
+  return await getOffreById(idOffre);
 }
 
 /**
  * Get tarification for an offre
  */
-export function getOffreTarifs(idOffre: string): {
+export async function getOffreTarifs(idOffre: string): Promise<{
   offre: OffreReferentiel | null;
   tableaux: TableauTarifaire[];
-} {
-  const offre = getOffreById(idOffre);
+}> {
+  const offre = await getOffreById(idOffre);
   return {
     offre,
     tableaux: offre?.tableaux_tarifaires || [],
@@ -462,18 +529,18 @@ export function getOffreTarifs(idOffre: string): {
 /**
  * Check if user is eligible for an offre
  */
-export function checkOffreEligibility(params: {
+export async function checkOffreEligibility(params: {
   idOffre: string;
   isLocataire?: boolean;
   isConventionne?: boolean;
   segment?: string;
   sousSegment?: string;
-}): {
+}): Promise<{
   eligible: boolean;
   reasons: string[];
   offre: OffreReferentiel | null;
-} {
-  const offre = getOffreById(params.idOffre);
+}> {
+  const offre = await getOffreById(params.idOffre);
   
   if (!offre) {
     return { eligible: false, reasons: ['Offre introuvable'], offre: null };
@@ -530,9 +597,9 @@ export function checkOffreEligibility(params: {
 }
 
 /**
- * Compare multiple offres
+ * Compare multiple offres - OPTIMIZED with early exit
  */
-export function compareOffresReferentiel(idOffres: string[]): {
+export async function compareOffresReferentiel(idOffres: string[]): Promise<{
   offres: OffreReferentiel[];
   comparison: Array<{
     id_offre: string;
@@ -546,16 +613,21 @@ export function compareOffresReferentiel(idOffres: string[]): {
     prix_min: number | null;
     prix_max: number | null;
   }>;
-} {
-  const offres = idOffres
-    .map(id => getOffreById(id))
-    .filter((o): o is OffreReferentiel => o !== null);
+}> {
+  const offresPromises = idOffres.map(id => getOffreById(id));
+  const offresResults = await Promise.all(offresPromises);
+  const offres = offresResults.filter((o): o is OffreReferentiel => o !== null);
+  
+  // Early exit if no valid offres
+  if (offres.length === 0) {
+    return { offres: [], comparison: [] };
+  }
   
   const comparison = offres.map(offre => {
-    // Calculate min/max prices
     let prixMin: number | null = null;
     let prixMax: number | null = null;
     
+    // Calculate min/max prices with early break
     for (const tableau of offre.tableaux_tarifaires) {
       for (const ligne of tableau.lignes) {
         const prix = ligne.tarif_nouveau_da || ligne.tarif_actuel_da;
@@ -566,11 +638,15 @@ export function compareOffresReferentiel(idOffres: string[]): {
       }
     }
     
-    // Check for free products
-    const hasProduitsOfferts = offre.produits_associes.some(
-      p => p.tarif_nouveau_da_ttc === 0 || 
-           p.conditions?.some(c => c.toLowerCase().includes('offert'))
-    );
+    // Check for free products with early exit
+    let hasProduitsOfferts = false;
+    for (const produit of offre.produits_associes) {
+      if (produit.tarif_nouveau_da_ttc === 0 || 
+          produit.conditions?.some(c => c.toLowerCase().includes('offert'))) {
+        hasProduitsOfferts = true;
+        break;
+      }
+    }
     
     return {
       id_offre: offre.id_offre,
@@ -592,13 +668,13 @@ export function compareOffresReferentiel(idOffres: string[]): {
 /**
  * Get documents required for an offre
  */
-export function getOffreDocuments(idOffre: string): {
+export async function getOffreDocuments(idOffre: string): Promise<{
   offre: OffreReferentiel | null;
   documents: string[];
   modes_paiement: string[];
   canaux_activation: string[];
-} {
-  const offre = getOffreById(idOffre);
+}> {
+  const offre = await getOffreById(idOffre);
   return {
     offre,
     documents: offre?.documents_a_fournir || [],
@@ -610,23 +686,23 @@ export function getOffreDocuments(idOffre: string): {
 /**
  * List all available familles (categories)
  */
-export function listFamilles(): string[] {
-  loadOffres();
+export async function listFamilles(): Promise<string[]> {
+  await loadOffres();
   return Array.from(indexByFamille?.keys() || []);
 }
 
 /**
  * List all available technologies
  */
-export function listTechnologies(): string[] {
-  loadOffres();
+export async function listTechnologies(): Promise<string[]> {
+  await loadOffres();
   return Array.from(indexByTechnology?.keys() || []);
 }
 
 /**
  * List all available segments
  */
-export function listSegments(): string[] {
-  loadOffres();
+export async function listSegments(): Promise<string[]> {
+  await loadOffres();
   return Array.from(indexBySegment?.keys() || []);
 }

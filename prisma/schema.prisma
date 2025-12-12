@@ -1,0 +1,161 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============================================================================
+// CONVENTIONS MODELS
+// ============================================================================
+
+model Convention {
+  id            String   @id @default(cuid())
+  conventionId  String   @unique @map("convention_id")
+  partnerName   String   @map("partner_name")
+  aliases       String   // JSON array stored as string
+  clientType    String   @map("client_type") // B2C or B2B
+  documents     String   // JSON array stored as string
+  notes         String?
+  
+  // Relations
+  eligibility   Eligibility?
+  offers        Offer[]
+  
+  // Indexes for fast lookups
+  @@index([partnerName])
+  @@index([clientType])
+  @@map("conventions")
+}
+
+model Eligibility {
+  id                    String   @id @default(cuid())
+  conventionId          String   @unique @map("convention_id")
+  active                Boolean  @default(false)
+  retired               Boolean  @default(false)
+  family                Boolean  @default(false)
+  familyDetails         String?  @map("family_details")
+  subsidiaries          Boolean  @default(false)
+  widowsInvalids        Boolean  @default(false) @map("widows_invalids")
+  secondAccess          Boolean  @default(false) @map("second_access")
+  secondAccessCondition String?  @map("second_access_condition")
+  hierarchical          Boolean  @default(false)
+  civil                 Boolean  @default(false)
+  adherents             Boolean  @default(false)
+  conditions            String?  // JSON array stored as string
+  details               String?
+  
+  convention Convention @relation(fields: [conventionId], references: [conventionId], onDelete: Cascade)
+  
+  @@map("eligibilities")
+}
+
+model Offer {
+  id                 String  @id @default(cuid())
+  conventionId       String  @map("convention_id")
+  category           String  // INTERNET, TELEPHONY, 4G, HARDWARE, EMAIL, E-LEARNING
+  technology         String?
+  speedMbps          Int?    @map("speed_mbps")
+  plan               String?
+  volumeGo           Int?    @map("volume_go")
+  frequency          String?
+  product            String?
+  type               String?
+  model              String?
+  provider           String?
+  priceConventionDa  Int     @map("price_convention_da")
+  pricePublicDa      Int?    @map("price_public_da")
+  discount           String?
+  condition          String?
+  label              String?
+  note               String?
+  
+  convention Convention @relation(fields: [conventionId], references: [conventionId], onDelete: Cascade)
+  
+  // Indexes for fast filtering
+  @@index([conventionId])
+  @@index([category])
+  @@index([technology])
+  @@index([priceConventionDa])
+  @@index([speedMbps])
+  @@map("offers")
+}
+
+// ============================================================================
+// OFFRES RÉFÉRENTIEL MODELS
+// ============================================================================
+
+model OffreReferentiel {
+  id                      String   @id @default(cuid())
+  idOffre                 String   @unique @map("id_offre")
+  nomCommercial           String   @map("nom_commercial")
+  famille                 String
+  sousFamille             String   @map("sous_famille")
+  technologies            String   // JSON array stored as string
+  segmentsCibles          String   @map("segments_cibles") // JSON array stored as string
+  sousSegments            String   @map("sous_segments") // JSON array stored as string
+  clientType              String   @map("client_type")
+  locataire               Boolean?
+  conventionne            Boolean?
+  typesClientsExclus      String   @map("types_clients_exclus") // JSON array stored as string
+  typeOffre               String   @map("type_offre")
+  engagementMois          Int?     @map("engagement_mois")
+  numeroDocument          String   @map("numero_document")
+  canauxActivation        String   @map("canaux_activation") // JSON array stored as string
+  periodeActivation       String?  @map("periode_activation") // JSON object stored as string
+  validite                String?  // JSON object stored as string
+  debitsEligibles         String?  @map("debits_eligibles") // JSON object stored as string
+  caracteristiquesDebit   String?  @map("caracteristiques_debit") // JSON object stored as string
+  tarification            String   // JSON array stored as string
+  avantagesPrincipaux     String   @map("avantages_principaux") // JSON array stored as string
+  limitations             String   // JSON array stored as string
+  conditionsParticulieres String   @map("conditions_particulieres") // JSON array stored as string
+  modesPaiement           String   @map("modes_paiement") // JSON array stored as string
+  documentsAFournir       String   @map("documents_a_fournir") // JSON array stored as string
+  notes                   String   // JSON array stored as string
+  
+  // Relations
+  tableauxTarifaires OffreTableauTarifaire[]
+  produitsAssocies   OffreProduitAssocie[]
+  
+  // Indexes for fast filtering
+  @@index([famille])
+  @@index([clientType])
+  @@index([locataire])
+  @@index([conventionne])
+  @@index([nomCommercial])
+  @@map("offres_referentiel")
+}
+
+model OffreTableauTarifaire {
+  id            String @id @default(cuid())
+  offreId       String @map("offre_id")
+  typeTableau   String @map("type_tableau")
+  unitePrix     String @map("unite_prix")
+  lignes        String // JSON array of tariff lines stored as string
+  
+  offre OffreReferentiel @relation(fields: [offreId], references: [idOffre], onDelete: Cascade)
+  
+  @@index([offreId])
+  @@map("offres_tableaux_tarifaires")
+}
+
+model OffreProduitAssocie {
+  id                  String  @id @default(cuid())
+  offreId             String  @map("offre_id")
+  typeProduit         String  @map("type_produit")
+  designation         String
+  tarifActuelDaTtc    Int?    @map("tarif_actuel_da_ttc")
+  tarifNouveauDaTtc   Int?    @map("tarif_nouveau_da_ttc")
+  conditions          String? // JSON array stored as string
+  
+  offre OffreReferentiel @relation(fields: [offreId], references: [idOffre], onDelete: Cascade)
+  
+  @@index([offreId])
+  @@map("offres_produits_associes")
+}

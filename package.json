@@ -12,19 +12,23 @@
     "@ai-sdk/deepseek": "^1.0.32",
     "@ai-sdk/react": "^2.0.109",
     "ai": "^5.0.108",
+    "dotenv": "^17.2.3",
     "next": "16.0.8",
     "react": "19.2.1",
     "react-dom": "19.2.1",
     "zod": "^4.1.13"
   },
   "devDependencies": {
+    "@prisma/client": "^5.22.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.8",
+    "prisma": "^5.22.0",
     "tailwindcss": "^4",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }

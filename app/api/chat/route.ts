@@ -115,7 +115,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ partnerName, clientType }) => {
             try {
-              const results = searchConventions({
+              const results = await searchConventions({
                 partnerName,
                 clientType,
                 useFuzzy: true,
@@ -157,7 +157,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ conventionId, isActive, isRetired, isFamilyMember, isSubsidiary }) => {
             try {
-              const result = checkEligibility({
+              const result = await checkEligibility({
                 conventionId,
                 isActive,
                 isRetired,
@@ -197,7 +197,7 @@ export async function POST(req: Request) {
           execute: async ({ conventionIds, category, technology, minSpeed, maxSpeed, maxPrice, condition }) => {
             try {
               // Try normal search first
-              let results = searchOffers({
+              let results = await searchOffers({
                 conventionIds,
                 category,
                 technology,
@@ -210,7 +210,7 @@ export async function POST(req: Request) {
               // If no results, try relaxed search
               let relaxedCriteria: string[] = [];
               if (results.length === 0 && (maxPrice || minSpeed || maxSpeed || technology)) {
-                const relaxed = relaxedSearchOffers({
+                const relaxed = await relaxedSearchOffers({
                   conventionIds,
                   category,
                   technology,
@@ -265,7 +265,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ conventionId }) => {
             try {
-              const result = getRequiredDocuments(conventionId);
+              const result = await getRequiredDocuments(conventionId);
               
               if (!result.convention) {
                 return {
@@ -303,7 +303,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ offers }) => {
             try {
-              const results = compareOffers(offers);
+              const results = await compareOffers(offers);
               
               return {
                 success: true,
@@ -344,7 +344,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ conventionId }) => {
             try {
-              const convention = getConventionDetails(conventionId);
+              const convention = await getConventionDetails(conventionId);
               
               if (!convention) {
                 return {
@@ -396,7 +396,7 @@ export async function POST(req: Request) {
           }),
           execute: async (params) => {
             try {
-              const results = searchOffresReferentiel(params);
+              const results = await searchOffresReferentiel(params);
               
               return {
                 success: true,
@@ -438,7 +438,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ idOffre }) => {
             try {
-              const offre = getOffreDetails(idOffre);
+              const offre = await getOffreDetails(idOffre);
               
               if (!offre) {
                 return {
@@ -448,7 +448,7 @@ export async function POST(req: Request) {
               }
               
               // Get tarifs
-              const { tableaux } = getOffreTarifs(idOffre);
+              const { tableaux } = await getOffreTarifs(idOffre);
               
               return {
                 success: true,
@@ -497,7 +497,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ idOffre, isLocataire, isConventionne, segment, sousSegment }) => {
             try {
-              const result = checkOffreEligibility({
+              const result = await checkOffreEligibility({
                 idOffre,
                 isLocataire,
                 isConventionne,
@@ -530,7 +530,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ idOffres }) => {
             try {
-              const { comparison } = compareOffresReferentiel(idOffres);
+              const { comparison } = await compareOffresReferentiel(idOffres);
               
               return {
                 success: true,
@@ -556,7 +556,7 @@ export async function POST(req: Request) {
           }),
           execute: async ({ idOffre }) => {
             try {
-              const result = getOffreDocuments(idOffre);
+              const result = await getOffreDocuments(idOffre);
               
               if (!result.offre) {
                 return {
