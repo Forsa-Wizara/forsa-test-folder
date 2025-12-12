@@ -1,0 +1,771 @@
+{
+  "referentiel_produits_depot_vente": [
+    {
+      "id_produit": "buzz_6_prime_plus",
+      "nom_produit": "BUZZ 6 Prime Plus",
+      "categorie": "SMARTPHONES",
+      "type_produit": "SMARTPHONE",
+      "marque": "BUZZ",
+      "modele": "6 Prime Plus",
+      "partenaire": "SARL ACE Algérie",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/158/2025",
+      "specifications": {
+        "ram_go": 10,
+        "stockage_go": 128,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.7,
+        "camera_mp": "13/5"
+      },
+      "couleurs": ["Noir", "Bleu", "Doré"],
+      "segments_cibles": ["PARTICULIERS", "PROFESSIONNELS"],
+      "prix_ttc_da": 16800,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "KHADAMTY",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["Coque protection", "Chargeur", "Câble", "Écouteurs", "Verre trempé"],
+      "couverture_garantie": [
+        "Défauts matériels ou logiciels d'origine",
+        "Exclusion: chutes, casses, oxydation"
+      ],
+      "sav_procedure": {
+        "sous_garantie": "Orientation vers YALIDINE pour diagnostic/réparation/remplacement",
+        "hors_garantie": "Prise en charge payante via YALIDINE",
+        "delais_moyens_jours": "J+1 (dépôt) + max J+4 (réparation) + J+1 (retour)"
+      },
+      "notes": [
+        "Rapport qualité-prix excellent",
+        "Mémoire élevée",
+        "Design moderne",
+        "SAV assuré par SACOMI"
+      ]
+    },
+    {
+      "id_produit": "buzz_6_pro",
+      "nom_produit": "BUZZ 6 Pro",
+      "categorie": "SMARTPHONES",
+      "type_produit": "SMARTPHONE",
+      "marque": "BUZZ",
+      "modele": "6 Pro",
+      "partenaire": "SARL ACE Algérie",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/158/2025",
+      "specifications": {
+        "ram_go": 12,
+        "stockage_go": 128,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.7,
+        "camera_mp": "20/8"
+      },
+      "couleurs": ["Bleu Océan", "Noir"],
+      "segments_cibles": ["PARTICULIERS", "PROFESSIONNELS"],
+      "prix_ttc_da": 18800,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "KHADAMTY",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["Coque protection", "Chargeur", "Câble", "Écouteurs", "Verre trempé"],
+      "couverture_garantie": [
+        "Défauts matériels ou logiciels d'origine",
+        "Exclusion: chutes, casses, oxydation"
+      ],
+      "sav_procedure": {
+        "sous_garantie": "Orientation vers YALIDINE",
+        "hors_garantie": "Prise en charge payante",
+        "delais_moyens_jours": "J+1 (dépôt) + max J+4 (réparation) + J+1 (retour)"
+      },
+      "notes": ["Performance accrue par rapport au Prime Plus"]
+    },
+    {
+      "id_produit": "buzz_6_pro_plus",
+      "nom_produit": "BUZZ 6 Pro Plus",
+      "categorie": "SMARTPHONES",
+      "type_produit": "SMARTPHONE",
+      "marque": "BUZZ",
+      "modele": "6 Pro Plus",
+      "partenaire": "SARL ACE Algérie",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/158/2025",
+      "specifications": {
+        "ram_go": 12,
+        "stockage_go": 256,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.8,
+        "camera_mp": "50/13"
+      },
+      "couleurs": ["Noir", "Argent"],
+      "segments_cibles": ["PARTICULIERS", "PROFESSIONNELS"],
+      "prix_ttc_da": 23900,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "KHADAMTY",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["Coque protection", "Chargeur", "Câble", "Écouteurs", "Verre trempé"],
+      "couverture_garantie": ["Défauts matériels ou logiciels d'origine"],
+      "sav_procedure": {
+        "sous_garantie": "YALIDINE",
+        "hors_garantie": "Prise en charge payante"
+      },
+      "notes": ["Stockage doublé (256 GB)", "Caméra haute résolution"]
+    },
+    {
+      "id_produit": "buzz_6_flip",
+      "nom_produit": "BUZZ 6 Flip",
+      "categorie": "SMARTPHONES",
+      "type_produit": "SMARTPHONE_PLIABLE",
+      "marque": "BUZZ",
+      "modele": "6 Flip",
+      "partenaire": "SARL ACE Algérie",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/158/2025",
+      "specifications": {
+        "ram_go": 24,
+        "stockage_go": 256,
+        "batterie_mah": 5000,
+        "ecran_pouces": 7.5,
+        "camera_mp": "108/20",
+        "design": "Pliable"
+      },
+      "couleurs": ["Rose", "Doré", "Noir"],
+      "segments_cibles": ["PARTICULIERS", "PROFESSIONNELS"],
+      "prix_ttc_da": 95000,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "KHADAMTY",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["Coque protection", "Chargeur", "Câble", "Écouteurs", "Verre trempé"],
+      "couverture_garantie": ["Défauts matériels ou logiciels d'origine"],
+      "notes": ["Flagship du portefeuille", "RAM 24 GB", "Caméra ultra-haute résolution", "Design innovant"]
+    },
+    {
+      "id_produit": "zte_blade_a35",
+      "nom_produit": "ZTE Blade A35",
+      "categorie": "SMARTPHONES",
+      "type_produit": "SMARTPHONE",
+      "marque": "ZTE",
+      "modele": "Blade A35",
+      "partenaire": "SARL SACOMI",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/1842025",
+      "specifications": {
+        "ram_go": 4,
+        "ram_dynamic_go": 8,
+        "stockage_go": 64,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.75,
+        "ecran_type": "HD+ Live Island",
+        "taux_rafraichissement_hz": 90,
+        "camera_mp": "8/5",
+        "processeur": "SC9863A",
+        "wifi_standard": "WiFi 4"
+      },
+      "couleurs": ["Starry Black", "Clover Green"],
+      "segments_cibles": ["PARTICULIERS", "ETUDIANTS"],
+      "prix_ttc_da": 16900,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "YALIDINE (SACOMI-SAV)",
+      "contact_sav": {
+        "telephone": ["0770 93 40 41", "0560 20 49 60"],
+        "email": "sav.achour@sacomi.com"
+      },
+      "accessoires_inclus": ["Coque protection", "Chargeur", "Câble", "Écouteurs", "Verre trempé"],
+      "couverture_garantie": ["Pannes matérielles/logicielles d'origine (excl. chute, casse, oxydation)"],
+      "sav_procedure": {
+        "garantie": "Dépôt YALIDINE → Diagnostic → Réparation/Remplacement → Retour gratuit",
+        "hors_garantie": "Diagnostic payant + devis + réparation (accord client) + retour",
+        "delais": "J+1 dépôt, max J+4 réparation, J+1 retour"
+      },
+      "notes": ["Rapport qualité-prix optimal", "RAM dynamique 8 GB", "Design moderne"]
+    },
+    {
+      "id_produit": "zte_blade_a55",
+      "nom_produit": "ZTE Blade A55",
+      "categorie": "SMARTPHONES",
+      "type_produit": "SMARTPHONE",
+      "marque": "ZTE",
+      "modele": "Blade A55",
+      "partenaire": "SARL SACOMI",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/1842025",
+      "specifications": {
+        "ram_go": 12,
+        "stockage_go": 128,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.75,
+        "ecran_type": "HD+ Live Island",
+        "taux_rafraichissement_hz": 90,
+        "camera_mp": "13/8",
+        "processeur": "SC9863A",
+        "wifi_standard": "WiFi 4"
+      },
+      "couleurs": ["Water Blue"],
+      "segments_cibles": ["PARTICULIERS", "PROFESSIONNELS"],
+      "prix_ttc_da": 19900,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "YALIDINE",
+      "contact_sav": {
+        "telephone": ["0770 93 40 41", "0560 20 49 60"],
+        "email": "sav.achour@sacomi.com"
+      },
+      "accessoires_inclus": ["Coque protection", "Chargeur", "Câble", "Écouteurs", "Verre trempé"],
+      "couverture_garantie": ["Pannes matérielles/logicielles d'origine"],
+      "notes": ["RAM augmentée à 12 GB", "Caméra ultra grand-angle 13 MP"]
+    },
+    {
+      "id_produit": "nubia_v60_design",
+      "nom_produit": "Nubia V60 Design",
+      "categorie": "SMARTPHONES",
+      "type_produit": "SMARTPHONE_PREMIUM",
+      "marque": "ZTE Nubia",
+      "modele": "V60 Design",
+      "partenaire": "SARL SACOMI",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/1842025",
+      "specifications": {
+        "ram_go": 16,
+        "stockage_go": 256,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.6,
+        "ecran_type": "HD+ AMOLED",
+        "taux_rafraichissement_hz": 90,
+        "camera_mp": "50/8",
+        "processeur": "T616",
+        "wifi_standard": "WiFi 5"
+      },
+      "couleurs": ["Dark Blue"],
+      "segments_cibles": ["PROFESSIONNELS", "TECH_ENTHUSIASTS"],
+      "prix_ttc_da": 31900,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "YALIDINE",
+      "contact_sav": {
+        "telephone": ["0770 93 40 41", "0560 20 49 60"],
+        "email": "sav.achour@sacomi.com"
+      },
+      "accessoires_inclus": ["Coque protection", "Chargeur", "Câble", "Écouteurs", "Verre trempé"],
+      "couverture_garantie": ["Pannes matérielles/logicielles d'origine"],
+      "notes": ["Flagship ZTE", "RAM 16 GB", "Caméra 50 MP ultra-performante", "WiFi 5", "Design ultra-moderne"]
+    },
+    {
+      "id_produit": "twin_box_tv",
+      "nom_produit": "TWIN BOX",
+      "categorie": "HARDWARE_MULTIMEDIA",
+      "type_produit": "BOX_TV_ANDROID",
+      "marque": "TWIN BOX",
+      "partenaire": "SARL COMPNET",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V2.0/FR/189/2025",
+      "specifications": {
+        "os": "Android TV",
+        "stockage_gb": 32,
+        "wifi_standard": "Wi-Fi 5",
+        "fonctionnalites": ["Modem routeur filaire", "Répéteur Wi-Fi", "Support SIM DATA Djezzy", "Support Idoom 4G LTE"]
+      },
+      "segments_cibles": ["RESIDENTIEL", "FAMILLES"],
+      "prix_ancien_ttc_da": 15900,
+      "prix_nouveau_ttc_da": 12900,
+      "reduction_percentage": 18.9,
+      "economie_da": 3000,
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "disponibilite_sim": "Avec ou sans SIM DATA",
+      "services_associes": [
+        "TOD (Bein Sports, films, séries)",
+        "Fennec Digital (jeux Android TV)",
+        "My Idoom",
+        "Espace Client",
+        "Idoom Market",
+        "Dorouscom (e-learning)",
+        "Esaboura"
+      ],
+      "abonnements_tod": [
+        {
+          "nom": "TOD Mobile",
+          "prix_da": 1000,
+          "appareils": 1,
+          "data_go": 2,
+          "validite_jours": 30
+        },
+        {
+          "nom": "TOD Standard",
+          "prix_da": 2000,
+          "appareils": 5,
+          "ecrans": 1,
+          "data_go": 5,
+          "validite_jours": 30
+        },
+        {
+          "nom": "TOD 4K",
+          "prix_da": 3000,
+          "appareils": 5,
+          "ecrans": 2,
+          "data_go": 15,
+          "validite_jours": 30
+        }
+      ],
+      "abonnements_fennec_digital": [
+        {
+          "type": "Journalier",
+          "prix_da": 30,
+          "validite_jours": 1
+        },
+        {
+          "type": "Hebdomadaire",
+          "prix_da": 150,
+          "validite_jours": 7
+        },
+        {
+          "type": "Mensuel",
+          "prix_da": 450,
+          "validite_jours": 30
+        }
+      ],
+      "modes_paiement": ["USSD (*707#) Djezzy", "E-paiement AT (EDAHABIA/CIB)", "Agence AT"],
+      "avantages_cles": [
+        "3-en-1 (Box TV + Modem + Répéteur)",
+        "Contenus exclusifs TOD et VOD",
+        "Services locaux intégrés",
+        "Baisse tarifaire significative"
+      ],
+      "notes": [
+        "Partenariat Djezzy",
+        "Compatible SIM AT 4G LTE",
+        "Interface multilingue"
+      ]
+    },
+    {
+      "id_produit": "cache_modem_std_8mm",
+      "nom_produit": "Cache Modem Standard 8mm",
+      "categorie": "ACCESSOIRES",
+      "type_produit": "CACHE_MODEM",
+      "format": "Standard",
+      "materiau": "MDF",
+      "epaisseur_mm": 8,
+      "finitions_disponibles": ["Bois rouge américain", "Hêtre naturel", "Blanc façade"],
+      "segments_cibles": ["PARTICULIERS", "PROFESSIONNELS"],
+      "prix_ttc_da": 1850,
+      "canaux_vente": ["Agences AT"],
+      "destination_modem": "1 modem seul",
+      "systeme_aeration": "Ouvertures latérales et inférieures visibles",
+      "installation": "Prêt à poser, simple à fixer, compatible tous modems",
+      "points_forts": [
+        "Design moderne",
+        "Qualité locale",
+        "Ventilation efficace",
+        "Installation simple",
+        "Bon rapport qualité/prix",
+        "Durable et écologique"
+      ],
+      "reclamations": {
+        "canal": "WhatsApp ou Email",
+        "contact": "+213 774 84 28 36 / contact@cozymeubles.com",
+        "documents_requis": ["Reçu de paiement", "Photos/vidéos défaillance", "Coordonnées client"]
+      },
+      "notes": ["Code QR pour vidéo d'installation", "Cross-selling optimal avec vente modem"]
+    },
+    {
+      "id_produit": "cache_modem_std_grand_8mm",
+      "nom_produit": "Cache Modem Grand Format 8mm",
+      "categorie": "ACCESSOIRES",
+      "type_produit": "CACHE_MODEM",
+      "format": "Grand format",
+      "materiau": "MDF",
+      "epaisseur_mm": 8,
+      "finitions_disponibles": ["Bois rouge américain", "Hêtre naturel", "Blanc façade"],
+      "segments_cibles": ["PARTICULIERS", "PROFESSIONNELS"],
+      "prix_ttc_da": 3400,
+      "canaux_vente": ["Agences AT"],
+      "destination_modem": "1 modem + 1 répéteur Wi-Fi",
+      "systeme_aeration": "Ouvertures latérales et inférieures visibles",
+      "installation": "Prêt à poser",
+      "notes": ["Pour installations plus volumineuses"]
+    },
+    {
+      "id_produit": "cache_modem_premium_18mm",
+      "nom_produit": "Cache Modem Premium 18mm",
+      "categorie": "ACCESSOIRES",
+      "type_produit": "CACHE_MODEM",
+      "format": "Standard Premium",
+      "materiau": "MDF",
+      "epaisseur_mm": 18,
+      "finitions_disponibles": ["Beige Sonoma", "Marron Baroque", "Porte blanc laqué"],
+      "segments_cibles": ["PARTICULIERS_PREMIUM", "PROFESSIONNELS"],
+      "prix_ttc_da": 2400,
+      "canaux_vente": ["Agences AT"],
+      "destination_modem": "1 modem seul",
+      "systeme_aeration": "Aérations discrètes à l'arrière et base",
+      "points_forts": ["Finitions premium", "Aspect plus haut de gamme", "Aérations discrètes"],
+      "notes": ["Série premium"]
+    },
+    {
+      "id_produit": "cache_modem_premium_grand_18mm",
+      "nom_produit": "Cache Modem Premium Grand Format 18mm",
+      "categorie": "ACCESSOIRES",
+      "type_produit": "CACHE_MODEM",
+      "format": "Grand format Premium",
+      "materiau": "MDF",
+      "epaisseur_mm": 18,
+      "finitions_disponibles": ["Beige Sonoma", "Marron Baroque", "Porte blanc laqué"],
+      "segments_cibles": ["PARTICULIERS_PREMIUM", "PROFESSIONNELS"],
+      "prix_ttc_da": 4500,
+      "canaux_vente": ["Agences AT"],
+      "destination_modem": "1 modem + 1 répéteur Wi-Fi",
+      "systeme_aeration": "Aérations discrètes"
+    },
+    {
+      "id_produit": "classroom_pack_initial",
+      "nom_produit": "ClassaTeck - Pack Initial",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "PLATEFORME_PEDAGOGIQUE",
+      "partenaire": "ClassaTeck",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/196/2025",
+      "segments_cibles": ["ENSEIGNANTS", "FORMATEURS", "PETITES_ECOLES"],
+      "specifications": {
+        "nombre_eleves_max": 50,
+        "stockage_go": 2,
+        "cours_en_ligne": 2,
+        "cours_presentiels": 3,
+        "blogs": 10,
+        "pages_perso": 3
+      },
+      "tarification": [
+        {
+          "periode": "Mensuel",
+          "prix_da": 1500
+        },
+        {
+          "periode": "Trimestriel",
+          "prix_da": 4500
+        },
+        {
+          "periode": "Semestriel",
+          "prix_da": 9000
+        },
+        {
+          "periode": "Annuel",
+          "prix_da": 18000
+        }
+      ],
+      "avantages": ["LMS complet", "Interface simple", "Sécurisé"],
+      "notes": ["Pack d'entrée pour test/petite structure"]
+    },
+    {
+      "id_produit": "classroom_pack_essentiel",
+      "nom_produit": "ClassaTeck - Pack Essentiel",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "PLATEFORME_PEDAGOGIQUE",
+      "segments_cibles": ["FORMATEURS", "ECOLES_MOYENNES"],
+      "specifications": {
+        "nombre_eleves_max": 300,
+        "stockage_go": 5,
+        "cours_en_ligne": 10,
+        "cours_presentiels": 20,
+        "blogs": 50,
+        "utilisateurs": {
+          "formateurs": 2,
+          "employes": 1,
+          "administrateurs": 1
+        }
+      },
+      "tarification": [
+        {
+          "periode": "Mensuel",
+          "prix_da": 2600
+        },
+        {
+          "periode": "Trimestriel",
+          "prix_da": 7800
+        },
+        {
+          "periode": "Semestriel",
+          "prix_da": 15600
+        },
+        {
+          "periode": "Annuel",
+          "prix_da": 31200
+        }
+      ]
+    },
+    {
+      "id_produit": "classroom_pack_professionnel",
+      "nom_produit": "ClassaTeck - Pack Professionnel",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "PLATEFORME_PEDAGOGIQUE",
+      "segments_cibles": ["GRANDES_ECOLES", "UNIVERSITES"],
+      "specifications": {
+        "nombre_eleves_max": 600,
+        "stockage_go": 10,
+        "cours_en_ligne": 25,
+        "cours_presentiels": 30,
+        "blogs": 100,
+        "utilisateurs": {
+          "formateurs": 10,
+          "employes": 3,
+          "administrateurs": 2
+        }
+      },
+      "tarification": [
+        {
+          "periode": "Mensuel",
+          "prix_da": 3800
+        },
+        {
+          "periode": "Trimestriel",
+          "prix_da": 11000
+        },
+        {
+          "periode": "Semestriel",
+          "prix_da": 22800
+        },
+        {
+          "periode": "Annuel",
+          "prix_da": 45600
+        }
+      ]
+    },
+    {
+      "id_produit": "classroom_pack_business",
+      "nom_produit": "ClassaTeck - Pack Business",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "PLATEFORME_PEDAGOGIQUE",
+      "segments_cibles": ["GRANDES_STRUCTURES", "UNIVERSITES", "INSTITUTIONS"],
+      "specifications": {
+        "nombre_eleves_max": 1200,
+        "stockage_go": 25,
+        "cours_en_ligne": 40,
+        "cours_presentiels": 50,
+        "blogs": 500,
+        "utilisateurs": {
+          "formateurs": 50,
+          "employes": 6,
+          "administrateurs": 2
+        }
+      },
+      "tarification": [
+        {
+          "periode": "Mensuel",
+          "prix_da": 5700
+        },
+        {
+          "periode": "Trimestriel",
+          "prix_da": 16700
+        },
+        {
+          "periode": "Semestriel",
+          "prix_da": 33200
+        },
+        {
+          "periode": "Annuel",
+          "prix_da": 68400
+        }
+      ]
+    },
+    {
+      "id_produit": "ekoteb_ebook_3mois",
+      "nom_produit": "EKOTEB - Abonnement 3 mois",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "BIBLIOTHEQUE_NUMERIQUE",
+      "partenaire": "DAR EL OULA",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V2.0/FR/075/2023",
+      "segments_cibles": ["ETUDIANTS", "UNIVERSITAIRES", "CHERCHEURS", "LECTEURS"],
+      "prix_ttc_da": 1900,
+      "validite_jours": 90,
+      "specifications": {
+        "nombre_livres_disponibles": 5000,
+        "nombre_categories": 22,
+        "ebooks_simultanees": 11,
+        "livres_audio_simultanees": 1,
+        "langue_contenu": "Arabe",
+        "langues_interface": ["Arabe", "Français", "Anglais"],
+        "acces_platforms": ["Android", "iOS"],
+        "mode_lecture": "Hors ligne (après téléchargement)"
+      },
+      "categories": ["Langue", "Arts", "Biologie", "Économie", "Enfants", "Cuisine", "Santé", "Histoire", "Sciences", "Sport", "Philosophie", "Psychologie", "Droit"],
+      "fonctionnalites": ["Recherche", "Ajustement police", "Fond personnalisable", "Signets", "Dictionnaire intégré"],
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "acces": "Code voucher + App mobile",
+      "contact_support": {
+        "email": "contacte@dareloula.com",
+        "telephone": ["0770559871", "0770873420"]
+      },
+      "notes": ["Accès mobile uniquement (pas de Web)"]
+    },
+    {
+      "id_produit": "ekoteb_ebook_6mois",
+      "nom_produit": "EKOTEB - Abonnement 6 mois",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "BIBLIOTHEQUE_NUMERIQUE",
+      "partenaire": "DAR EL OULA",
+      "prix_ttc_da": 3000,
+      "validite_jours": 180,
+      "specifications": {
+        "nombre_livres_disponibles": 5000,
+        "ebooks_simultanees": 11,
+        "livres_audio_simultanees": 1
+      }
+    },
+    {
+      "id_produit": "ekoteb_ebook_12mois",
+      "nom_produit": "EKOTEB - Abonnement 12 mois",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "BIBLIOTHEQUE_NUMERIQUE",
+      "partenaire": "DAR EL OULA",
+      "prix_ttc_da": 4500,
+      "validite_jours": 365,
+      "specifications": {
+        "nombre_livres_disponibles": 5000,
+        "ebooks_simultanees": 11,
+        "livres_audio_simultanees": 1
+      },
+      "avantages": ["Meilleure valeur annuelle", "Accès continu"]
+    },
+    {
+      "id_produit": "dorouscom_carte_recharge",
+      "nom_produit": "Carte de Recharge Dorouscom",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "CARTE_RECHARGE_VOUCHER",
+      "partenaire": "DOROUSCOM",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/SR/V1.0/FR/188/2025",
+      "segments_cibles": ["ELEVES", "ETUDIANTS", "PARENTS", "ECOLES_PRIVEES"],
+      "plateforme": "www.dorouscom.com",
+      "specifications": {
+        "code_longueur": 16,
+        "validite_avant_activation": "Illimitée",
+        "type_contenu": "+2000 vidéos éducatives",
+        "nombre_enseignants": 200,
+        "niveaux": ["Primaire", "Moyen", "Secondaire"],
+        "programmes": "Adaptés programme national algérien"
+      },
+      "types_abonnement": [
+        {
+          "type": "Cours en direct (Live)",
+          "periodicite": "Mensuel"
+        },
+        {
+          "type": "Cours enregistrés",
+          "periodicite": ["Mensuel", "Trimestriel", "Annuel"]
+        },
+        {
+          "type": "Cours intensifs (Dawra)",
+          "duree_mois": 12
+        }
+      ],
+      "cumulabilite": "Oui - codes cumulables",
+      "solde_restant": "Reste disponible pour futur paiement",
+      "politique_remboursement": {
+        "0_7_jours_non_active": "Remboursable",
+        "7_30_jours_non_active": "Remboursable",
+        "plus_30_jours_ou_active": "Non remboursable",
+        "exception": "Si activé < 7 jours: modifiable"
+      },
+      "canaux_vente": ["Agences AT", "Idoom Market"],
+      "acces": "Code 16 chiffres + www.dorouscom.com",
+      "contact_support": {
+        "telephone": "0699320999",
+        "website": "www.dorouscom.com"
+      },
+      "avantages_principaux": [
+        "Contenu aligné curriculum national",
+        "+2000 vidéos",
+        "200+ enseignants",
+        "Flexible (live ou enregistré)",
+        "Abordable pour familles"
+      ]
+    },
+    {
+      "id_produit": "moalim_pack_jmchallenge_annuel",
+      "nom_produit": "MOALIM - Pack J'Mchallenge Annuel",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "PLATEFORME_SOUTIEN_SCOLAIRE",
+      "partenaire": "Inkidia",
+      "reference_document": "AT/DG/DMCC/DCGP/CQC/NL/V3/FR/059/2023",
+      "segments_cibles": ["ELEVES_PRIMAIRE", "ELEVES_COLLEGE", "ELEVES_LYCEE"],
+      "prix_ttc_da": 2000,
+      "validite_mois": 12,
+      "type_contenu": "Extra-scolaire",
+      "specifications": {
+        "activites_adaptatives": 12,
+        "basee_sur": "Intelligence Artificielle",
+        "conception": "50 enseignants + 10 développeurs pédagogiques",
+        "apprentissage": "Par l'erreur",
+        "disponibilite": "24/7"
+      },
+      "niveaux_cibles": ["5 AP (Primaire)", "1-4 AM (Collège)", "1-3 AS (Lycée - Branche scientifique)"],
+      "avantages": [
+        "Coût réduit (10x moins cher que cours particuliers)",
+        "Disponibilité 24/7",
+        "Confiance en soi augmentée",
+        "Autonomie de l'élève",
+        "Suivi parental sans stress"
+      ],
+      "acces": {
+        "methode": "Achat voucher en agence AT",
+        "inscription": "www.inkidia.com.dz",
+        "plateformes": ["PC", "Laptop", "Tablette"]
+      },
+      "notes": ["Pas recommandé sur smartphone"]
+    },
+    {
+      "id_produit": "moalim_pack_jmevalue_langues_annuel",
+      "nom_produit": "MOALIM - Pack J'Mévalue Langues Annuel",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "PLATEFORME_SOUTIEN_SCOLAIRE",
+      "partenaire": "Inkidia",
+      "prix_ttc_da": 4900,
+      "validite_mois": 12,
+      "type_contenu": "Évaluation continue",
+      "specialisation": "Langues",
+      "langues_disponibles": ["Arabe", "Français", "Anglais"],
+      "basee_sur": "IA et pédagogie adaptative"
+    },
+    {
+      "id_produit": "moalim_pack_jmevalue_sciences_annuel",
+      "nom_produit": "MOALIM - Pack J'Mévalue Sciences Annuel",
+      "categorie": "SOLUTIONS_ELEARNING",
+      "type_produit": "PLATEFORME_SOUTIEN_SCOLAIRE",
+      "partenaire": "Inkidia",
+      "prix_ttc_da": 4900,
+      "validite_mois": 12,
+      "type_contenu": "Évaluation continue",
+      "specialisation": "Sciences",
+      "matieres_disponibles": ["Mathématiques", "Physique", "Sciences naturelles"],
+      "basee_sur": "IA et pédagogie adaptative"
+    },
+    {
+      "id_produit": "idoom_market_plateforme",
+      "nom_produit": "Idoom Market - Plateforme E-Commerce",
+      "categorie": "SERVICES_DIGITAUX",
+      "type_produit": "PLATEFORME_ECOMMERCE",
+      "reference_document": "AT/DG/DMCC/DCGP/CQC/LN/V1.0/FR/061/2023",
+      "segments_cibles": ["PARTICULIERS", "ENTREPRISES"],
+      "url_plateforme": "idoomarket-at.dz",
+      "specifications": {
+        "type_produits": "Dépôt-vente Algérie Télécom",
+        "modalites": ["Sélection en ligne", "Paiement en ligne", "Livraison à domicile"],
+        "suivi": "Tracking number"
+      },
+      "procedure_achat": [
+        "Accès plateforme",
+        "Inscription/Connexion",
+        "Choix produits",
+        "Paiement en ligne",
+        "Suivi commande"
+      ],
+      "livraison": {
+        "statut": "Payante",
+        "operateur": "Organisme spécialisé",
+        "affichage": "Délais et frais affichés à la commande"
+      },
+      "politique_retour": {
+        "delai_signalement": "96h ouvrables avec produit",
+        "lieu": "Agence AT (ACTEL)",
+        "remboursement_conditions": [
+          "Délai dépassé",
+          "Produit défectueux/non conforme (restitué < 96h)"
+        ],
+        "delai_remboursement_max_jours": 15,
+        "remplacement_possible": "Oui pour défaut/non-conformité"
+    },
+      "avantages": [
+        "Large catalogue",
+        "Paiement sécurisé",
+        "Livraison organisée",
+        "Service client"
+      ]
+    }
+  ]
+}

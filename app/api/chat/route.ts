@@ -19,6 +19,16 @@ import {
   getOffreDocuments,
   listFamilles,
 } from '@/lib/offres';
+import {
+  searchDepotsVente,
+  getDepotDetails,
+  getDepotTarifs,
+  checkDepotEligibility,
+  compareDepotsVente,
+  getDepotSAV,
+  getDepotNotes,
+  getProductPrice,
+} from '@/lib/depot';
 
 const deepseek = createDeepSeek({
   apiKey: process.env.DEEPSEEK_API_KEY ?? '',
@@ -37,28 +47,38 @@ const SYSTEM_PROMPT = `Tu es un assistant expert pour Algérie Télécom.
 3. Attendre d'avoir TOUS les résultats avant de formuler ta réponse finale
 
 ═══════════════════════════════════════════════════════════════════════════════
-🔍 GUIDE DE CHOIX : CONVENTIONS vs OFFRES RÉFÉRENTIEL
+🔍 GUIDE DE CHOIX : 3 SOURCES DE DONNÉES
 ═══════════════════════════════════════════════════════════════════════════════
 
-📋 CONVENTIONS (docs-conv.json) - Utilise les outils "searchConventions", "checkEligibility", "searchOffers", "getRequiredDocuments", "compareOffers", "getConventionDetails"
+📋 CONVENTIONS (docs-conv.json) - Outils: searchConventions, checkEligibility, searchOffers, getRequiredDocuments, compareOffers, getConventionDetails
 → Quand l'utilisateur mentionne :
   - Un EMPLOYEUR ou PARTENAIRE spécifique (ex: "établissement L", "entreprise S", "convention A")
   - Son STATUT professionnel (ex: "je suis employé de...", "retraité de...", "famille d'un employé")
   - Des offres CONVENTIONNÉES avec réductions employeur
   - Des TARIFS PRÉFÉRENTIELS liés à un partenariat
   
-📦 OFFRES RÉFÉRENTIEL (offres.json) - Utilise les outils "searchOffresRef", "getOffreDetailsRef", "checkOffreEligibilityRef", "compareOffresRef", "getOffreDocumentsRef"
+📦 OFFRES RÉFÉRENTIEL (offres.json) - Outils: searchOffresRef, getOffreDetailsRef, checkOffreEligibilityRef, compareOffresRef, getOffreDocumentsRef
 → Quand l'utilisateur mentionne :
   - Des offres GRAND PUBLIC sans employeur (ex: "offre Gamers", "Idoom 4G", "MOOHTARIF")
   - Des TYPES D'OFFRES spécifiques (ex: "offre sans engagement", "offre locataire", "boost weekend")
   - Des SEGMENTS (ex: "pro", "TPE", "résidentiel", "gamer")
-  - Des ÉQUIPEMENTS (ex: "kit FTTH", "modem 4G")
-  - Des PROMOTIONS générales non liées à une convention
+  - Des ÉQUIPEMENTS liés aux offres (ex: "modem 4G offert")
+
+🛒 DÉPÔTS VENTE (depot.json) - Outils: searchDepotsVente, getDepotDetailsRef, checkDepotEligibilityRef, compareDepotsRef, getDepotSAVRef
+→ Quand l'utilisateur mentionne :
+  - Des SMARTPHONES (ex: "BUZZ 6", "ZTE Blade", "Nubia")
+  - Des BOX TV (ex: "TWIN BOX", "Android TV")
+  - Des ACCESSOIRES (ex: "cache modem", "finitions premium")
+  - Des SOLUTIONS E-LEARNING (ex: "ClassaTeck", "EKOTEB", "Dorouscom", "MOALIM")
+  - Des MARQUES (ex: "BUZZ", "ZTE", "ZTE Nubia")
+  - Des PARTENAIRES (ex: "SARL ACE Algérie", "SACOMI", "Inkidia")
+  - Le terme "dépôt-vente" ou "dépôt vente"
 
 💡 EN CAS DE DOUTE :
-- Si mention d'un employeur/partenaire → CONVENTIONS d'abord
-- Si offre générique ou nom commercial → OFFRES RÉFÉRENTIEL
-- Si les deux peuvent s'appliquer → Cherche dans les DEUX sources
+- Employeur/partenaire mentionné → CONVENTIONS
+- Offre commerciale/abonnement → OFFRES RÉFÉRENTIEL  
+- Équipement/produit à acheter → DÉPÔTS VENTE
+- Si les sources peuvent se combiner → Cherche dans PLUSIEURS sources
 
 ═══════════════════════════════════════════════════════════════════════════════
 OUTILS CONVENTIONS (6 outils)
@@ -80,16 +100,27 @@ OUTILS OFFRES RÉFÉRENTIEL (5 outils)
 5. getOffreDocumentsRef - Documents et canaux d'activation
 
 ═══════════════════════════════════════════════════════════════════════════════
+OUTILS DÉPÔTS VENTE (5 outils)
+═══════════════════════════════════════════════════════════════════════════════
+1. searchDepotsVente - Recherche produits par catégorie/marque/segment/prix/partenaire
+2. getDepotDetailsRef - Détails complets d'un produit (specs, prix, couleurs)
+3. checkDepotEligibilityRef - Vérifie éligibilité par segment
+4. compareDepotsRef - Compare plusieurs produits dépôt-vente
+5. getDepotSAVRef - SAV, garantie, accessoires inclus et notes
+
+═══════════════════════════════════════════════════════════════════════════════
 EXEMPLES DE ROUTING
 ═══════════════════════════════════════════════════════════════════════════════
-"Offres pour employés de L" → searchConventions + searchOffers (CONVENTIONS)
-"Offre Idoom Fibre Gamers" → searchOffresRef(nom="gamers") (RÉFÉRENTIEL)
-"Internet fibre 2000 DA pour pro" → searchOffresRef(famille="INTERNET", segment="PRO") (RÉFÉRENTIEL)
-"Convention A documents" → getRequiredDocuments (CONVENTIONS)
-"Offre 4G sans engagement" → searchOffresRef(famille="4G", hasEngagement=false) (RÉFÉRENTIEL)
-"Prix MOOHTARIF locataire" → searchOffresRef(nom="moohtarif", isLocataire=true) (RÉFÉRENTIEL)
+"Offres pour employés de L" → CONVENTIONS (searchConventions + searchOffers)
+"Offre Idoom Fibre Gamers" → OFFRES (searchOffresRef)
+"Smartphones BUZZ" → DÉPÔTS (searchDepotsVente)
+"ZTE Blade A55" → DÉPÔTS (searchDepotsVente + getDepotDetailsRef)
+"TWIN BOX prix" → DÉPÔTS (searchDepotsVente)
+"Abonnement EKOTEB" → DÉPÔTS (searchDepotsVente)
+"ClassaTeck pack professionnel" → DÉPÔTS (searchDepotsVente)
+"Cache modem premium" → DÉPÔTS (searchDepotsVente)
 
-FORMAT DES PRIX : Toujours en DA (ex: "2 500 DA")
+FORMAT DES PRIX : Toujours en DA (ex: "11 000 DA TTC")
 TON : Professionnel mais accessible
 STRUCTURE : Listes/tableaux si >3 résultats`;
 
@@ -576,6 +607,227 @@ export async function POST(req: Request) {
               return {
                 success: false,
                 error: error instanceof Error ? error.message : 'Erreur lors de la récupération des documents',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 12: Search Dépôts Vente
+        // =====================================================================
+        searchDepotsVente: tool({
+          description: 'Recherche dans le catalogue des produits dépôt-vente (smartphones BUZZ/ZTE, TWIN BOX, cache modems, e-learning). Filtres : catégorie, marque, segment, prix, partenaire.',
+          inputSchema: z.object({
+            nom: z.string().optional().describe('Nom du produit (ex: "BUZZ 6", "ZTE Blade", "TWIN BOX", "ClassaTeck", "EKOTEB")'),
+            categorie: z.string().optional().describe('Catégorie : SMARTPHONES, HARDWARE_MULTIMEDIA, ACCESSOIRES, SOLUTIONS_ELEARNING, SERVICES_DIGITAUX'),
+            typeProduit: z.string().optional().describe('Type : SMARTPHONE, SMARTPHONE_PLIABLE, SMARTPHONE_PREMIUM, BOX_TV_ANDROID, CACHE_MODEM, PLATEFORME_PEDAGOGIQUE, BIBLIOTHEQUE_NUMERIQUE'),
+            marque: z.string().optional().describe('Marque (ex: "BUZZ", "ZTE", "ZTE Nubia", "TWIN BOX")'),
+            segment: z.string().optional().describe('Segment : PARTICULIERS, PROFESSIONNELS, ETUDIANTS, ENSEIGNANTS, FAMILLES'),
+            partenaire: z.string().optional().describe('Partenaire (ex: "ACE Algérie", "SACOMI", "ClassaTeck", "Inkidia")'),
+            maxPrice: z.number().optional().describe('Prix maximum en DA TTC'),
+            hasReduction: z.boolean().optional().describe('Uniquement produits avec réduction ?'),
+          }),
+          execute: async (params) => {
+            try {
+              const results = searchDepotsVente(params);
+              
+              return {
+                success: true,
+                count: results.length,
+                produits: results.map(d => {
+                  const pricing = getProductPrice(d);
+                  return {
+                    id_produit: d.id_produit,
+                    nom_produit: d.nom_produit,
+                    categorie: d.categorie,
+                    type_produit: d.type_produit,
+                    marque: d.marque ?? null,
+                    modele: d.modele ?? null,
+                    partenaire: d.partenaire ?? null,
+                    segments_cibles: d.segments_cibles ?? [],
+                    prix_principal: pricing.prix_principal,
+                    prix_ancien: pricing.prix_ancien,
+                    reduction_percentage: pricing.reduction_percentage,
+                    economie_da: pricing.economie_da,
+                    couleurs: d.couleurs ?? [],
+                    garantie_mois: d.garantie_mois ?? null,
+                    canaux_vente: d.canaux_vente ?? [],
+                  };
+                }),
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la recherche de produits',
+                produits: [],
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 13: Get Depot Details
+        // =====================================================================
+        getDepotDetailsRef: tool({
+          description: 'Récupère TOUS les détails d\'un produit dépôt-vente : spécifications, tarifs, couleurs, accessoires, SAV.',
+          inputSchema: z.object({
+            idProduit: z.string().describe("ID du produit (ex: 'buzz_6_pro', 'zte_blade_a55', 'twin_box_tv', 'classroom_pack_initial')"),
+          }),
+          execute: async ({ idProduit }) => {
+            try {
+              const depot = getDepotDetails(idProduit);
+              
+              if (!depot) {
+                return {
+                  success: false,
+                  error: 'Produit introuvable',
+                };
+              }
+              
+              const tarifs = getDepotTarifs(idProduit);
+              
+              return {
+                success: true,
+                produit: {
+                  id_produit: depot.id_produit,
+                  nom_produit: depot.nom_produit,
+                  categorie: depot.categorie,
+                  type_produit: depot.type_produit,
+                  marque: depot.marque ?? null,
+                  modele: depot.modele ?? null,
+                  partenaire: depot.partenaire ?? null,
+                  reference_document: depot.reference_document ?? null,
+                  specifications: depot.specifications ?? null,
+                  couleurs: depot.couleurs ?? [],
+                  segments_cibles: depot.segments_cibles ?? [],
+                  // Pricing
+                  prix_principal: tarifs.prix_principal,
+                  prix_ancien: tarifs.prix_ancien,
+                  reduction_percentage: tarifs.reduction_percentage,
+                  economie_da: tarifs.economie_da,
+                  tarification_options: tarifs.tarification_options,
+                  validite_jours: depot.validite_jours ?? null,
+                  validite_mois: depot.validite_mois ?? null,
+                  // Sales & warranty
+                  canaux_vente: depot.canaux_vente ?? [],
+                  garantie_mois: depot.garantie_mois ?? null,
+                  sav_partenaire: depot.sav_partenaire ?? null,
+                  contact_sav: depot.contact_sav ?? null,
+                  accessoires_inclus: depot.accessoires_inclus ?? [],
+                  couverture_garantie: depot.couverture_garantie ?? [],
+                  sav_procedure: depot.sav_procedure ?? null,
+                  // Additional info
+                  notes: depot.notes ?? [],
+                  avantages: depot.avantages ?? [],
+                  avantages_cles: depot.avantages_cles ?? [],
+                  points_forts: depot.points_forts ?? [],
+                },
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la récupération des détails',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 14: Check Depot Eligibility
+        // =====================================================================
+        checkDepotEligibilityRef: tool({
+          description: 'Vérifie si un utilisateur est éligible à un produit dépôt-vente selon son segment.',
+          inputSchema: z.object({
+            idProduit: z.string().describe("ID du produit à vérifier"),
+            segment: z.string().optional().describe('Segment : PARTICULIERS, PROFESSIONNELS, ETUDIANTS, ENSEIGNANTS, FAMILLES'),
+          }),
+          execute: async ({ idProduit, segment }) => {
+            try {
+              const result = checkDepotEligibility({
+                idProduit,
+                segment,
+              });
+              
+              return {
+                success: true,
+                eligible: result.eligible,
+                reasons: result.reasons,
+                produit_nom: result.depot?.nom_produit ?? null,
+                canaux_vente: result.canaux_vente,
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la vérification d\'éligibilité',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 15: Compare Depots
+        // =====================================================================
+        compareDepotsRef: tool({
+          description: 'Compare plusieurs produits dépôt-vente côte à côte avec prix, garantie et canaux de vente.',
+          inputSchema: z.object({
+            idProduits: z.array(z.string()).describe('Liste des IDs de produits à comparer (ex: ["buzz_6_pro", "zte_blade_a55"])'),
+          }),
+          execute: async ({ idProduits }) => {
+            try {
+              const { comparison } = compareDepotsVente(idProduits);
+              
+              return {
+                success: true,
+                count: comparison.length,
+                comparison,
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la comparaison',
+              };
+            }
+          },
+        }),
+
+        // =====================================================================
+        // TOOL 16: Get Depot SAV & Notes
+        // =====================================================================
+        getDepotSAVRef: tool({
+          description: 'Récupère les infos SAV, garantie, accessoires inclus, avantages et notes pour un produit dépôt-vente.',
+          inputSchema: z.object({
+            idProduit: z.string().describe("ID du produit"),
+          }),
+          execute: async ({ idProduit }) => {
+            try {
+              const savInfo = getDepotSAV(idProduit);
+              const notesInfo = getDepotNotes(idProduit);
+              
+              if (!savInfo.depot) {
+                return {
+                  success: false,
+                  error: 'Produit introuvable',
+                };
+              }
+              
+              return {
+                success: true,
+                produit_nom: savInfo.depot.nom_produit,
+                garantie_mois: savInfo.garantie_mois,
+                sav_partenaire: savInfo.sav_partenaire,
+                contact_sav: savInfo.contact_sav,
+                couverture_garantie: savInfo.couverture_garantie,
+                sav_procedure: savInfo.sav_procedure,
+                accessoires_inclus: savInfo.accessoires_inclus,
+                notes: notesInfo.notes,
+                avantages: notesInfo.avantages,
+                points_forts: notesInfo.points_forts,
+                canaux_vente: notesInfo.canaux_vente,
+              };
+            } catch (error) {
+              return {
+                success: false,
+                error: error instanceof Error ? error.message : 'Erreur lors de la récupération des infos SAV',
               };
             }
           },
