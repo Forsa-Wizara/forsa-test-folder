@@ -336,6 +336,30 @@ export default function Page() {
                 <path d="M9 13v2" />
               </svg>
             </div>
+          )}
+          
+          {messages.map(message => (
+            <div key={message.id} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+              <div className={`max-w-3xl rounded-lg p-4 ${
+                message.role === 'user' 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-zinc-800 text-zinc-100'
+              }`}>
+                {message.role === 'user' && (
+                  <div className="text-sm mb-1 font-medium opacity-70">Vous</div>
+                )}
+                
+                {message.parts.map((part, i) => {
+                  if (part.type === 'text') {
+                    return (
+                      <div key={`${message.id}-${i}`} className="whitespace-pre-wrap">
+                        {part.text}
+                      </div>
+                    );
+                  }
+                  
+                  return renderToolResult(part, message.id, i);
+                })}
             {/* Titre et description */}
             <h1 className="text-3xl md:text-4xl font-bold text-black mb-3">Assistant Algerie Telecom</h1>
             <p className="text-zinc-600 text-lg mb-8">
