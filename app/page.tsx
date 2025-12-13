@@ -408,6 +408,7 @@ export default function Chat() {
                 <li>• "Offres téléphonie pour retraités"</li>
               </ul>
             </div>
+<<<<<<< refs/remotes/origin/master
           )}
           
           {messages.map(message => (
@@ -432,6 +433,77 @@ export default function Chat() {
                   
                   return renderToolResult(part, message.id, i);
                 })}
+=======
+
+            {/* Titre et description */}
+            <h1 className="text-3xl md:text-4xl font-bold text-black mb-3">Assistant Algerie Telecom</h1>
+            <p className="text-zinc-600 text-lg mb-8">
+              Posez vos questions sur les offres, prix, éligibilité et documents requis
+            </p>
+            
+            {/* Lien vers évaluation */}
+            <a 
+              href="/evaluate"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors text-sm font-medium"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Pipeline d'évaluation JSON
+            </a>
+
+            {/* Formulaire de saisie central */}
+            <form
+              onSubmit={(e) => {
+                e.preventDefault()
+                if (input.trim()) {
+                  handleSendMessage(input)
+                }
+              }}
+              className="mb-8"
+            >
+              <div className="relative">
+                <textarea
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" && !e.shiftKey) {
+                      e.preventDefault()
+                      if (input.trim()) {
+                        handleSendMessage(input)
+                      }
+                    }
+                  }}
+                  placeholder="Décrivez votre besoin..."
+                  disabled={isLoading}
+                  rows={1}
+                  className="w-full min-h-[120px] max-h-[300px] resize-none rounded-2xl border-2 border-zinc-300 bg-white px-6 py-4 text-base text-black placeholder:text-zinc-400 focus:outline-none focus:border-black disabled:cursor-not-allowed disabled:opacity-50 transition-colors"
+                />
+                <button
+                  type="submit"
+                  disabled={isLoading || !input.trim()}
+                  className="absolute bottom-4 right-4 h-10 w-10 inline-flex items-center justify-center rounded-full bg-black text-white hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                >
+                  {isLoading ? (
+                    <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full" />
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="w-5 h-5"
+                    >
+                      <path d="m22 2-7 20-4-9-9-4Z" />
+                      <path d="M22 2 11 13" />
+                    </svg>
+                  )}
+                </button>
+>>>>>>> local
               </div>
             </div>
           ))}
