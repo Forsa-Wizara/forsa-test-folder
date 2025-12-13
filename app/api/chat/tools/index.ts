@@ -19,3 +19,13 @@ export {
   checkDepotEligibilityRef,
   compareDepotsRef,
 } from './depot';
+
+// NGBSS tools (procédures système de facturation)
+export {
+  queryNGBSS,
+  getGuideStepByStepTool,
+  listAvailableGuidesTool,
+  fastSearchNGBSSTool,
+  searchByActionTool,
+  searchByMenuTool,
+} from './ngbss';

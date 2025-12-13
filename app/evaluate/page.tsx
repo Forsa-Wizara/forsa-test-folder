@@ -64,12 +64,24 @@ export default function EvaluatePage() {
   return (
     <div className="min-h-screen bg-white dark:bg-zinc-950 p-8">
       <div className="max-w-7xl mx-auto">
-        <h1 className="text-3xl font-bold text-black dark:text-white mb-2">
-          Pipeline d'Évaluation Automatisée
-        </h1>
-        <p className="text-zinc-600 dark:text-zinc-400 mb-8">
-          Traitez vos questions JSON et générez des réponses standardisées
-        </p>
+        <div className="mb-8">
+          <a 
+            href="/"
+            className="inline-flex items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400 hover:text-black dark:hover:text-white transition-colors mb-4"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+              <path d="m12 19-7-7 7-7"/>
+              <path d="M19 12H5"/>
+            </svg>
+            Retour
+          </a>
+          <h1 className="text-3xl font-bold text-black dark:text-white mb-2">
+            Pipeline d'Évaluation Automatisée
+          </h1>
+          <p className="text-zinc-600 dark:text-zinc-400">
+            Traitez vos questions JSON et générez des réponses standardisées
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Colonne Input */}

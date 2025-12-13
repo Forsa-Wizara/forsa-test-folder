@@ -35,7 +35,7 @@ export const queryConventions = tool({
           };
         }
         
-        const { documents } = getRequiredDocumentsLib(conventionId);
+        const docsInfo = getRequiredDocumentsLib(conventionId);
         
         return {
           success: true,
@@ -46,7 +46,9 @@ export const queryConventions = tool({
             aliases: convention.aliases,
             client_type: convention.client_type,
             eligibility: convention.eligibility,
-            documents,
+            // 2 types de documents :
+            documents_nouvelles_demandes: docsInfo.documents_nouvelles_demandes, // Pour nouveaux clients/clients ordinaires
+            documents_basculement: docsInfo.documents_basculement, // Pour anciens clients qui basculent
             offers: convention.offers,
             notes: convention.notes,
           },

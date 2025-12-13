@@ -6,6 +6,7 @@
 import { z } from 'zod';
 import fs from 'fs';
 import path from 'path';
+import { getCurrentLanguage } from './language-context';
 
 // ============================================================================
 // ZOD SCHEMAS & TYPES
@@ -111,16 +112,55 @@ let indexByTechnology: Map<string, OffreReferentiel[]> | null = null;
 let indexByClientType: Map<string, OffreReferentiel[]> | null = null;
 let indexBySegment: Map<string, OffreReferentiel[]> | null = null;
 
+// ============================================================================
+// INVERTED INDEX DATA STRUCTURES - RECHERCHES ULTRA-RAPIDES O(1)
+// ============================================================================
+
+interface InvertedIndexesOffres {
+  // Keyword indexes - ex: "modem offert" -> Set<id_offre>
+  keywords: Map<string, Set<string>>;
+  
+  // Engagement indexes - ex: "0" (sans engagement) -> Set<id_offre>
+  engagementBuckets: Map<string, Set<string>>;
+  
+  // Boolean filters
+  locataireTrue: Set<string>;
+  locataireFalse: Set<string>;
+  conventionneTrue: Set<string>;
+  conventionneFalse: Set<string>;
+  
+  // Type offre index - ex: "OPTION_SUR_ABONNEMENT" -> Set<id_offre>
+  typeOffre: Map<string, Set<string>>;
+  
+  // Price buckets
+  priceBuckets: Map<string, Set<string>>;
+}
+
+let invertedIndexesOffres: InvertedIndexesOffres | null = null;
+
 /**
  * Load offres from JSON file (cached after first load)
+ * Uses the global language context if no language parameter is provided
  */
 export function loadOffres(): OffreReferentiel[] {
-  if (offresCache !== null) {
-    return offresCache;
-  }
-
+  // Récupère la langue depuis le contexte global
+  const language = getCurrentLanguage();
+  
   try {
-    const filePath = path.join(process.cwd(), 'data', 'offres.json');
+    const filename = language === 'ar' ? 'arOffre.json' : 'offres.json';
+    const filePath = path.join(process.cwd(), 'data', filename);
+    
+    // Check if file exists
+    if (!fs.existsSync(filePath)) {
+      console.warn(`⚠️ File ${filename} not found, falling back to offres.json`);
+      const fallbackPath = path.join(process.cwd(), 'data', 'offres.json');
+      const fileContent = fs.readFileSync(fallbackPath, 'utf-8');
+      const rawData = JSON.parse(fileContent);
+      const data = OffresDataSchema.parse(rawData);
+      buildIndexes(data.referentiel_offres);
+      return data.referentiel_offres;
+    }
+    
     const fileContent = fs.readFileSync(filePath, 'utf-8');
     const rawData = JSON.parse(fileContent);
     
@@ -131,7 +171,7 @@ export function loadOffres(): OffreReferentiel[] {
     // Build indexes
     buildIndexes(offresCache);
     
-    console.log(`✅ Loaded ${offresCache.length} offres from JSON`);
+    console.log(`✅ Loaded ${offresCache.length} offres from ${filename}`);
     return offresCache;
   } catch (error) {
     console.error('❌ Error loading offres:', error);
@@ -140,18 +180,33 @@ export function loadOffres(): OffreReferentiel[] {
 }
 
 /**
- * Build all indexes for O(1) lookups
+ * Build all indexes for O(1) lookups + INVERTED INDEXES for ultra-fast searches
  */
 function buildIndexes(offres: OffreReferentiel[]): void {
+  // Existing indexes
   indexById = new Map();
   indexByFamille = new Map();
   indexByTechnology = new Map();
   indexByClientType = new Map();
   indexBySegment = new Map();
   
+  // Initialize inverted indexes
+  invertedIndexesOffres = {
+    keywords: new Map(),
+    engagementBuckets: new Map(),
+    locataireTrue: new Set(),
+    locataireFalse: new Set(),
+    conventionneTrue: new Set(),
+    conventionneFalse: new Set(),
+    typeOffre: new Map(),
+    priceBuckets: new Map(),
+  };
+  
   for (const offre of offres) {
-    // Index by ID
-    indexById.set(offre.id_offre, offre);
+    const offreId = offre.id_offre;
+    
+    // ===== EXISTING INDEXES =====
+    indexById.set(offreId, offre);
     
     // Index by famille
     const familleKey = offre.famille.toUpperCase();
@@ -184,19 +239,128 @@ function buildIndexes(offres: OffreReferentiel[]): void {
       }
       indexBySegment.get(segmentKey)!.push(offre);
     }
+    
+    // ===== INVERTED INDEXES =====
+    
+    // 1. Keywords extraction
+    const keywords = extractOffreKeywords(offre);
+    for (const keyword of keywords) {
+      if (!invertedIndexesOffres.keywords.has(keyword)) {
+        invertedIndexesOffres.keywords.set(keyword, new Set());
+      }
+      invertedIndexesOffres.keywords.get(keyword)!.add(offreId);
+    }
+    
+    // 2. Engagement buckets
+    const engBucket = getEngagementBucket(offre.engagement_mois);
+    if (!invertedIndexesOffres.engagementBuckets.has(engBucket)) {
+      invertedIndexesOffres.engagementBuckets.set(engBucket, new Set());
+    }
+    invertedIndexesOffres.engagementBuckets.get(engBucket)!.add(offreId);
+    
+    // 3. Boolean filters
+    if (offre.locataire === true) {
+      invertedIndexesOffres.locataireTrue.add(offreId);
+    } else if (offre.locataire === false) {
+      invertedIndexesOffres.locataireFalse.add(offreId);
+    }
+    
+    if (offre.conventionne === true) {
+      invertedIndexesOffres.conventionneTrue.add(offreId);
+    } else if (offre.conventionne === false) {
+      invertedIndexesOffres.conventionneFalse.add(offreId);
+    }
+    
+    // 4. Type offre index
+    const typeKey = offre.type_offre;
+    if (!invertedIndexesOffres.typeOffre.has(typeKey)) {
+      invertedIndexesOffres.typeOffre.set(typeKey, new Set());
+    }
+    invertedIndexesOffres.typeOffre.get(typeKey)!.add(offreId);
+    
+    // 5. Price buckets (from tableaux_tarifaires)
+    for (const tableau of offre.tableaux_tarifaires) {
+      for (const ligne of tableau.lignes) {
+        const prix = ligne.tarif_nouveau_da || ligne.tarif_actuel_da;
+        if (prix !== undefined && prix > 0) {
+          const priceBucket = getPriceBucketOffres(prix);
+          if (!invertedIndexesOffres.priceBuckets.has(priceBucket)) {
+            invertedIndexesOffres.priceBuckets.set(priceBucket, new Set());
+          }
+          invertedIndexesOffres.priceBuckets.get(priceBucket)!.add(offreId);
+        }
+      }
+    }
   }
+  
+  console.log(`📊 Inverted indexes offres built:
+    - Keywords: ${invertedIndexesOffres.keywords.size} unique terms
+    - Locataire eligible: ${invertedIndexesOffres.locataireTrue.size} offres
+    - Non locataire: ${invertedIndexesOffres.locataireFalse.size} offres
+    - Conventionne: ${invertedIndexesOffres.conventionneTrue.size} offres
+    - Type offre: ${invertedIndexesOffres.typeOffre.size} types`);
 }
 
 /**
- * Clear cache
+ * Extract searchable keywords from offre fields
  */
-export function clearOffresCache(): void {
-  offresCache = null;
-  indexById = null;
-  indexByFamille = null;
-  indexByTechnology = null;
-  indexByClientType = null;
-  indexBySegment = null;
+function extractOffreKeywords(offre: OffreReferentiel): Set<string> {
+  const keywords = new Set<string>();
+  
+  // Combine all searchable text
+  const allText = [
+    offre.nom_commercial,
+    offre.sous_famille,
+    ...offre.avantages_principaux,
+    ...offre.limitations,
+    ...offre.conditions_particulieres,
+    ...offre.documents_a_fournir,
+    ...offre.notes,
+  ].join(' ').toLowerCase();
+  
+  // Keywords basés sur analyse des données réelles
+  const patterns = [
+    'boost', 'temporaire', 'week-end', 'vendredi', 'samedi',
+    'gaming', 'gamer', 'streaming', 'ping', 'optimisé',
+    'modem', 'offert', 'installation', 'gratuit',
+    'paiement électronique', 'tpe', 'e-paiement',
+    'locataire', 'conventionné', 'sans engagement',
+    'fibre', 'fibre optique', 'ftth', 'adsl', 'vdsl',
+    'débit', 'débit initial', 'débit final',
+    'upload', 'download', 'ratio',
+    'activation', 'espace client', 'my idoom',
+    'attestation', 'résidence', 'cin', 'justificatif',
+  ];
+  
+  for (const pattern of patterns) {
+    if (allText.includes(pattern)) {
+      keywords.add(pattern);
+    }
+  }
+  
+  return keywords;
+}
+
+/**
+ * Get engagement bucket
+ */
+function getEngagementBucket(engagementMois: number | null | undefined): string {
+  if (engagementMois === null || engagementMois === undefined) return 'sans-engagement';
+  if (engagementMois === 0) return 'sans-engagement';
+  if (engagementMois === 12) return '12-mois';
+  if (engagementMois === 24) return '24-mois';
+  return 'autre';
+}
+
+/**
+ * Get price bucket for offres
+ */
+function getPriceBucketOffres(price: number): string {
+  if (price <= 1000) return '0-1000';
+  if (price <= 2000) return '1001-2000';
+  if (price <= 3000) return '2001-3000';
+  if (price <= 4000) return '3001-4000';
+  return '4001+';
 }
 
 // ============================================================================
@@ -306,6 +470,18 @@ function normalizeSegment(term: string): string[] {
   };
   
   return mappings[termLower] || [term.toUpperCase()];
+}
+
+/**
+ * Clear cache
+ */
+export function clearOffresCache(): void {
+  offresCache = null;
+  indexById = null;
+  indexByFamille = null;
+  indexByTechnology = null;
+  indexByClientType = null;
+  indexBySegment = null;
 }
 
 // ============================================================================
@@ -629,4 +805,254 @@ export function listTechnologies(): string[] {
 export function listSegments(): string[] {
   loadOffres();
   return Array.from(indexBySegment?.keys() || []);
+}
+
+// ============================================================================
+// FAST INDEX-BASED SEARCH FUNCTIONS - 100-1000x PLUS RAPIDE
+// ============================================================================
+
+/**
+ * Search offres by keyword (FAST: O(1) lookup)
+ * Ex: searchOffresByKeyword('modem offert') -> instantané
+ */
+export function searchOffresByKeyword(keyword: string): OffreReferentiel[] {
+  loadOffres();
+  
+  if (!invertedIndexesOffres) return [];
+  
+  const keywordLower = keyword.toLowerCase();
+  const offreIds = invertedIndexesOffres.keywords.get(keywordLower);
+  
+  if (!offreIds) return [];
+  
+  return Array.from(offreIds)
+    .map(id => indexById?.get(id))
+    .filter((o): o is OffreReferentiel => o !== undefined);
+}
+
+/**
+ * Search offres by engagement duration (FAST: O(1) lookup)
+ */
+export function searchOffresByEngagement(engagementMois: number | null): OffreReferentiel[] {
+  loadOffres();
+  
+  if (!invertedIndexesOffres) return [];
+  
+  const bucket = getEngagementBucket(engagementMois);
+  const offreIds = invertedIndexesOffres.engagementBuckets.get(bucket);
+  
+  if (!offreIds) return [];
+  
+  return Array.from(offreIds)
+    .map(id => indexById?.get(id))
+    .filter((o): o is OffreReferentiel => o !== undefined);
+}
+
+/**
+ * Search offres by feature flags (FAST: O(1) lookup)
+ */
+export function searchOffresByFeature(feature: {
+  locataire?: boolean;
+  conventionne?: boolean;
+  typeOffre?: string;
+}): OffreReferentiel[] {
+  loadOffres();
+  
+  if (!invertedIndexesOffres) return [];
+  
+  let resultIds: Set<string> | null = null;
+  
+  if (feature.locataire === true) {
+    resultIds = new Set(invertedIndexesOffres.locataireTrue);
+  } else if (feature.locataire === false) {
+    resultIds = new Set(invertedIndexesOffres.locataireFalse);
+  }
+  
+  if (feature.conventionne === true) {
+    const convIds = invertedIndexesOffres.conventionneTrue;
+    resultIds = resultIds
+      ? new Set([...resultIds].filter(id => convIds.has(id)))
+      : new Set(convIds);
+  } else if (feature.conventionne === false) {
+    const nonConvIds = invertedIndexesOffres.conventionneFalse;
+    resultIds = resultIds
+      ? new Set([...resultIds].filter(id => nonConvIds.has(id)))
+      : new Set(nonConvIds);
+  }
+  
+  if (feature.typeOffre) {
+    const typeIds = invertedIndexesOffres.typeOffre.get(feature.typeOffre);
+    if (!typeIds) return [];
+    
+    resultIds = resultIds
+      ? new Set([...resultIds].filter(id => typeIds.has(id)))
+      : new Set(typeIds);
+  }
+  
+  if (!resultIds) return [];
+  
+  return Array.from(resultIds)
+    .map(id => indexById?.get(id))
+    .filter((o): o is OffreReferentiel => o !== undefined);
+}
+
+/**
+ * Combined fast search for offres - intersects multiple indexes
+ */
+export interface FastSearchOffresParams {
+  keyword?: string;
+  famille?: string;
+  technology?: string;
+  segment?: string;
+  locataire?: boolean;
+  conventionne?: boolean;
+  engagementMois?: number | null;
+  typeOffre?: string;
+  maxPrice?: number;
+}
+
+export function fastSearchOffres(params: FastSearchOffresParams): OffreReferentiel[] {
+  loadOffres();
+  
+  if (!invertedIndexesOffres) return [];
+  
+  let candidateIds: Set<string> | null = null;
+  
+  // 1. Keyword filter
+  if (params.keyword) {
+    const keywordIds = invertedIndexesOffres.keywords.get(params.keyword.toLowerCase());
+    if (!keywordIds) return [];
+    candidateIds = new Set(keywordIds);
+  }
+  
+  // 2. Famille filter (use existing index)
+  if (params.famille) {
+    const familleOffres = getOffresByFamille(params.famille);
+    const familleIds = new Set(familleOffres.map(o => o.id_offre));
+    
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => familleIds.has(id)))
+      : familleIds;
+  }
+  
+  // 3. Technology filter
+  if (params.technology) {
+    const techOffres = getOffresByTechnology(params.technology);
+    const techIds = new Set(techOffres.map(o => o.id_offre));
+    
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => techIds.has(id)))
+      : techIds;
+  }
+  
+  // 4. Segment filter
+  if (params.segment) {
+    const segmentOffres = getOffresBySegment(params.segment);
+    const segmentIds = new Set(segmentOffres.map(o => o.id_offre));
+    
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => segmentIds.has(id)))
+      : segmentIds;
+  }
+  
+  // 5. Locataire filter
+  if (params.locataire === true) {
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => invertedIndexesOffres!.locataireTrue.has(id)))
+      : new Set(invertedIndexesOffres.locataireTrue);
+  } else if (params.locataire === false) {
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => invertedIndexesOffres!.locataireFalse.has(id)))
+      : new Set(invertedIndexesOffres.locataireFalse);
+  }
+  
+  // 6. Conventionne filter
+  if (params.conventionne === true) {
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => invertedIndexesOffres!.conventionneTrue.has(id)))
+      : new Set(invertedIndexesOffres.conventionneTrue);
+  } else if (params.conventionne === false) {
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => invertedIndexesOffres!.conventionneFalse.has(id)))
+      : new Set(invertedIndexesOffres.conventionneFalse);
+  }
+  
+  // 7. Engagement filter
+  if (params.engagementMois !== undefined) {
+    const engBucket = getEngagementBucket(params.engagementMois);
+    const engIds = invertedIndexesOffres.engagementBuckets.get(engBucket);
+    if (!engIds) return [];
+    
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => engIds.has(id)))
+      : new Set(engIds);
+  }
+  
+  // 8. Type offre filter
+  if (params.typeOffre) {
+    const typeIds = invertedIndexesOffres.typeOffre.get(params.typeOffre);
+    if (!typeIds) return [];
+    
+    candidateIds = candidateIds
+      ? new Set([...candidateIds].filter(id => typeIds.has(id)))
+      : new Set(typeIds);
+  }
+  
+  // 9. Get offres from IDs
+  let results = candidateIds
+    ? Array.from(candidateIds)
+        .map(id => indexById?.get(id))
+        .filter((o): o is OffreReferentiel => o !== undefined)
+    : loadOffres();
+  
+  // 10. Post-filter by max price (requires checking tableaux_tarifaires)
+  if (params.maxPrice !== undefined) {
+    results = results.filter(offre => {
+      for (const tableau of offre.tableaux_tarifaires) {
+        for (const ligne of tableau.lignes) {
+          const prix = ligne.tarif_nouveau_da || ligne.tarif_actuel_da;
+          if (prix !== undefined && prix > 0 && prix <= params.maxPrice!) {
+            return true;
+          }
+        }
+      }
+      return false;
+    });
+  }
+  
+  return results;
+}
+
+/**
+ * Get statistics about indexed offres
+ */
+export function getOffresIndexStatistics(): {
+  totalOffres: number;
+  keywordsCount: number;
+  locataireEligible: number;
+  conventionneEligible: number;
+  sansEngagement: number;
+  typeOffresCount: number;
+} {
+  loadOffres();
+  
+  if (!invertedIndexesOffres) {
+    return {
+      totalOffres: 0,
+      keywordsCount: 0,
+      locataireEligible: 0,
+      conventionneEligible: 0,
+      sansEngagement: 0,
+      typeOffresCount: 0,
+    };
+  }
+  
+  return {
+    totalOffres: offresCache?.length || 0,
+    keywordsCount: invertedIndexesOffres.keywords.size,
+    locataireEligible: invertedIndexesOffres.locataireTrue.size,
+    conventionneEligible: invertedIndexesOffres.conventionneTrue.size,
+    sansEngagement: invertedIndexesOffres.engagementBuckets.get('sans-engagement')?.size || 0,
+    typeOffresCount: invertedIndexesOffres.typeOffre.size,
+  };
 }

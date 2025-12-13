@@ -1,0 +1,733 @@
+{
+  "referentiel_offres": [
+    {
+      "id_offre": "weekend_boost_fibre",
+      "nom_commercial": "WEEK-END BOOST",
+      "famille": "الإنترنت",
+      "sous_famille": "زيادة_مؤقتة_للتدفق",
+      "technologies": ["FTTH", "Idoom Fibre"],
+      "segments_cibles": ["سكني"],
+      "sous_segments": ["مشتركو_Idoom_Fibre_الخوص"],
+      "client_type": "أفراد B2C",
+      "locataire": false,
+      "conventionne": false,
+      "types_clients_exclus": ["زبائن_مستفيدون_من_اتفاقيات", "زبائن_بصيغة_الإيجار", "مشتركو_Idoom_Fibre_Gamers"],
+      "type_offre": "خيار_على_اشتراك",
+      "engagement_mois": null,
+      "numero_document": "AT/DG/DCMI/DCGP/CQC/SR/V2.0/FR/159/2025",
+      "canaux_activation": ["فضاء الزبون", "تطبيق My Idoom"],
+      "periode_activation": {
+        "type": "أسبوعي",
+        "details": "من الجمعة 00:01 إلى السبت 23:59"
+      },
+      "validite": {
+        "type": "زمنية",
+        "duree_heures": 48
+      },
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 120,
+        "debit_initial_max_mbps": 1000,
+        "debits_final_disponibles_mbps": [240, 480, 600, 1000, 1500]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": null,
+        "ping_optimise": true
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "زيادة مؤقتة في تدفق الإنترنت خلال عطلة نهاية الأسبوع",
+        "الاستفادة من تدفقات عالية جدًا تصل إلى 1.5 جيغابت/ثانية",
+        "مثالي للبث المباشر، الألعاب الإلكترونية والتحميلات المكثفة"
+      ],
+      "limitations": [
+        "العرض غير متاح للمشتركين بتدفق أقل أو يساوي 60 ميغابت/ثانية",
+        "العرض غير متاح للزبائن الخواص المستفيدين من اتفاقيات تفضيلية",
+        "العرض غير متاح لزبائن صيغة الإيجار (Locataire)",
+        "العرض غير متاح لمشتركي Idoom Fibre Gamers"
+      ],
+      "conditions_particulieres": [
+        "خصم من 3 إلى 6 أيام من مدة الاشتراك حسب التدفق المختار",
+        "عدد أيام الخصم يختلف حسب التدفق الأصلي والتدفق النهائي بعد الرفع"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "خصم_الأيام",
+          "unite_prix": "أيام_الخصم",
+          "lignes": [
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 240,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 480,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 600,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 1000,
+              "valeur": 5
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 1500,
+              "valeur": 6
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 480,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 600,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 1000,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 1500,
+              "valeur": 5
+            },
+            {
+              "debit_initial_mbps": 480,
+              "debit_final_mbps": 600,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 480,
+              "debit_final_mbps": 1000,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 480,
+              "debit_final_mbps": 1500,
+              "valeur": 4
+            },
+            {
+              "debit_initial_mbps": 600,
+              "debit_final_mbps": 1000,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 600,
+              "debit_final_mbps": 1500,
+              "valeur": 3
+            },
+            {
+              "debit_initial_mbps": 1000,
+              "debit_final_mbps": 1500,
+              "valeur": 3
+            }
+          ]
+        }
+      ],
+      "produits_associes": [],
+      "modes_paiement": [],
+      "documents_a_fournir": [],
+      "notes": []
+    },
+    {
+      "id_offre": "moohtarif_tpe_prof",
+      "nom_commercial": "MOOHTARIF",
+      "famille": "الإنترنت",
+      "sous_famille": "محترف_TPE_و_مهن_حرة",
+      "technologies": ["ADSL", "VDSL", "FTTH", "Idoom Fibre"],
+      "segments_cibles": ["مهنيون"],
+      "sous_segments": ["مؤسسات_صغيرة_جدًا_TPE", "مهن_حرة"],
+      "client_type": "شركات B2B",
+      "locataire": false,
+      "conventionne": false,
+      "types_clients_exclus": ["وكالات_تأمين_معتمدة"],
+      "type_offre": "اشتراك_إنترنت",
+      "engagement_mois": 12,
+      "numero_document": "AT/DG/DCMI/DCGP/CQC/SR/V3.0/FR/135/2025",
+      "canaux_activation": ["الوكالة التجارية"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 15,
+        "debit_initial_max_mbps": 120,
+        "debits_final_disponibles_mbps": [15, 30, 60, 120, 240, 300, 500, 1200]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": 0.3,
+        "ping_optimise": false
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "تحسين التدفقات ومراجعة الأسعار لفائدة المؤسسات الصغيرة جداً والمهن الحرة",
+        "مكالمات غير محدودة نحو شبكة اتصالات الجزائر عبر عرض Idoom Fixe المرتبط",
+        "إمكانية الحصول على عنوان IP ثابت مقابل 500 دج/شهر",
+        "الاستفادة من أسعار تفضيلية على بعض المعدات والحلول بنظام البيع بالتجزئة (Dépôt-Vente)"
+      ],
+      "limitations": [
+        "عروض VDSL 50 و100 ميغابت/ثانية خاضعة للأهلية التقنية",
+        "تدفق 1.2 جيغابت/ثانية خاضع للأهلية ويتطلب جهاز ONT Wi-Fi 6"
+      ],
+      "conditions_particulieres": [
+        "التزام لمدة 12 شهراً لكل اشتراك جديد",
+        "توفير سرعة رفع تعادل 30% من سرعة التنزيل لزبائن محترف Idoom Fibre بتدفق 30 ميغابت/ثانية فما فوق",
+        "العرض الجديد يلغي ويعوض عرض محترف الحالي"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "اشتراك_ADSL_VDSL",
+          "unite_prix": "دج_للشهر",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2500,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 20,
+              "tarif_actuel_da": 2700,
+              "tarif_nouveau_da": 2650
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 50,
+              "tarif_actuel_da": 2900,
+              "tarif_nouveau_da": 2850
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 100,
+              "tarif_actuel_da": 3100,
+              "tarif_nouveau_da": 3050
+            }
+          ]
+        },
+        {
+          "type_tableau": "اشتراك_Fibre",
+          "unite_prix": "دج_للشهر",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2500,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 30,
+              "tarif_actuel_da": 2700,
+              "tarif_nouveau_da": 2700
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 60,
+              "tarif_actuel_da": 2900,
+              "tarif_nouveau_da": 2900
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 120,
+              "tarif_actuel_da": 3100,
+              "tarif_nouveau_da": 3100
+            },
+            {
+              "debit_initial_mbps": 200,
+              "debit_final_mbps": 240,
+              "tarif_actuel_da": 3300,
+              "tarif_nouveau_da": 3300
+            },
+            {
+              "debit_initial_mbps": 300,
+              "debit_final_mbps": 300,
+              "tarif_actuel_da": 3500,
+              "tarif_nouveau_da": 3500
+            },
+            {
+              "debit_initial_mbps": 500,
+              "debit_final_mbps": 500,
+              "tarif_actuel_da": 4500,
+              "tarif_nouveau_da": 4500
+            },
+            {
+              "debit_initial_mbps": 1000,
+              "debit_final_mbps": 1200,
+              "tarif_actuel_da": 5200,
+              "tarif_nouveau_da": 5200
+            }
+          ]
+        }
+      ],
+      "produits_associes": [
+        {
+          "type_produit": "ONT_FIBRE",
+          "designation": "جهاز ONT FTTH",
+          "tarif_actuel_da_ttc": 14200,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "يمنح الجهاز مجاناً مع تكاليف التركيب لكل اشتراك Idoom Fibre محترف لمدة 3 أشهر أو أكثر"
+          ]
+        },
+        {
+          "type_produit": "INSTALLATION_FIBRE",
+          "designation": "رسوم تركيب FTTH",
+          "tarif_actuel_da_ttc": 6000,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "تمنح تكاليف التركيب مجاناً لكل اشتراك لمدة 3 أشهر أو أكثر"
+          ]
+        }
+      ],
+      "modes_paiement": [
+        "الدفع على مستوى الوكالة",
+        "الدفع الإلكتروني (TPE، الدفع عبر الإنترنت) مع امتيازات إضافية"
+      ],
+      "documents_a_fournir": [
+        "نسخة من وثيقة الهوية",
+        "إثبات عنوان",
+        "وثيقة تثبت الانتماء إلى الفئات المستهدفة (سجل تجاري، بطاقة مهنية، اعتماد، اتفاقية ANSEJ/CNAC/ANGEM، بطاقة جبائية، ...)"
+      ],
+      "notes": [
+        "وكالات التأمين المعتمدة يجب أن تشترك في العرض المهني وليس في عرض محترف",
+        "الزبائن المحترفون الذين يعتمدون الدفع الإلكتروني عبر جهاز TPE يستفيدون من جهاز ONT وتركيب مجاني وفق شروط محددة"
+      ]
+    },
+    {
+      "id_offre": "moohtarif_locataire",
+      "nom_commercial": "MOOHTARIF LOCATAIRE",
+      "famille": "الإنترنت",
+      "sous_famille": "محترف_TPE_و_مهن_حرة_مستأجرين",
+      "technologies": ["ADSL", "VDSL", "FTTH", "Idoom Fibre"],
+      "segments_cibles": ["مهنيون"],
+      "sous_segments": ["TPE", "مهن_حرة_بدون_إثبات_عنوان"],
+      "client_type": "شركات B2B",
+      "locataire": true,
+      "conventionne": false,
+      "types_clients_exclus": [],
+      "type_offre": "اشتراك_إنترنت",
+      "engagement_mois": 12,
+      "numero_document": "AT/DG/DCMI/DCGP/CQC/BI/4.0/FR/160/2025",
+      "canaux_activation": ["الوكالة التجارية"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 15,
+        "debit_initial_max_mbps": 120,
+        "debits_final_disponibles_mbps": [15, 30, 60, 120, 240, 300, 500, 1200]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": 0.3,
+        "ping_optimise": false
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "عرض مخصص للمؤسسات الصغيرة جدًا والمهن الحرة بدون إثبات عنوان",
+        "مكالمات مجانية نحو الخطوط الثابتة لاتصالات الجزائر (PSTN, VOIP, VOLTE)",
+        "اشتراك Idoom Fixe مضمَّن بقيمة 250 دج/شهر",
+        "إمكانية الاستفادة من حلول ومعدات dépôt-vente بأسعار مخفضة حسب الشروط"
+      ],
+      "limitations": [
+        "المكالمات الدولية والمكالمات نحو النقال خاضعة لقيود مع تكلفة شهرية قدرها 50 دج",
+        "تدفق 1.2 جيغابت/ثانية خاضع للأهلية ويتطلب ONT Wi-Fi 6"
+      ],
+      "conditions_particulieres": [
+        "التزام لمدة 12 شهراً مع عدم إمكانية النزول إلى عرض أدنى خلال هذه الفترة",
+        "العرض الجديد يلغي ويعوض عرض MOOHTARIF LOCATAIRE الحالي",
+        "زبون محترف مستأجر لا يمكنه الاستفادة بسعر مخفض على منتجات dépôt-vente إلا مرة واحدة لعرض سرعة ≥ 20 ميغابت/ثانية"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "اشتراك_ADSL_VDSL",
+          "unite_prix": "دج_للشهر",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2800,
+              "tarif_nouveau_da": 2800
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 20,
+              "tarif_actuel_da": 3000,
+              "tarif_nouveau_da": 2950
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 50,
+              "tarif_actuel_da": 3200,
+              "tarif_nouveau_da": 3150
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 100,
+              "tarif_actuel_da": 3400,
+              "tarif_nouveau_da": 3350
+            }
+          ]
+        },
+        {
+          "type_tableau": "اشتراك_Fibre",
+          "unite_prix": "دج_للشهر",
+          "lignes": [
+            {
+              "debit_initial_mbps": 15,
+              "debit_final_mbps": 15,
+              "tarif_actuel_da": 2800,
+              "tarif_nouveau_da": 2800
+            },
+            {
+              "debit_initial_mbps": 20,
+              "debit_final_mbps": 30,
+              "tarif_actuel_da": 3000,
+              "tarif_nouveau_da": 3000
+            },
+            {
+              "debit_initial_mbps": 50,
+              "debit_final_mbps": 60,
+              "tarif_actuel_da": 3200,
+              "tarif_nouveau_da": 3200
+            },
+            {
+              "debit_initial_mbps": 100,
+              "debit_final_mbps": 120,
+              "tarif_actuel_da": 3400,
+              "tarif_nouveau_da": 3400
+            },
+            {
+              "debit_initial_mbps": 200,
+              "debit_final_mbps": 240,
+              "tarif_actuel_da": 3600,
+              "tarif_nouveau_da": 3600
+            },
+            {
+              "debit_initial_mbps": 300,
+              "debit_final_mbps": 300,
+              "tarif_actuel_da": 3800,
+              "tarif_nouveau_da": 3800
+            },
+            {
+              "debit_initial_mbps": 500,
+              "debit_final_mbps": 500,
+              "tarif_actuel_da": 4800,
+              "tarif_nouveau_da": 4800
+            },
+            {
+              "debit_initial_mbps": 1000,
+              "debit_final_mbps": 1200,
+              "tarif_actuel_da": 5500,
+              "tarif_nouveau_da": 5500
+            }
+          ]
+        }
+      ],
+      "produits_associes": [
+        {
+          "type_produit": "ONT_FIBRE",
+          "designation": "جهاز ONT FTTH",
+          "tarif_actuel_da_ttc": 14200,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "جهاز ONT مجاني لكل اشتراك جديد في الألياف لمدة 3 أشهر أو أكثر"
+          ]
+        },
+        {
+          "type_produit": "INSTALLATION_FIBRE",
+          "designation": "رسوم تركيب FTTH",
+          "tarif_actuel_da_ttc": 6000,
+          "tarif_nouveau_da_ttc": null,
+          "conditions": [
+            "رسوم التركيب مجانية لكل اشتراك لمدة 3 أشهر أو أكثر"
+          ]
+        }
+      ],
+      "modes_paiement": [],
+      "documents_a_fournir": [
+        "طلب خطي",
+        "نسخة من بطاقة التعريف الوطنية سارية المفعول",
+        "أي وثيقة يمكن أن تؤكد عنوان التركيب",
+        "إثبات الانتماء إلى إحدى الفئات المستهدفة (سجل تجاري، بطاقة مهنية، ترخيص، اتفاقية ANSEJ/CNAC/ANGEM، بطاقة جبائية، ...)"
+      ],
+      "notes": [
+        "المكالمات الدولية والمكالمات نحو النقال خاضعة لقيود (50 دج/شهر)",
+        "العرض يتضمن اشتراك Idoom Fixe بقيمة 250 دج/شهر مضمَّن في السعر"
+      ]
+    },
+    {
+      "id_offre": "idoom_fibre_gamers",
+      "nom_commercial": "Idoom Fibre Gamers",
+      "famille": "الإنترنت",
+      "sous_famille": "سكني_موجه_للألعاب",
+      "technologies": ["FTTH", "Idoom Fibre"],
+      "segments_cibles": ["سكني"],
+      "sous_segments": ["محبو_الألعاب_الإلكترونية"],
+      "client_type": "أفراد B2C",
+      "locataire": false,
+      "conventionne": false,
+      "types_clients_exclus": [],
+      "type_offre": "اشتراك_إنترنت",
+      "engagement_mois": 12,
+      "numero_document": "AT/DG/DCIM/DCGP/CQC/SR/V5.0/FR/160/2025",
+      "canaux_activation": ["الوكالة التجارية"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": {
+        "debit_initial_min_mbps": 30,
+        "debit_initial_max_mbps": 1200,
+        "debits_final_disponibles_mbps": [60, 120, 240, 480, 600, 1000, 1500]
+      },
+      "caracteristiques_debit": {
+        "upload_ratio": 0.6,
+        "ping_optimise": true
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "تدفقات تصل إلى 1.5 جيغابت/ثانية مهيأة خصيصاً للألعاب الإلكترونية",
+        "سرعة رفع تصل إلى 60% من سرعة التنزيل (حتى 900 ميغابت/ثانية)",
+        "مودم بصري + شهر إنترنت + تكاليف التركيب مجاناً",
+        "تسعيرات تنافسية خاصة بالتدفقات العالية"
+      ],
+      "limitations": [
+        "التدفقات 1 جيغابت و1.5 جيغابت خاضعة للأهلية التقنية",
+        "العرض الجديد يلغي ويعوض عرض Gamers السابق"
+      ],
+      "conditions_particulieres": [
+        "التزام لمدة 12 شهراً لكل اشتراك جديد"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "اشتراك_Fibre_Gamers",
+          "unite_prix": "دج_للشهر",
+          "lignes": [
+            {
+              "debit_initial_mbps": 30,
+              "debit_final_mbps": 60,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "debit_initial_mbps": 60,
+              "debit_final_mbps": 120,
+              "tarif_nouveau_da": 2800
+            },
+            {
+              "debit_initial_mbps": 120,
+              "debit_final_mbps": 240,
+              "tarif_nouveau_da": 3000
+            },
+            {
+              "debit_initial_mbps": 240,
+              "debit_final_mbps": 480,
+              "tarif_nouveau_da": 3400
+            },
+            {
+              "debit_initial_mbps": 300,
+              "debit_final_mbps": 600,
+              "tarif_nouveau_da": 4000
+            },
+            {
+              "debit_initial_mbps": 500,
+              "debit_final_mbps": 1000,
+              "tarif_nouveau_da": 4600
+            },
+            {
+              "debit_initial_mbps": 1200,
+              "debit_final_mbps": 1500,
+              "tarif_nouveau_da": 5200
+            }
+          ]
+        }
+      ],
+      "produits_associes": [],
+      "modes_paiement": [],
+      "documents_a_fournir": [],
+      "notes": [
+        "ينصح المستشار بالترويج للإكسسوارات الموجهة للألعاب (سماعات، لوحات مفاتيح، فأرات، ...) لتعزيز البيع التكميلي"
+      ]
+    },
+    {
+      "id_offre": "kits_branchement_ftth",
+      "nom_commercial": "حزم الربط FTTH",
+      "famille": "معدات",
+      "sous_famille": "حزم_ربط",
+      "technologies": ["FTTH"],
+      "segments_cibles": ["سكني", "مهنيون"],
+      "sous_segments": [],
+      "client_type": "أفراد_وشركات B2C_B2B",
+      "locataire": null,
+      "conventionne": null,
+      "types_clients_exclus": [],
+      "type_offre": "بيع_معدات",
+      "engagement_mois": null,
+      "numero_document": "Mode operatoire de commercialisation des Kits de branchements FTTH interne AR",
+      "canaux_activation": ["الوكالة التجارية", "نقطة الحضور"],
+      "periode_activation": null,
+      "validite": null,
+      "debits_eligibles": null,
+      "caracteristiques_debit": null,
+      "tarification": [],
+      "avantages_principaux": [
+        "تمكين تعويض سريع لحزم الربط الداخلية والخارجية للألياف البصرية",
+        "سعر البيع يشمل الرسوم وتكاليف التركيب"
+      ],
+      "limitations": [
+        "يُستخدم خصوصاً عندما يكون سبب الانقطاع أو التلف ناتجاً عن مسؤولية الزبون",
+        "يجب اقتناء الحزمة في أجل أقصاه 48 ساعة بعد التشخيص"
+      ],
+      "conditions_particulieres": [
+        "إذا لم يقم الزبون باقتناء الحزمة خلال 48 ساعة، يتم غلق تذكرة العطب",
+        "يتم التركيب وإعادة الخدمة خلال مدة أقصاها 48 ساعة بعد اقتناء الحزمة"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "حزمة_داخلية",
+          "unite_prix": "دج_TTC",
+          "lignes": [
+            {
+              "type_kit": "داخلي 10م",
+              "longueur_metres": 10,
+              "tarif_nouveau_da": 1700
+            },
+            {
+              "type_kit": "داخلي 20م",
+              "longueur_metres": 20,
+              "tarif_nouveau_da": 1900
+            },
+            {
+              "type_kit": "داخلي 30م",
+              "longueur_metres": 30,
+              "tarif_nouveau_da": 2100
+            },
+            {
+              "type_kit": "داخلي 40م",
+              "longueur_metres": 40,
+              "tarif_nouveau_da": 2200
+            }
+          ]
+        },
+        {
+          "type_tableau": "حزمة_خارجية",
+          "unite_prix": "دج_TTC",
+          "lignes": [
+            {
+              "type_kit": "خارجي 30م",
+              "longueur_metres": 30,
+              "tarif_nouveau_da": 2150
+            },
+            {
+              "type_kit": "خارجي 50م",
+              "longueur_metres": 50,
+              "tarif_nouveau_da": 2500
+            },
+            {
+              "type_kit": "خارجي 80م",
+              "longueur_metres": 80,
+              "tarif_nouveau_da": 3100
+            }
+          ]
+        }
+      ],
+      "produits_associes": [],
+      "modes_paiement": [],
+      "documents_a_fournir": [],
+      "notes": [
+        "الإجراء التشغيلي يوضح كذلك استمارة التدخل والحقول الواجب ملؤها (تشخيص، مسؤولية، بيانات الزبون، ...)"
+      ]
+    },
+    {
+      "id_offre": "idoom_4g_lte_sans_engagement",
+      "nom_commercial": "Idoom 4G LTE بدون التزام",
+      "famille": "4G",
+      "sous_famille": "سكني_بدون_التزام",
+      "technologies": ["4G", "LTE"],
+      "segments_cibles": ["سكني"],
+      "sous_segments": ["زبائن_جدد", "طلبة_مقيمون_في_الإقامة_الجامعية"],
+      "client_type": "أفراد B2C",
+      "locataire": null,
+      "conventionne": false,
+      "types_clients_exclus": [],
+      "type_offre": "باقة_بيانات_وصوت",
+      "engagement_mois": 0,
+      "numero_document": "Nouvelle offre IDOOM 4G LTE Sans Engagement version arabe 2025",
+      "canaux_activation": [
+        "الوكالة التجارية",
+        "فضاء الزبون",
+        "تطبيق My Idoom",
+        "Baridi-Mob",
+        "Win-paye",
+        "الدفع الإلكتروني"
+      ],
+      "periode_activation": null,
+      "validite": {
+        "type": "زمن/حجم",
+        "duree_jours": 90
+      },
+      "debits_eligibles": null,
+      "caracteristiques_debit": {
+        "upload_ratio": null,
+        "ping_optimise": false
+      },
+      "tarification": [],
+      "avantages_principaux": [
+        "مودم 4G LTE مجاني عند الاشتراك",
+        "حجم 1 تيرابايت مع تدفق غير محدود",
+        "صلاحية 90 يوماً",
+        "مكالمات غير محدودة نحو شبكة اتصالات الجزائر"
+      ],
+      "limitations": [],
+      "conditions_particulieres": [
+        "العرض الجديد يلغي ويعوض جميع عروض IDOOM 4G LTE السابقة",
+        "إمكانية إعادة التعبئة قبل نهاية 90 يوماً مع قابلية تجميع الحجم المتبقي"
+      ],
+      "tableaux_tarifaires": [
+        {
+          "type_tableau": "باقة_وحيدة",
+          "unite_prix": "دج_TTC",
+          "lignes": [
+            {
+              "condition": "الاشتراك في عرض Idoom 4G LTE بيانات وصوت بدون التزام",
+              "volume_to": 1,
+              "validite_jours": 90,
+              "tarif_nouveau_da": 7500
+            }
+          ]
+        }
+      ],
+      "produits_associes": [
+        {
+          "type_produit": "MODEM_4G",
+          "designation": "مودم 4G LTE",
+          "tarif_actuel_da_ttc": null,
+          "tarif_nouveau_da_ttc": 0,
+          "conditions": [
+            "المودم يمنح مجاناً عند الاشتراك في العرض"
+          ]
+        }
+      ],
+      "modes_paiement": [
+        "الوكالة التجارية ونقاط الحضور",
+        "فضاء الزبون",
+        "تطبيق My Idoom",
+        "Baridi-Mob",
+        "Win-paye",
+        "الدفع الإلكتروني",
+        "الموقع الإلكتروني لاتصالات الجزائر"
+      ],
+      "documents_a_fournir": [
+        "وثيقة إثبات إقامة سارية المفعول (أو بطاقة إقامة جامعية للطلبة)",
+        "نسخة من بطاقة الهوية أو جواز السفر"
+      ],
+      "notes": [
+        "العرض موجه للزبائن الخواص الجدد",
+        "جميع العروض القديمة IDOOM 4G LTE ملغاة ومُستبدلة بهذا العرض"
+      ]
+    }
+  ]
+}
