@@ -1,0 +1,841 @@
+{
+  "referentiel_produits_depot_vente": [
+    {
+      "id_produit": "buzz_6_prime_plus",
+      "nom_produit": "باز 6 برايم بلس",
+      "categorie": "هواتف ذكية",
+      "type_produit": "هاتف ذكي",
+      "marque": "BUZZ",
+      "modele": "6 Prime Plus",
+      "partenaire": "شركة ذات المسؤولية المحدودة ACE الجزائر",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/AR/158/2025",
+      "specifications": {
+        "ram_go": 10,
+        "stockage_go": 128,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.7,
+        "camera_mp": "13/5"
+      },
+      "couleurs": ["أسود", "أزرق", "ذهبي"],
+      "segments_cibles": ["خواص", "مهنيون"],
+      "prix_ttc_da": 16800,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "خدمتي",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["غلاف حماية", "شاحن", "كابل", "سماعات", "واقي شاشة"],
+      "couverture_garantie": [
+        "أعطال مادية أو برمجية ذات منشأ أصلي",
+        "استثناء: السقوط، الكسر، الرطوبة/الأكسدة"
+      ],
+      "sav_procedure": {
+        "sous_garantie": "توجيه الزبون إلى وكالة YALIDINE لأجل التشخيص/الإصلاح/الاستبدال",
+        "hors_garantie": "تكفّل مدفوع عبر YALIDINE",
+        "delais_moyens_jours": "يوم +1 للإيداع، حد أقصى يوم +4 للإصلاح، يوم +1 للعودة"
+      },
+      "notes": [
+        "جودة ممتازة مقابل السعر",
+        "سعة تخزين وذاكرة مرتفعة",
+        "تصميم حديث",
+        "خدمة ما بعد البيع مضمونة من طرف ACE/خدمتي"
+      ]
+    },
+    {
+      "id_produit": "buzz_6_pro",
+      "nom_produit": "باز 6 برو",
+      "categorie": "هواتف ذكية",
+      "type_produit": "هاتف ذكي",
+      "marque": "BUZZ",
+      "modele": "6 Pro",
+      "partenaire": "شركة ذات المسؤولية المحدودة ACE الجزائر",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/AR/158/2025",
+      "specifications": {
+        "ram_go": 12,
+        "stockage_go": 128,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.7,
+        "camera_mp": "20/8"
+      },
+      "couleurs": ["أزرق محيطي", "أسود"],
+      "segments_cibles": ["خواص", "مهنيون"],
+      "prix_ttc_da": 18800,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "خدمتي",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["غلاف حماية", "شاحن", "كابل", "سماعات", "واقي شاشة"],
+      "couverture_garantie": [
+        "أعطال مادية أو برمجية ذات منشأ أصلي",
+        "استثناء: السقوط، الكسر، الرطوبة/الأكسدة"
+      ],
+      "sav_procedure": {
+        "sous_garantie": "توجيه الزبون إلى YALIDINE",
+        "hors_garantie": "تكفّل مدفوع عبر YALIDINE",
+        "delais_moyens_jours": "يوم +1 للإيداع، حد أقصى يوم +4 للإصلاح، يوم +1 للعودة"
+      },
+      "notes": ["أداء أعلى مقارنة بنموذج برايم بلس"]
+    },
+    {
+      "id_produit": "buzz_6_pro_plus",
+      "nom_produit": "باز 6 برو بلس",
+      "categorie": "هواتف ذكية",
+      "type_produit": "هاتف ذكي",
+      "marque": "BUZZ",
+      "modele": "6 Pro Plus",
+      "partenaire": "شركة ذات المسؤولية المحدودة ACE الجزائر",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/AR/158/2025",
+      "specifications": {
+        "ram_go": 12,
+        "stockage_go": 256,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.8,
+        "camera_mp": "50/13"
+      },
+      "couleurs": ["أسود", "فضي"],
+      "segments_cibles": ["خواص", "مهنيون"],
+      "prix_ttc_da": 23900,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "خدمتي",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["غلاف حماية", "شاحن", "كابل", "سماعات", "واقي شاشة"],
+      "couverture_garantie": ["أعطال مادية أو برمجية ذات منشأ أصلي"],
+      "sav_procedure": {
+        "sous_garantie": "تكفّل عبر YALIDINE",
+        "hors_garantie": "تكفّل مدفوع عبر YALIDINE"
+      },
+      "notes": [
+        "سعة تخزين مضاعفة (256 جيغا)",
+        "كاميرا بدقة عالية"
+      ]
+    },
+    {
+      "id_produit": "buzz_6_flip",
+      "nom_produit": "باز 6 فليب",
+      "categorie": "هواتف ذكية",
+      "type_produit": "هاتف ذكي قابل للطي",
+      "marque": "BUZZ",
+      "modele": "6 Flip",
+      "partenaire": "شركة ذات المسؤولية المحدودة ACE الجزائر",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/AR/158/2025",
+      "specifications": {
+        "ram_go": 24,
+        "stockage_go": 256,
+        "batterie_mah": 5000,
+        "ecran_pouces": 7.5,
+        "camera_mp": "108/20",
+        "design": "قابل للطي"
+      },
+      "couleurs": ["وردي", "ذهبي", "أسود"],
+      "segments_cibles": ["خواص", "مهنيون"],
+      "prix_ttc_da": 95000,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "خدمتي",
+      "contact_sav": "3075",
+      "accessoires_inclus": ["غلاف حماية", "شاحن", "كابل", "سماعات", "واقي شاشة"],
+      "couverture_garantie": ["أعطال مادية أو برمجية ذات منشأ أصلي"],
+      "notes": [
+        "الهاتف الرائد في مجموعة BUZZ",
+        "ذاكرة RAM بسعة 24 جيغا",
+        "كاميرا بدقة فائقة",
+        "تصميم مبتكر قابل للطي"
+      ]
+    },
+    {
+      "id_produit": "zte_blade_a35",
+      "nom_produit": "زد تي إي بلايد A35",
+      "categorie": "هواتف ذكية",
+      "type_produit": "هاتف ذكي",
+      "marque": "ZTE",
+      "modele": "Blade A35",
+      "partenaire": "شركة ذات المسؤولية المحدودة SACOMI",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/AR/1842025",
+      "specifications": {
+        "ram_go": 4,
+        "ram_dynamic_go": 8,
+        "stockage_go": 64,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.75,
+        "ecran_type": "شاشة HD+ تقنية Live Island",
+        "taux_rafraichissement_hz": 90,
+        "camera_mp": "8/5",
+        "processeur": "SC9863A",
+        "wifi_standard": "Wi-Fi 4"
+      },
+      "couleurs": ["أسود نجمي Starry Black", "أخضر Clover Green"],
+      "segments_cibles": ["خواص", "طلبة"],
+      "prix_ttc_da": 16900,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "SACOMI-SAV عبر YALIDINE",
+      "contact_sav": {
+        "telephone": ["0770 93 40 41", "0560 20 49 60"],
+        "email": "sav.achour@sacomi.com"
+      },
+      "accessoires_inclus": ["غلاف حماية", "شاحن", "كابل", "سماعات", "واقي شاشة"],
+      "couverture_garantie": [
+        "أعطال مادية أو برمجية ذات منشأ أصلي (باستثناء السقوط، الكسر، الأكسدة)"
+      ],
+      "sav_procedure": {
+        "garantie": "إيداع لدى وكالة YALIDINE → تشخيص → إصلاح/استبدال → إعادة الهاتف مجاناً",
+        "hors_garantie": "تشخيص مدفوع + عرض سعر + إصلاح بعد موافقة الزبون + إرجاع الجهاز",
+        "delais": "يوم +1 للإيداع، حد أقصى يوم +4 للإصلاح، يوم +1 للعودة"
+      },
+      "notes": [
+        "أفضل قيمة مقابل السعر",
+        "ذاكرة ديناميكية 8 جيغا",
+        "تصميم حديث"
+      ]
+    },
+    {
+      "id_produit": "zte_blade_a55",
+      "nom_produit": "زد تي إي بلايد A55",
+      "categorie": "هواتف ذكية",
+      "type_produit": "هاتف ذكي",
+      "marque": "ZTE",
+      "modele": "Blade A55",
+      "partenaire": "شركة ذات المسؤولية المحدودة SACOMI",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/AR/1842025",
+      "specifications": {
+        "ram_go": 12,
+        "stockage_go": 128,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.75,
+        "ecran_type": "شاشة HD+ تقنية Live Island",
+        "taux_rafraichissement_hz": 90,
+        "camera_mp": "13/8",
+        "processeur": "SC9863A",
+        "wifi_standard": "Wi-Fi 4"
+      },
+      "couleurs": ["أزرق مائي Water Blue"],
+      "segments_cibles": ["خواص", "مهنيون"],
+      "prix_ttc_da": 19900,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "YALIDINE / SACOMI-SAV",
+      "contact_sav": {
+        "telephone": ["0770 93 40 41", "0560 20 49 60"],
+        "email": "sav.achour@sacomi.com"
+      },
+      "accessoires_inclus": ["غلاف حماية", "شاحن", "كابل", "سماعات", "واقي شاشة"],
+      "couverture_garantie": ["أعطال مادية أو برمجية ذات منشأ أصلي"],
+      "notes": [
+        "ذاكرة RAM مرفوعة إلى 12 جيغا",
+        "كاميرا بزاوية واسعة بدقة 13 ميغابيكسل"
+      ]
+    },
+    {
+      "id_produit": "nubia_v60_design",
+      "nom_produit": "نوبيا V60 ديزاين",
+      "categorie": "هواتف ذكية",
+      "type_produit": "هاتف ذكي فئة عليا",
+      "marque": "ZTE Nubia",
+      "modele": "V60 Design",
+      "partenaire": "شركة ذات المسؤولية المحدودة SACOMI",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/AR/1842025",
+      "specifications": {
+        "ram_go": 16,
+        "stockage_go": 256,
+        "batterie_mah": 5000,
+        "ecran_pouces": 6.6,
+        "ecran_type": "شاشة AMOLED HD+",
+        "taux_rafraichissement_hz": 90,
+        "camera_mp": "50/8",
+        "processeur": "T616",
+        "wifi_standard": "Wi-Fi 5"
+      },
+      "couleurs": ["أزرق داكن"],
+      "segments_cibles": ["مهنيون", "محبو التكنولوجيا"],
+      "prix_ttc_da": 31900,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "garantie_mois": 12,
+      "sav_partenaire": "YALIDINE / SACOMI-SAV",
+      "contact_sav": {
+        "telephone": ["0770 93 40 41", "0560 20 49 60"],
+        "email": "sav.achour@sacomi.com"
+      },
+      "accessoires_inclus": ["غلاف حماية", "شاحن", "كابل", "سماعات", "واقي شاشة"],
+      "couverture_garantie": ["أعطال مادية أو برمجية ذات منشأ أصلي"],
+      "notes": [
+        "الهاتف الرائد من ZTE",
+        "ذاكرة RAM بسعة 16 جيغا",
+        "كاميرا 50 ميغابيكسل عالية الأداء",
+        "Wi-Fi 5",
+        "تصميم عصري جدّاً"
+      ]
+    },
+    {
+      "id_produit": "twin_box_tv",
+      "nom_produit": "توين بوكس",
+      "categorie": "معدات وملحقات متعددة الوسائط",
+      "type_produit": "جهاز تلفاز أندرويد",
+      "marque": "TWIN BOX",
+      "partenaire": "شركة ذات المسؤولية المحدودة COMPNET",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V2.0/AR/189/2025",
+      "specifications": {
+        "os": "Android TV",
+        "stockage_gb": 32,
+        "wifi_standard": "Wi-Fi 5",
+        "fonctionnalites": [
+          "مودم موجه سلكي",
+          "مكرر Wi-Fi",
+          "دعم شريحة DATA من جازي",
+          "دعم بطاقة Idoom 4G LTE للإقامة"
+        ]
+      },
+      "segments_cibles": ["سكني", "عائلات"],
+      "prix_ancien_ttc_da": 15900,
+      "prix_nouveau_ttc_da": 12900,
+      "reduction_percentage": 18.9,
+      "economie_da": 3000,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "disponibilite_sim": "مع أو بدون شريحة DATA",
+      "services_associes": [
+        "منصة TOD (beIN SPORTS، أفلام ومسلسلات)",
+        "Fennec Digital (ألعاب Android TV)",
+        "تطبيق My Idoom",
+        "فضاء الزبون",
+        "منصة Idoom Market",
+        "منصة Dorouscom للتعليم عن بعد",
+        "Esaboura"
+      ],
+      "abonnements_tod": [
+        {
+          "nom": "TOD Mobile",
+          "prix_da": 1000,
+          "appareils": 1,
+          "data_go": 2,
+          "validite_jours": 30
+        },
+        {
+          "nom": "TOD Standard",
+          "prix_da": 2000,
+          "appareils": 5,
+          "ecrans": 1,
+          "data_go": 5,
+          "validite_jours": 30
+        },
+        {
+          "nom": "TOD 4K",
+          "prix_da": 3000,
+          "appareils": 5,
+          "ecrans": 2,
+          "data_go": 15,
+          "validite_jours": 30
+        }
+      ],
+      "abonnements_fennec_digital": [
+        {
+          "type": "يومي",
+          "prix_da": 30,
+          "validite_jours": 1
+        },
+        {
+          "type": "أسبوعي",
+          "prix_da": 150,
+          "validite_jours": 7
+        },
+        {
+          "type": "شهري",
+          "prix_da": 450,
+          "validite_jours": 30
+        }
+      ],
+      "modes_paiement": [
+        "كود *707# عبر جازي",
+        "الدفع الإلكتروني لاتصالات الجزائر (البطاقة الذهبية / CIB)",
+        "الدفع في الوكالة التجارية لاتصالات الجزائر"
+      ],
+      "avantages_cles": [
+        "3 في 1 (Box TV + مودم + مكرر Wi-Fi)",
+        "محتوى حصري عبر TOD وVOD",
+        "خدمات محلية مدمجة",
+        "تخفيض سعري مهم"
+      ],
+      "notes": [
+        "شراكة مع جازي",
+        "متوافق مع شريحة اتصالات الجزائر 4G LTE",
+        "واجهة متعددة اللغات"
+      ]
+    },
+    {
+      "id_produit": "cache_modem_std_8mm",
+      "nom_produit": "غطاء مودم قياسي 8 ملم",
+      "categorie": "إكسسوارات",
+      "type_produit": "غطاء مودم",
+      "format": "قياسي",
+      "materiau": "MDF",
+      "epaisseur_mm": 8,
+      "finitions_disponibles": ["خشب أحمر أمريكي", "زان طبيعي", "أبيض للواجهة"],
+      "segments_cibles": ["خواص", "مهنيون"],
+      "prix_ttc_da": 1850,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر"],
+      "destination_modem": "مودم واحد",
+      "systeme_aeration": "فتحات جانبية وسفلية ظاهرة",
+      "installation": "جاهز للتركيب، سهل التثبيت ومتوافق مع جميع أنواع المودم",
+      "points_forts": [
+        "تصميم عصري",
+        "صناعة محلية",
+        "تهوية فعالة",
+        "تركيب سهل",
+        "جودة مقابل سعر جيد",
+        "متين وصديق للبيئة"
+      ],
+      "reclamations": {
+        "canal": "واتساب أو بريد إلكتروني",
+        "contact": "+213 774 84 28 36 / contact@cozymeubles.com",
+        "documents_requis": [
+          "إيصال الدفع",
+          "صور أو فيديوهات للخلل",
+          "بيانات الاتصال بالزبون"
+        ]
+      },
+      "notes": [
+        "رمز QR على المنتج للوصول إلى فيديو التركيب",
+        "منتج مثالي للبيع التكميلي مع بيع المودم"
+      ]
+    },
+    {
+      "id_produit": "cache_modem_std_grand_8mm",
+      "nom_produit": "غطاء مودم كبير 8 ملم",
+      "categorie": "إكسسوارات",
+      "type_produit": "غطاء مودم",
+      "format": "كبير",
+      "materiau": "MDF",
+      "epaisseur_mm": 8,
+      "finitions_disponibles": ["خشب أحمر أمريكي", "زان طبيعي", "أبيض للواجهة"],
+      "segments_cibles": ["خواص", "مهنيون"],
+      "prix_ttc_da": 3400,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر"],
+      "destination_modem": "مودم واحد + مكرر Wi-Fi",
+      "systeme_aeration": "فتحات جانبية وسفلية ظاهرة",
+      "installation": "جاهز للتركيب",
+      "notes": ["مناسب للتركيبات الأكبر حجماً (مودم + مكرر Wi-Fi)"]
+    },
+    {
+      "id_produit": "cache_modem_premium_18mm",
+      "nom_produit": "غطاء مودم بريميوم قياسي 18 ملم",
+      "categorie": "إكسسوارات",
+      "type_produit": "غطاء مودم",
+      "format": "قياسي بريميوم",
+      "materiau": "MDF",
+      "epaisseur_mm": 18,
+      "finitions_disponibles": ["بيج سونوما", "بني باروك", "باب أبيض لامع"],
+      "segments_cibles": ["خواص فئة بريميوم", "مهنيون"],
+      "prix_ttc_da": 2400,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر"],
+      "destination_modem": "مودم واحد",
+      "systeme_aeration": "فتحات تهوية خلفية وقاعدية غير ظاهرة",
+      "points_forts": [
+        "تشطيبات عالية الجودة",
+        "مظهر فاخر",
+        "تهوية مخفية وأنيقة"
+      ],
+      "notes": ["سلسلة بريميوم من أغطية المودم"]
+    },
+    {
+      "id_produit": "cache_modem_premium_grand_18mm",
+      "nom_produit": "غطاء مودم بريميوم كبير 18 ملم",
+      "categorie": "إكسسوارات",
+      "type_produit": "غطاء مودم",
+      "format": "كبير بريميوم",
+      "materiau": "MDF",
+      "epaisseur_mm": 18,
+      "finitions_disponibles": ["بيج سونوما", "بني باروك", "باب أبيض لامع"],
+      "segments_cibles": ["خواص فئة بريميوم", "مهنيون"],
+      "prix_ttc_da": 4500,
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر"],
+      "destination_modem": "مودم واحد + مكرر Wi-Fi",
+      "systeme_aeration": "فتحات تهوية خفية"
+    },
+    {
+      "id_produit": "classroom_pack_initial",
+      "nom_produit": "كلاساتيك - الباقة الابتدائية",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "منصة تعليمية",
+      "partenaire": "ClassaTeck",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V1.0/FR/196/2025",
+      "segments_cibles": ["أساتذة", "مكوّنون", "مدارس صغيرة"],
+      "specifications": {
+        "nombre_eleves_max": 50,
+        "stockage_go": 2,
+        "cours_en_ligne": 2,
+        "cours_presentiels": 3,
+        "blogs": 10,
+        "pages_perso": 3
+      },
+      "tarification": [
+        {
+          "periode": "شهري",
+          "prix_da": 1500
+        },
+        {
+          "periode": "ثلاثي",
+          "prix_da": 4500
+        },
+        {
+          "periode": "نصف سنوي",
+          "prix_da": 9000
+        },
+        {
+          "periode": "سنوي",
+          "prix_da": 18000
+        }
+      ],
+      "avantages": ["نظام إدارة تعلم متكامل", "واجهة بسيطة", "منصة آمنة"],
+      "notes": ["عرض دخول/تجريبي للبنى الصغيرة"]
+    },
+    {
+      "id_produit": "classroom_pack_essentiel",
+      "nom_produit": "كلاساتيك - الباقة الأساسية",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "منصة تعليمية",
+      "segments_cibles": ["مكوّنون", "مدارس متوسطة الحجم"],
+      "specifications": {
+        "nombre_eleves_max": 300,
+        "stockage_go": 5,
+        "cours_en_ligne": 10,
+        "cours_presentiels": 20,
+        "blogs": 50,
+        "utilisateurs": {
+          "formateurs": 2,
+          "employes": 1,
+          "administrateurs": 1
+        }
+      },
+      "tarification": [
+        {
+          "periode": "شهري",
+          "prix_da": 2600
+        },
+        {
+          "periode": "ثلاثي",
+          "prix_da": 7800
+        },
+        {
+          "periode": "نصف سنوي",
+          "prix_da": 15600
+        },
+        {
+          "periode": "سنوي",
+          "prix_da": 31200
+        }
+      ]
+    },
+    {
+      "id_produit": "classroom_pack_professionnel",
+      "nom_produit": "كلاساتيك - الباقة الاحترافية",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "منصة تعليمية",
+      "segments_cibles": ["مدارس كبرى", "جامعات"],
+      "specifications": {
+        "nombre_eleves_max": 600,
+        "stockage_go": 10,
+        "cours_en_ligne": 25,
+        "cours_presentiels": 30,
+        "blogs": 100,
+        "utilisateurs": {
+          "formateurs": 10,
+          "employes": 3,
+          "administrateurs": 2
+        }
+      },
+      "tarification": [
+        {
+          "periode": "شهري",
+          "prix_da": 3800
+        },
+        {
+          "periode": "ثلاثي",
+          "prix_da": 11000
+        },
+        {
+          "periode": "نصف سنوي",
+          "prix_da": 22800
+        },
+        {
+          "periode": "سنوي",
+          "prix_da": 45600
+        }
+      ]
+    },
+    {
+      "id_produit": "classroom_pack_business",
+      "nom_produit": "كلاساتيك - باقة الأعمال",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "منصة تعليمية",
+      "segments_cibles": ["مؤسسات كبرى", "جامعات", "هيئات ومؤسسات"],
+      "specifications": {
+        "nombre_eleves_max": 1200,
+        "stockage_go": 25,
+        "cours_en_ligne": 40,
+        "cours_presentiels": 50,
+        "blogs": 500,
+        "utilisateurs": {
+          "formateurs": 50,
+          "employes": 6,
+          "administrateurs": 2
+        }
+      },
+      "tarification": [
+        {
+          "periode": "شهري",
+          "prix_da": 5700
+        },
+        {
+          "periode": "ثلاثي",
+          "prix_da": 16700
+        },
+        {
+          "periode": "نصف سنوي",
+          "prix_da": 33200
+        },
+        {
+          "periode": "سنوي",
+          "prix_da": 68400
+        }
+      ]
+    },
+    {
+      "id_produit": "ekoteb_ebook_3mois",
+      "nom_produit": "إيكوتيب - اشتراك 3 أشهر",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "مكتبة رقمية",
+      "partenaire": "دار الأولى",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/BI/V2.0/FR/075/2023",
+      "segments_cibles": ["طلبة", "جامعيون", "باحثون", "قرّاء"],
+      "prix_ttc_da": 1900,
+      "validite_jours": 90,
+      "specifications": {
+        "nombre_livres_disponibles": 5000,
+        "nombre_categories": 22,
+        "ebooks_simultanees": 11,
+        "livres_audio_simultanees": 1,
+        "langue_contenu": "العربية",
+        "langues_interface": ["العربية", "الفرنسية", "الإنجليزية"],
+        "acces_platforms": ["Android", "iOS"],
+        "mode_lecture": "دون اتصال بعد تحميل الكتب"
+      },
+      "categories": [
+        "لغة",
+        "فنون",
+        "بيولوجيا",
+        "اقتصاد",
+        "كتب الأطفال",
+        "طبخ",
+        "صحة",
+        "تاريخ",
+        "علوم",
+        "رياضة",
+        "فلسفة",
+        "علم النفس",
+        "قانون"
+      ],
+      "fonctionnalites": [
+        "محرك بحث",
+        "تعديل حجم الخط",
+        "تخصيص الخلفية",
+        "إضافة علامات مرجعية",
+        "قاموس مدمج"
+      ],
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "acces": "رمز قسيمة + تطبيق الهاتف",
+      "contact_support": {
+        "email": "contacte@dareloula.com",
+        "telephone": ["0770559871", "0770873420"]
+      },
+      "notes": ["الولوج عبر التطبيق فقط (دون نسخة ويب)"]
+    },
+    {
+      "id_produit": "ekoteb_ebook_6mois",
+      "nom_produit": "إيكوتيب - اشتراك 6 أشهر",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "مكتبة رقمية",
+      "partenaire": "دار الأولى",
+      "prix_ttc_da": 3000,
+      "validite_jours": 180,
+      "specifications": {
+        "nombre_livres_disponibles": 5000,
+        "ebooks_simultanees": 11,
+        "livres_audio_simultanees": 1
+      }
+    },
+    {
+      "id_produit": "ekoteb_ebook_12mois",
+      "nom_produit": "إيكوتيب - اشتراك 12 شهراً",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "مكتبة رقمية",
+      "partenaire": "دار الأولى",
+      "prix_ttc_da": 4500,
+      "validite_jours": 365,
+      "specifications": {
+        "nombre_livres_disponibles": 5000,
+        "ebooks_simultanees": 11,
+        "livres_audio_simultanees": 1
+      },
+      "avantages": ["أفضل قيمة سنوية", "ولوج مستمر طوال السنة"]
+    },
+    {
+      "id_produit": "dorouscom_carte_recharge",
+      "nom_produit": "بطاقة تعبئة دروسكم",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "بطاقة تعبئة / قسيمة",
+      "partenaire": "منصة Dorouscom",
+      "reference_document": "AT/DG/DCMI/DCGP/CQC/SR/V1.0/AR/188/2025",
+      "segments_cibles": ["تلاميذ", "طلبة", "أولياء", "مدارس خاصة"],
+      "plateforme": "www.dorouscom.com",
+      "specifications": {
+        "code_longueur": 16,
+        "validite_avant_activation": "غير محدودة",
+        "type_contenu": "أكثر من 2000 فيديو تعليمي",
+        "nombre_enseignants": 200,
+        "niveaux": ["ابتدائي", "متوسط", "ثانوي"],
+        "programmes": "مطابقة للبرنامج الوطني الجزائري"
+      },
+      "types_abonnement": [
+        {
+          "type": "دروس مباشرة (Live)",
+          "periodicite": "شهري"
+        },
+        {
+          "type": "دروس مسجّلة",
+          "periodicite": ["شهري", "ثلاثي", "سنوي"]
+        },
+        {
+          "type": "دورات مكثفة (Dawra)",
+          "duree_mois": 12
+        }
+      ],
+      "cumulabilite": "نعم، يمكن جمع عدة بطاقات",
+      "solde_restant": "الرصيد المتبقي يبقى متاحاً لاستعمال لاحق",
+      "politique_remboursement": {
+        "0_7_jours_non_active": "قابلة للاسترجاع",
+        "7_30_jours_non_active": "قابلة للاسترجاع",
+        "plus_30_jours_ou_active": "غير قابلة للاسترجاع",
+        "exception": "إذا تم التفعيل في أقل من 7 أيام يمكن تعديل المستوى/السنة/المادة/الأستاذ"
+      },
+      "canaux_vente": ["الوكالات التجارية لاتصالات الجزائر", "منصة Idoom Market"],
+      "acces": "رمز مكوّن من 16 رقماً + الدخول إلى موقع www.dorouscom.com",
+      "contact_support": {
+        "telephone": "0699320999",
+        "website": "www.dorouscom.com"
+      },
+      "avantages_principaux": [
+        "محتوى مطابق للمناهج الوطنية",
+        "أكثر من 2000 فيديو تعليمي",
+        "أكثر من 200 أستاذ",
+        "مرونة بين الدروس المباشرة والمسجّلة",
+        "حل مناسب للعائلات من حيث الكلفة"
+      ]
+    },
+    {
+      "id_produit": "moalim_pack_jmchallenge_annuel",
+      "nom_produit": "مُعَلِّم - باقة J’Mchallenge السنوية",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "منصة دعم مدرسي",
+      "partenaire": "Inkidia",
+      "reference_document": "AT/DG/DMCC/DCGP/CQC/KM/V3/AR/059/2023",
+      "segments_cibles": ["تلاميذ الابتدائي", "تلاميذ المتوسط", "تلاميذ الثانوي"],
+      "prix_ttc_da": 2000,
+      "validite_mois": 12,
+      "type_contenu": "فوق/خارج برنامج المدرسة (أنشطة وتحديات تربوية)",
+      "specifications": {
+        "activites_adaptatives": 12,
+        "basee_sur": "الذكاء الاصطناعي",
+        "conception": "إعداد من طرف 50 أستاذاً و10 مطورين بيداغوجيين",
+        "apprentissage": "التعلم عبر الخطأ",
+        "disponibilite": "متوفر 24 ساعة / 24، 7 أيام / 7"
+      },
+      "niveaux_cibles": [
+        "السنة الخامسة ابتدائي 5AP",
+        "من 1AM إلى 4AM (متوسط)",
+        "من 1AS إلى 3AS (ثانوي – شعبة علمية)"
+      ],
+      "avantages": [
+        "تكلفة أقل بـ10 مرات من الدروس الخصوصية",
+        "توفر كامل للمحتوى 24/7",
+        "تعزيز الثقة بالنفس والاستقلالية",
+        "متابعة أبويّة بدون ضغط"
+      ],
+      "acces": {
+        "methode": "اقتناء قسيمة (Voucher) في وكالة اتصالات الجزائر",
+        "inscription": "عبر موقع www.inkidia.com.dz",
+        "plateformes": ["حاسوب مكتبي", "حاسوب محمول", "جهاز لوحي"]
+      },
+      "notes": ["الاستخدام عبر الهاتف الذكي غير مستحسن"]
+    },
+    {
+      "id_produit": "moalim_pack_jmevalue_langues_annuel",
+      "nom_produit": "مُعَلِّم - باقة J’Mévalue لغات سنوية",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "منصة دعم مدرسي",
+      "partenaire": "Inkidia",
+      "prix_ttc_da": 4900,
+      "validite_mois": 12,
+      "type_contenu": "تقييم مستمر",
+      "specialisation": "لغات",
+      "langues_disponibles": ["العربية", "الفرنسية", "الإنجليزية"],
+      "basee_sur": "الذكاء الاصطناعي والبيداغوجيا التكيفية"
+    },
+    {
+      "id_produit": "moalim_pack_jmevalue_sciences_annuel",
+      "nom_produit": "مُعَلِّم - باقة J’Mévalue علوم سنوية",
+      "categorie": "حلول التعليم الإلكتروني",
+      "type_produit": "منصة دعم مدرسي",
+      "partenaire": "Inkidia",
+      "prix_ttc_da": 4900,
+      "validite_mois": 12,
+      "type_contenu": "تقييم مستمر",
+      "specialisation": "علوم",
+      "matieres_disponibles": ["الرياضيات", "الفيزياء", "العلوم الطبيعية"],
+      "basee_sur": "الذكاء الاصطناعي والبيداغوجيا التكيفية"
+    },
+    {
+      "id_produit": "idoom_market_plateforme",
+      "nom_produit": "Idoom Market - منصة التجارة الإلكترونية",
+      "categorie": "خدمات رقمية",
+      "type_produit": "منصة تجارة إلكترونية",
+      "reference_document": "AT/DG/DMCC/DCGP/CQC/LN/V1.0/AR/058/2023",
+      "segments_cibles": ["خواص", "مؤسسات"],
+      "url_plateforme": "idoomarket-at.dz",
+      "specifications": {
+        "type_produits": "منتجات وخدمات بنظام الوكالة–البيع عبر اتصالات الجزائر",
+        "modalites": [
+          "اختيار المنتجات عبر الإنترنت",
+          "الدفع الإلكتروني",
+          "التوصيل إلى العنوان المختار"
+        ],
+        "suivi": "متابعة الشحنة برقم تتبع (Tracking Number)"
+      },
+      "procedure_achat": [
+        "الولوج إلى المنصة",
+        "إنشاء حساب/تسجيل الدخول",
+        "اختيار المنتجات",
+        "الدفع الإلكتروني",
+        "متابعة الطلب برقم التتبع"
+      ],
+      "livraison": {
+        "statut": "خدمة مدفوعة",
+        "operateur": "شركة متخصصة في التوصيل",
+        "affichage": "آجال وكلفة التوصيل تظهر عند تأكيد الطلب"
+      },
+      "politique_retour": {
+        "delai_signalement": "96 ساعة عمل للتقدم إلى الوكالة التجارية (ACTEL) مع المنتج",
+        "lieu": "الوكالة التجارية لاتصالات الجزائر (ACTEL)",
+        "remboursement_conditions": [
+          "تجاوز أجل التسليم المتفق عليه",
+          "منتج معيب أو غير مطابق (يُرجع خلال 96 ساعة عمل)"
+        ],
+        "delai_remboursement_max_jours": 15,
+        "remplacement_possible": "نعم في حالة المنتَج المعيب أو غير المطابق"
+      },
+      "avantages": [
+        "تشكيلة واسعة من المنتجات",
+        "دفع إلكتروني آمن",
+        "تنظيم خدمة التوصيل",
+        "خدمة زبائن مرافِقة"
+      ]
+    }
+  ]
+}

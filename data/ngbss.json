@@ -1,0 +1,407 @@
+{
+  "Procédures_NGBSS": [
+    {
+      "Titre_Procedure": "Encaissement des factures payées au niveau de bureau de Poste",
+      "Source_Documents": [
+        "Encaissement des factures payées au niveau de bureau de poste.pdf",
+        "Guide NGBSS Encaissement des factures payées au niveau de bureau de poste.pdf"
+      ],
+      "Étapes": [
+        {
+          "Titre": "Recherche et Saisie",
+          "Instructions": [
+            "Cliquer sur « paiement » [1, 2]",
+            "Saisir le MSISDN [1, 2]",
+            "Cliquer sur << Rechercher >>> [1, 2]"
+          ]
+        },
+        {
+          "Titre": "Choix du Mode de Paiement et Description",
+          "Instructions": [
+            "1-Choisir le mode de paiement (Espèce, Chèque) [3, 4]",
+            "2-Dans la Description Saisir le bureau de Poste et la date Effective de paiement Au niveau de bureau de poste [3, 4]"
+          ],
+          "Détails_Paiement_Exemple": [
+            "Montant due 2 877,44 DA [5, 6]",
+            "Méthode de paiement Espèce [7, 8]",
+            "Montant 2 877,44 DA [7, 8]",
+            "Montant des droits de timbre 29,00 DA [7, 8]",
+            "Montant du paiement total 2 906,44 DA [7, 8]",
+            "Description Bureau de Poste Baba Hassen le 04-12-2018 [7, 8]",
+            "Montant restant 0,00 DA [7, 8]"
+          ]
+        },
+        {
+          "Titre": "Soumission et Confirmation",
+          "Instructions": [
+            "3-Cliquer sur <<< Soumettre » [7, 8]",
+            "Cliquer sur « Confirmer » [9, 10]"
+          ]
+        }
+      ]
+    },
+    {
+      "Titre_Procedure": "Enregistrement et encaissement Facture complémentaire TVA 2%",
+      "Source_Documents": [
+        "Facture complémentaire TVA 2%.pdf",
+        "Guide NGBSS Facture complémentaire TVA 2%.pdf"
+      ],
+      "Partie_Enregistrement_Ajustement": [
+        {
+          "Instructions_Générales": "Pour enregistrer Une facture Complémentaire TVA 2% Cliquer sur : Comptes Débiteurs -> Enregistrement Facture complémentaire TVA 2% [11, 12]",
+          "Détails_Ajustement": [
+            "Cliquer sur : « Prépaiement » [13, 14]",
+            "<< Saisir ND » [13, 14] et Cliquer sur <<< Rechercher » [15, 16]",
+            "Sélectionner: 1-Niveau de compte, 2-Les notes de débit, 3-Raison, 4-le cycle de facturation [15, 16]",
+            "Dans la description Introduire le Commentaire : Facture complémentaire TVA 2% [17, 18]",
+            "Saisir le montant à forcer [17, 18]",
+            "Cliquer sur : << Soumettre » [19, 20]",
+            "Cliquer sur : << Confirmer » [21, 22]",
+            "L'ajustement (forcement) a été effectué avec succès [23, 24]",
+            "Cliquer sur : << D'Accord» [24]"
+          ],
+          "Informations_Ajustement_Exemple": [
+            "Montant demandé * 70 DA [19, 20]",
+            "Montant net ajusté (hors TVA) 70,00 DA [19, 20]",
+            "Montant d'ajustement total(TVA inclus) 70,00 DA [19, 20]",
+            "Description Facture complémentaire TVA 2% [20, 23]",
+            "Code de compte 16828616100002 [25]",
+            "date D'Échéance 11/01/2019 [23, 25]"
+          ]
+        }
+      ],
+      "Partie_Encaissement": [
+        {
+          "Instructions_Générales": [
+            "Cliquer sur : Comptes Débiteurs -> Encaissement Facture complémentaire TVA 2% [26]",
+            "Puis Paiement [27]"
+          ],
+          "Détails_Encaissement": [
+            "Saisir le ND [28]",
+            "Choisir le mode de paiement Et Dans la description Introduire le Commentaire : << Facture complémentaire TVA 2% » [28]",
+            "Cliquer sur : <<< Soumettre » [29]",
+            "Cliquer sur << Confirmer » [30]",
+            "Paiement réussi. Vous pouvez afficher les informations de transaction sur la page des journaux de transactions. Pour inverser le paiement, allez à la page de paiement d'inversion. [31, 32]",
+            "Cliquer sur « Imprimer » [31]"
+          ],
+          "Informations_Paiement_Exemple": [
+            "Code de compte 16828616100002 [33]",
+            "Montant due 70,00 DA [33]",
+            "Méthode de paiement Espèce [29]",
+            "Montant 70,00 DA [29]",
+            "Montant des droits de timbre 5,00 DA [29]",
+            "Montant du paiement total 75,00 DA [29]"
+          ]
+        }
+      ]
+    },
+    {
+      "Titre_Procedure": "Création enquête PSTN et la Gestion d’ordre",
+      "Source_Documents": [
+        "Guide NGBSS Création enquête PSTN et la Gestion d’ordre.pdf"
+      ],
+      "Création_Enquête_PSTN": [
+        {
+          "Instructions": [
+            "Pour créer une Enquête PSTN Cliquer sur : << Client >> Puis << Créer une nouvelle Enquête >> [34]",
+            "Cliquer sur : << Ajouter une Nouvelle enquête » [35]",
+            "Cliquer sur : Type d'enquête pour choisir une des opérations: 1-Enquête pour Nouvel abonné, 2-Enquête pour Déménagement, 3-Enquête pour Changement d'offre [36]",
+            "Cliquer sur La loupe pour Choisir l'offre primaire adéquate [37]",
+            "1-<< PSTN >> Puis 2-Sélectionner L'offre primaire 3-Confirmer [38, 39]",
+            "Cliquer sur « Confirmer » [40]",
+            "1-Cocher l'enquête [41]",
+            "2-Remplir les informations de l'adresse [41]",
+            "3-Saisir le N° Mobile Et la date [41]",
+            "4-cliquer sur << confirmer L' enquête » [41]",
+            "L'enquête est enregistrée et sera étudiée manuellement Par le CMP [42]"
+          ],
+          "Exemple_Offre_Primaire": "MIXTEAbonnement IDOOM FIXE [39, 41]",
+          "Informations_Client_Exemple": [
+            "Nom KOURDANI, Prénom Djamel [43]",
+            "Date de naissance 03/06/1970 [43]",
+            "Adresse domicile: Pays ALGÉRIE, Wilaya Annaba, Commune ANNABA, Rue Cite Bouhdid, Num maison. RESIDENCE EL ANEB 176 LOGTS,A1 05 [44, 45]"
+          ]
+        }
+      ],
+      "Consultation_et_Conversion_Ordres": [
+        {
+          "Instructions": [
+            "Pour consulter Le résultat de L'enquête Cliquer sur : << Gestion d'ordre» -> << Consultation des Ordres des enquête » [42, 46]",
+            "Sélectionner <<< Consultation des Ordres des Enquête normales » [46]",
+            "Remplir les autres Champs de recherche si nécessaire [46]",
+            "Cliquer sur << Rechercher >>> [47]",
+            "L'enquête est Réalisable Cliquer sur << convertir >>>> Pour continuer les autres étapes [47]",
+            "1-Si le résultat de l'enquête est << Succès >> cliquer sur « Convertir » pour continuer votre création abonné [48]",
+            "2- Si vous trouvez << Succès » dans << Convertir le résultat >>> Et le bouton « Convertir » grisé c'est à dire que vous avez déjà pris en charge l'enquête [49, 50]"
+          ],
+          "Conversion_Enquête_Résultat": [
+            "ID d'ordre du client 3586229714, État d'ordre Complété, Résultat Succès [51]",
+            "Cocher << Spécial » Puis Cliquer sur : <<Plus de condition >> [52]",
+            "Cocher sur : « général » [53]",
+            "NB: intervalle d'une semaine Pour la recherche [54]"
+          ],
+          "Modification_Enquête_Échec_OSS": [
+            "Si la réponse OSS est « Négative »: 1-Cliquer sur << Modifier >>, 2-faire la modification (offre primaire ou Adresse), Puis cliquer sur Soumettre [55]",
+            "Cliquer sur << Redispatch » Pour renvoyer L'enquete à L'OSS [55]",
+            "Si lors de la création on a utilisé << l'enquete en attente » on clique sur « Continue » pour envoyer l'enquete pour étude vers l'OSS [56, 57]",
+            "Si on veut annuler une enquête cliquer sur << Annuler la commande » [57]"
+          ]
+        }
+      ]
+    },
+    {
+      "Titre_Procedure": "Création nouveau Pack IDOOM Fibre (VOIP et FTTH)",
+      "Source_Documents": [
+        "Guide NGBSS Création nouveau Pack IDOOM Fibre (1).pdf"
+      ],
+      "Préambule_Frais": [
+        "La création VOIP se fait normalement [58]",
+        "Pour le FTTH la seule différence et qu'on choisit l'offre primaire sans ajouter d'offre supplémentaire [58]",
+        "La recharge FTTH se fera après la mise en service si le client le souhaite [59]",
+        "Les frais d'accès seront désormais : Modem Optique ONT +Accès Internet à très haut débit +Accès à la téléphonie Fixe = 4999 DA TTC ; Frais d'installation+ Frais de raccordement + Prise Optique = 2000 DA TTC [59]"
+      ],
+      "Création_VOIP": [
+        "Cliquer sur << VOIP Sale » et choisir l'offre primaire [59]",
+        "Remplir les << Information de base » [60]",
+        "Cliquer sur « Plus d'offres » et choisir les offres demandées par le client [61]",
+        "Cliquer sur << Plus de ressources » et choisir l'ONT ensuite cliquer sur « synchroniser avec ONT » [62]",
+        "Cliquer sur << Continuer » [63]",
+        "Cliquer sur « Ajoute plus» [63]",
+        "Cliquer sur << FTTX Sale » [64]"
+      ],
+      "Création_FTTH_et_Recharge": [
+        "Dans << Offre » pas besoin d'ajouter l'offre supplémentaire [65]",
+        "Après que l'ordre soit « complété », l'état de l'abonné FTTH est « Inactif » [66]",
+        "Pour la recharge FTTH cliquer sur « offre » ensuite sur « Gestion de la validité des offres prépayées » [67]",
+        "1- Cliquer sur « Nouveau » [68]",
+        "2- « Offre supplémentaire » est donnée d’office selon l'offre primaire choisie auparavant [68]",
+        "3- Sur la liste déroulante « No de mois » sélectionner le nombre de cycles ensuite cliquer sur << suivant >> [68]",
+        "Cliquer sur << Soumettre & paiement » [69]"
+      ]
+    },
+    {
+      "Titre_Procedure": "Edition facture duplicata",
+      "Source_Documents": [
+        "Guide NGBSS Edition facture duplicata.pdf"
+      ],
+      "Étapes": [
+        "Pour éditer La facture Duplicata Cliquer sur : << Compte >>> Puis <<< Réimpression de facture >>> Puis <<< rechercher >>>> [70]",
+        "Cocher la facture [71]",
+        "Cliquer sur <<< Suivant >> [71]",
+        "Cliquer sur : Soumettre Et paiement [72]",
+        "Cliquer sur : « >> (pour confirmer) [73]",
+        "Si le client a des frais impayés (Code d'erreur 1211000474) [74]",
+        "Cliquer sur : <<<< Le lien >>>> (pour télécharger l'URL de téléchargement du fichier de facture) [75, 76]"
+      ],
+      "Informations_Facture_Exemple": [
+        "Code du compte 14188924100001 [70]",
+        "Facture N : B070955150 [71, 77]",
+        "URL de téléchargement du fichier de facture AT_10000041889241_94_20181112_762000000036474657.pdf [76]"
+      ]
+    },
+    {
+      "Titre_Procedure": "Gestion Ligne temporaire",
+      "Source_Documents": [
+        "Guide NGBSS Ligne temporaire.pdf"
+      ],
+      "Définition_Cas_et_Catégories": [
+        "La ligne temporaire est idéale lorsque vous devez disposer d'une ligne pour une courte durée par exemple: lors des élections ou examens [78]",
+        "Il y'a trois cas pris en compte : 1- Création d'une nouvelle ligne temporaire; 2- Prolongation de la durée; 3- Modification d'une ligne temporaire vers ligne permanente [78]",
+        "Catégories éligibles: Service public (Code 4), Ministére (Code 28), Administration & organisme (Code 301), Collectivité locale (Code 29), Ecole (Code 30), Ambassade (Code 32), Conventionné DGSN (Code 6), Conventionné MICL (Code 45), Conventionné école primaire (Code 48), Service public à convention (Code 61) [79]"
+      ],
+      "Création_par_Vente_Individuel": [
+        "Cliquer sur << Vente individuel » [80]",
+        "1- Choisir le << Type » ; 2- Dans « Clé de Recherche » inscrire temporaire ensuite rechercher; 2- Choisir l'offre primaire après cliquer sur « Pour en savoir » [81]",
+        "1- Remplir << Nouvelle adresse»; 2- Cliquer sur « consultation des ressources OSS » ensuite sur « Continuer » [82]",
+        "Remplir << Information de base » [83]",
+        "Dans « Offre » cliquer sur « Attribut d'offre » (bouton vert) [84]",
+        "Dans la liste déroulante « Subscription Cycle » choisir le nombre de cycle ( la durée ) [85]",
+        "Cliquer sur << OK » pour confirmer [86]",
+        "1-Remplir << Information de réservation »; 2-Cliquer sur « Continuer » [86, 87]",
+        "Cliquer sur << Payer maintenant » [87]",
+        "Premier mode de paiement << Paiement sur place >>> : Cliquer sur << Soumettre & paiement » [88, 89]",
+        "Deuxième mode de paiement << Ajout sur compte >>> : 1- Cocher sur << Mode de paiement »; 2- Dans la liste déroulante << Type de chargement » choisir << Ajout sur compte »; 3- Cliquer sur << Soumettre & paiement » [90, 91]"
+      ],
+      "Prolongation_Durée": [
+        "1- Cliquer sur « Offre » ; 2- Ensuite sur « Gestion de la validité des offres temporaires » [92]",
+        "Cliquer sur << Renouveler » [93]",
+        "1- Dans la liste déroulante « No. De mois » choisir le nombre de cycle; 2- Cliquer sur « Suivant » [94]",
+        "Cliquer sur << Soumettre & paiement » [95]"
+      ],
+      "Modification_Vers_Permanente": [
+        "Cliquer sur << Changement d'offre » [96]",
+        "Cliquer sur « Sélectionner une offre primaire » [97]",
+        "1- Cocher sur l'offre primaire; 2- Ensuite sur « Mode effective » choisir « Cycle suivant »; 3- Cliquer sur « Confirmer » [98]",
+        "Cliquer sur << Suivant » [99]",
+        "Cliquer sur << Soumettre & paiement » [100]"
+      ]
+    },
+    {
+      "Titre_Procedure": "Recharge par Bon de commande - Complément",
+      "Source_Documents": [
+        "Guide NGBSS Recharge par bon de commande - complément.pdf"
+      ],
+      "Prérequis": [
+        "Le bon de commande doit être enregistré dans un abonné prépayé [101]",
+        "Relation de paiement dans le groupe est « Paiement complet » [102, 103]"
+      ],
+      "Étapes": [
+        "Dans la liste déroulante on choisit le compte de l'abonné concerné [104]",
+        "Cliquer sur << Soumettre & paiement » [105]",
+        "Le paiement par « Bon de Commande » apparait [106, 107]"
+      ],
+      "Mode_Paiement_Exemple": "Méthode de paiement: Bon De Command [107]"
+    },
+    {
+      "Titre_Procedure": "Réactivation Abonné 4G LTE",
+      "Source_Documents": [
+        "Guide NGBSS Réactivation Abonné 4G LTE 1.pdf"
+      ],
+      "Condition": "Pour réactiver Un abonné 4G LTE à l'état << Pré-désactivé » [108]",
+      "Étapes": [
+        "Cliquer sur : << Abonné » -> <<Réactivation D'abonné » [109]",
+        "Cliquer sur <<< suivant >> [110]",
+        "Cliquer sur << Soumettre & Paiement >> [111]",
+        "Cliquer sur « OK » (Confirmer) [112]",
+        "Cliquer sur <<< Paiement >> Puis « OK » [113, 114]",
+        "Cliquer sur << Aperçu d'impression AT » Pour éditer le reçu de paiement [114]",
+        "NB: Juste après l'activation, le client doit recharger son compte 4G LTE avant la fin de la journée [115]"
+      ],
+      "Informations_Frais_Exemple": [
+        "Nom Charge Type de chargement: Réactivation d'abonnés Paiement sur place [116]",
+        "prix original 100,00DA [116]",
+        "Droit de timbre 5,00DA [114]",
+        "Total net à payer : 105,00 [117]"
+      ]
+    },
+    {
+      "Titre_Procedure": "Ventes par lot",
+      "Source_Documents": [
+        "Guide NGBSS Vente par Lot_V2.pdf"
+      ],
+      "Changement_Article_Ressource": [
+        "1-Cliquer sur « Inventaire»; 2-Puis sur << Changer un article de ressource» [118]",
+        "Choisir la méthode voulu par «rang, liste ou fichier » [118]",
+        "Par rang: 1-Introduire sur « Voucher Card No» le début de série « De » à fin de série « Vers » [119]. 2-Cliquer sur « Consulter» [119]. 3-Puis sur << Nouvel article» choisir l'article de destination « EX: Lot 10 1000DA KMSCYBER» [119]. 4-Cocher sur « Sélectionner tous»; 5-Cliquer sur « Soumettre» [120]. 6-Confirmer l'opération en cliquant sur «OK» [121]"
+      ],
+      "Vente_Ressource_pour_Client": [
+        "La vente des cartes par lots est destinée aux Kiosques Multi Services, Cybercafés, Librairies et Vendeurs mobiles et accessoires [122]",
+        "1-Cliquer sur « Service clientèle»; 2-Puis sur « Vente de ressource pour client» [123]",
+        "1-Choisir le Type «Voucher Card»; 2-Puis sur << Clé de recherche » saisir « lot » et rechercher; 3-Choisir le produit voulu ensuite cliquer sur « Pour en savoir » [124, 125]",
+        "S'il existe plusieurs numéros de série de ressources: 1-Veuillez les séparer avec une virgule(,); 2-Cliquer sur « Add to Cart» [126]",
+        "Si les numéro de séries sont séquentiels : 1-Mettre dans « Code de ressource» le numéro de début de série; 2-Puis définir la quantité; 3-Cliquer sur « Add to Cart» [127, 128]",
+        "Cliquer sur «Payer maintenant» [129]",
+        "Confirmer l'opération en cliquant sur «OK» [130, 131]",
+        "Pour continuer l'opération de payement cliquer sur «Paiement» [132]",
+        "1- Choisir la méthode de paiement (espèce, chèque et virement ) [133]",
+        "NB :- Si le payement est en espèce le montant ne doit pas dépassé 1.000.000,00 DA; Si le payement est en chèque celui-ci doit être certifié; Si le payement est par virement celui-ci doit être « Un virement postal » [133, 134]"
+      ]
+    },
+    {
+      "Titre_Procedure": "Retour ressource",
+      "Source_Documents": [
+        "Guide d utilisation NGBSS retour ressource.pdf"
+      ],
+      "Règles_Générales": [
+        "Le guide est destiné à détailler les étapes à suivre pour pouvoir procéder au retour d'une ressource vendue à son magasin d'origine et rembourser le montant de la vente en même temps [135]",
+        "Utilisé uniquement pour la régularisation d'erreurs de vente de ressource, il ne doit pas être utilisé comme procédure de remboursement [136]",
+        "L'utilisateur et la ressource doivent appartenir a la même organisation (ACTEL ou Point de Présence) [137]",
+        "Le montant dans la caisse doit être au minimum équivalent au montant de vente de la ressource [137]"
+      ],
+      "Cas_Vente_pour_Client": [
+        "1-Cliquer sur << Abonné et « Ressource». [136]",
+        "2-Ensuite cocher sur la ressource et cliquer sur << Réserver le retour CSG >» [136]"
+      ],
+      "Cas_Vente_pour_Non_Client": [
+        "1- Cliquer sur << Service clientèle »; 2- Ensuite sur << Ressources pour les clients non-existants » [138]",
+        "1- Dans << Num de référence d'ordre >> inscrire le Numéro du Reçu de paiement; 2- Ou choisit le « Nom et Prénom >> comme inscrit lors de la vente et la date de l'opération << order Date » [139]",
+        "Cocher sur la ressource et cliquer sur << Suivant >» [140]",
+        "On remarque que le système a générer un remboursement; Cliquer sur << Soumettre & paiement >» [141]",
+        "Cliquer sur << Rembourser >>» [142]",
+        "Continuer l'opération de remboursement [143]"
+      ],
+      "Changement_État_Ressource_après_Retour": [
+        "Après que l'opération de remboursement soit compléter l'état de la ressource sur Inventaire est << Rendu >> [144]",
+        "Dans << Inventaire >> cliquer sur << Changer l'état d'une ressource » [145]",
+        "1- Dans la liste déroulante << Etat >> choisir << rendu >> [146]",
+        "3- Dans la liste déroulante << Nouvel état » choisir << Normal >> [146]",
+        "4- Cocher sur la ressource et cliquer sur << Soumettre » [146, 147]",
+        "On remarque maintenant que l'état sur Inventaire est << Normal » [148]"
+      ]
+    },
+    {
+      "Titre_Procedure": "Gestion de Payement Arrangement -Echéancier-",
+      "Source_Documents": [
+        "Payement arrangement -Echéancier- (2).pdf"
+      ],
+      "Définitions_et_Règles": [
+        "Arrangement de paiement (arrangement of debt AOD) : régler une ou plusieurs factures en plusieurs échéances à des dates déterminées en accord entre les 2 parties [149]",
+        "Promesse de paiement (P2P) : Ajourner le paiement par la prolongation de la date de paiement avec une durée qui ne dépasse pas les 30 jours [150]",
+        "Pour AOD: le montant minimum accordé est à partir de 5000,00 DA [150]",
+        "Pour AOD: Le premier paiement « Down payment Amount » doit être Égal ou supérieur à 20% du montant global [150]",
+        "Pour AOD: Le reste des paiements doivent être Égal ou supérieur à 20% [151]",
+        "Pour AOD: Le premier paiement est obligatoire pour rétablir la ligne [151]",
+        "Pour P2P: la prolongation de la date de paiement ne doit pas dépasser les 30 jours [151]"
+      ],
+      "Création_Arrangement_Paiement_AOD": [
+        "Cliquer sur : <<< Debt collection >> -> << Payement Arrangement Request >> [152]",
+        "Saisir le ND Ou le code de compte [153]",
+        "Choisir une ou plusieurs factures Cliquer sur : « Create payement arrangement » [154]",
+        "Sélectionner « Arrangement of Debt » Cliquer sur <<< Next >>> [155]",
+        "Le Premier mode : Par Nombre de versement (Downpayment Amount >= 20% du montant global, Introduire le Nombre de versement, Sélectionner par « Mois /Month ») [156, 157]",
+        "Le Deuxième Mode : Par Montant (Introduire le montant Égal ou supérieur à 20%, Sélectionner par << Mois /Month ») [158, 159]",
+        "Le Troisième Mode : Par Pourcentage (Introduire un pourcentage Égal ou supérieur à 20%, Saisir le nombre de Versement, Sélectionner par « Mois /Month ») [160, 161]",
+        "Cliquer sur : << submit >> [162]",
+        "Cliquer sur : <<< Yes >>> Pour confirmer L'établissement [163, 164]",
+        "Pour imprimer la lettre d'engagement Cliquer sur : <<< Print >>> Puis << Yes >>> [165, 166]"
+      ],
+      "Création_Promesse_Paiement_P2P": [
+        "Sélectionner <<< Promesse to pay » Et cliquer sur <<< Next >> [167]",
+        "Choisir la nouvelle Date de paiement (ne dépasse pas 30 jours) [168]",
+        "Cliquer sur << Next » [169]",
+        "Cliquer sur << Submit >>> [170]",
+        "Pour confirmer l'opération Cliquer sur << Yes » [171]",
+        "Pour éditer La lettre d'engagement Cliquer sur : <<< Print >> Ensuite : « Yes » [172]"
+      ],
+      "Validation_Arrangement_Approval": [
+        "Cliquer sur : << Debt collection >> -> « Payement arrangement Approval >>> [173]",
+        "Saisir le ND Ou le code de compte [174]",
+        "Pour valider ou rejeter, Cliquer sur l'icone << Approval >> [175]",
+        "Pour Valider, Choisir << pass »; Pour le rejeter, Choisir << reject >> [176]",
+        "Cliquer sur << Save >> Puis sur << Yes » [177]"
+      ],
+      "Encaissement_Arrangement": [
+        "Cliquer sur : << Compte Débiteurs » -> <<< Paiement >>> [178]",
+        "Saisir le ND Cliquer sur : <<< Rechercher » [178]",
+        "Un message S'affiche: << Effectuer un Paiement échelonné » [179]. Cliquer sur : << Oui >> [180]",
+        "Encaissement AOD: Sélectionner <<< le mode de Paiement », Introduire le Montant à encaisser [181, 182]",
+        "Encaissement P2P: Choisir le Mode de paiement Et saisir le montant [183]",
+        "Cliquer sur : <<< soumettre » Puis <<< Confirmer » [184, 185]",
+        "Cliquer sur : << Imprimer » Pour éditer le Reçu de paiement [186]"
+      ]
+    },
+    {
+      "Titre_Procedure": "La Saisie de la facture détaillée",
+      "Source_Documents": [
+        "Saisie facture détaillée.pdf"
+      ],
+      "Édition_Facture_Détaillée": [
+        "Pour éditer La facture détaillée : 1-Selectionner le ND, 2-Choisir :par bill cycle, 3-Choisir le bimestre, 4-Cliquer sur :rechercher, 5-Cliquer sur :télécharger Le fichier [187, 188]"
+      ],
+      "Saisie_Frais_Via_Changement_Offre": [
+        "Pour saisir les frais de la facture Détaillée : 1-Choisir le ND, 2-Cliquer sur : << Changement d'offre >>> [189-191]",
+        "1-Cliquer sur : << Plus d'offre » [192]",
+        "2-dans le nom de l'offre Introduire << fadet » [192]",
+        "3-Cliquer sur la loupe [192]",
+        "4-Sélectionner FADET Sur demande >>> [192]",
+        "5-Confirmer [192, 193]",
+        "Introduire le nombre « 2 » [194]",
+        "Cliquer sur : suivant [194]",
+        "Confirmer par « OK » [195]",
+        "Cliquer sur : <<<< Soumettre et paiement » [196]",
+        "Cliquer sur : <<<< Paiement >> [197]",
+        "Sélectionner le mode de paiement Cliquer sur << paiement » Et éditer le reçu de paiement [198]"
+      ]
+    }
+  ]
+}

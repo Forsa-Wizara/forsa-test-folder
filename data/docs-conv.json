@@ -10,23 +10,82 @@
       "family": true,
       "family_details": "Ascendants et descendants"
     },
-    "documents": [
-      "Attestation de travail ou Bulletin de paie récent ou Carte professionnelle",
-      "Copie PI valide",
-      "Justificatif adresse",
-      "Fiche familiale (si famille)"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation de travail ou Bulletin de paie récent ou Carte professionnelle, Copie PI valide, Justificatif adresse, Fiche familiale (si famille)",
+      "basculement": "Attestation de travail ou un bulletin de paie récent dûment signé par les ressources humaines, ainsi qu'une fiche familiale pour les ascendants et les descendants."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "label": "Palier 1", "price_convention_da": 1075, "price_public_da": 2150 },
-      { "category": "INTERNET", "technology": "FTTH", "speed_mbps": 20, "label": "Palier 1", "price_convention_da": 1100, "price_public_da": 2200 },
-      { "category": "INTERNET", "technology": "VDSL_FTTH", "speed_mbps": 50, "label": "Palier 3", "price_convention_da": 1200, "price_public_da": 2400 },
-      { "category": "INTERNET", "technology": "VDSL_FTTH", "speed_mbps": 100, "label": "Palier 4", "price_convention_da": 1300, "price_public_da": 2600 },
-      { "category": "INTERNET", "technology": "FTTH", "speed_mbps": 200, "label": "Palier 5", "price_convention_da": 1400, "price_public_da": 2800 },
-      { "category": "INTERNET", "technology": "FTTH", "speed_mbps": 300, "label": "Palier 6", "price_convention_da": 1500, "price_public_da": 3000 },
-      { "category": "INTERNET", "technology": "FTTH", "speed_mbps": 500, "label": "Palier 7", "price_convention_da": 1800, "price_public_da": 3600 },
-      { "category": "INTERNET", "technology": "FTTH", "speed_mbps": 1000, "label": "Palier 8", "price_convention_da": 2100, "price_public_da": 4200 }
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "label": "Palier 1",
+        "price_convention_da": 1075,
+        "price_public_da": 2150
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FTTH",
+        "speed_mbps": 20,
+        "label": "Palier 1",
+        "price_convention_da": 1100,
+        "price_public_da": 2200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FTTH",
+        "speed_mbps": 50,
+        "label": "Palier 3",
+        "price_convention_da": 1200,
+        "price_public_da": 2400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FTTH",
+        "speed_mbps": 100,
+        "label": "Palier 4",
+        "price_convention_da": 1300,
+        "price_public_da": 2600
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FTTH",
+        "speed_mbps": 200,
+        "label": "Palier 5",
+        "price_convention_da": 1400,
+        "price_public_da": 2800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FTTH",
+        "speed_mbps": 300,
+        "label": "Palier 6",
+        "price_convention_da": 1500,
+        "price_public_da": 3000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FTTH",
+        "speed_mbps": 500,
+        "label": "Palier 7",
+        "price_convention_da": 1800,
+        "price_public_da": 3600
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FTTH",
+        "speed_mbps": 1000,
+        "label": "Palier 8",
+        "price_convention_da": 2100,
+        "price_public_da": 4200
+      }
     ],
-    "notes": "La demande manuscrite n'est plus requise."
+    "notes": "La demande manuscrite n'est plus requise.",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET"],
+    "internet_technologies": ["ADSL", "FTTH", "VDSL_FTTH"],
+    "min_internet_price_da": 1075,
+    "max_internet_speed_mbps": 1000
   },
   {
     "convention_id": "conv_s",
@@ -38,21 +97,68 @@
       "retired": true,
       "family": false
     },
-    "documents": [
-      "Attestation travail (Actif) ou Document habilité (Retraité)",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail (Actif) ou Document habilité (Retraité), Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": ""
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 20, "label": "Palier 1", "price_convention_da": 1799, "discount": "10%" },
-      { "category": "INTERNET", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 50, "label": "Palier 2", "price_convention_da": 2209, "discount": "15%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 100, "label": "Palier 3", "price_convention_da": 2519, "discount": "30%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 200, "label": "Palier 4", "price_convention_da": 3500, "discount": "50%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525, "discount": "30%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_VDSL_FIBRE",
+        "speed_mbps": 20,
+        "label": "Palier 1",
+        "price_convention_da": 1799,
+        "discount": "10%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_VDSL_FIBRE",
+        "speed_mbps": 50,
+        "label": "Palier 2",
+        "price_convention_da": 2209,
+        "discount": "15%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 100,
+        "label": "Palier 3",
+        "price_convention_da": 2519,
+        "discount": "30%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 200,
+        "label": "Palier 4",
+        "price_convention_da": 3500,
+        "discount": "50%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525,
+        "discount": "30%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 7,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_VDSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 1799,
+    "max_internet_speed_mbps": 200
   },
   {
     "convention_id": "conv_a",
@@ -63,28 +169,110 @@
       "active": true,
       "retired": true
     },
-    "documents": [
-      "Copie Carte professionnelle ou PI",
-      "Attestation travail",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Copie Carte professionnelle ou PI, Attestation travail, Justificatif adresse",
+      "basculement": "Attestation de travail dûment signée par les ressources humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1200, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 1300, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 480, "price_convention_da": 1120, "discount": "60%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 600, "price_convention_da": 1200, "discount": "60%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 1440, "discount": "60%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1680, "discount": "60%" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 15, "price_convention_da": 1000, "discount": "50%" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1200, "discount": "50%" },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1300, "discount": "50%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 200 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 350 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 450 }
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "price_convention_da": 1200,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "price_convention_da": 1300,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 480,
+        "price_convention_da": 1120,
+        "discount": "60%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 600,
+        "price_convention_da": 1200,
+        "discount": "60%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1000,
+        "price_convention_da": 1440,
+        "discount": "60%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "price_convention_da": 1680,
+        "discount": "60%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 15,
+        "price_convention_da": 1000,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1200,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1300,
+        "discount": "50%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 200
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 350
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 450
+      }
     ],
-    "notes": "La demande manuscrite n'est plus requise."
+    "notes": "La demande manuscrite n'est plus requise.",
+    "total_offers": 14,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["FIBRE", "ADSL", "VDSL"],
+    "min_internet_price_da": 1000,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_ab",
@@ -95,22 +283,66 @@
       "active": true,
       "retired": false
     },
-    "documents": [
-      "Attestation travail/Eligibilité",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail/Eligibilité, Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": "Attestation de travail ou tout autre document d’éligibilité arrêté par L’établissement AB, dûment signé par les Ressources Humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2099 },
-      { "category": "INTERNET", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2299 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 100, "price_convention_da": 2399 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2599 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2799 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 350, "discount": "30%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 375, "discount": "50%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_VDSL_FIBRE",
+        "speed_mbps": 20,
+        "price_convention_da": 2099
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_VDSL_FIBRE",
+        "speed_mbps": 50,
+        "price_convention_da": 2299
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 100,
+        "price_convention_da": 2399
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 200,
+        "price_convention_da": 2599
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 2799
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 350,
+        "discount": "30%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 375,
+        "discount": "50%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_VDSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 2099,
+    "max_internet_speed_mbps": 300
   },
   {
     "convention_id": "conv_ac",
@@ -123,25 +355,108 @@
       "family": true,
       "family_details": "Ascendants uniquement"
     },
-    "documents": [
-      "Bon ouverture droit signé par responsable action sociale",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon ouverture droit signé par responsable action sociale, Copie PI, Justificatif adresse",
+      "basculement": "Attestation de travail dument signé par les ressources humaines"
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "condition": "PERSONNEL", "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "condition": "PERSONNEL", "price_convention_da": 1200, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "condition": "PERSONNEL", "price_convention_da": 1300, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "condition": "PERSONNEL", "price_convention_da": 2100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "condition": "FAMILLE", "price_convention_da": 1650, "discount": "25%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "condition": "FAMILLE", "price_convention_da": 1800, "discount": "25%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "condition": "FAMILLE", "price_convention_da": 3150, "discount": "25%" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "condition": "PERSONNEL", "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "condition": "FAMILLE", "price_convention_da": 1650, "discount": "25%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 200, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 350, "discount": "30%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 1000", "price_convention_da": 600, "discount": "40%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "condition": "PERSONNEL",
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "condition": "PERSONNEL",
+        "price_convention_da": 1200,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "condition": "PERSONNEL",
+        "price_convention_da": 1300,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "condition": "PERSONNEL",
+        "price_convention_da": 2100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "condition": "FAMILLE",
+        "price_convention_da": 1650,
+        "discount": "25%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "condition": "FAMILLE",
+        "price_convention_da": 1800,
+        "discount": "25%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "condition": "FAMILLE",
+        "price_convention_da": 3150,
+        "discount": "25%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "condition": "PERSONNEL",
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "condition": "FAMILLE",
+        "price_convention_da": 1650,
+        "discount": "25%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 200,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 350,
+        "discount": "30%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 1000",
+        "price_convention_da": 600,
+        "discount": "40%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 12,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["FIBRE", "ADSL"],
+    "min_internet_price_da": 1100,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_ad",
@@ -152,24 +467,75 @@
       "active": true,
       "retired": false
     },
-    "documents": [
-      "Bon ouverture droit",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon ouverture droit, Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": "Bon d'ouverture de droit (formulaire de souscription) renseigné et signé par le responsable habilité, ainsi qu'une demande manuscrite."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 1100 },
-      { "category": "INTERNET", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 1200 },
-      { "category": "INTERNET", "technology": "VDSL_FIBRE", "speed_mbps": 100, "price_convention_da": 1300 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 1400 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1800 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 2100 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 200 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 350 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 450 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 20,
+        "price_convention_da": 1100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FIBRE",
+        "speed_mbps": 50,
+        "price_convention_da": 1200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FIBRE",
+        "speed_mbps": 100,
+        "price_convention_da": 1300
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 200,
+        "price_convention_da": 1400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 1500
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 500,
+        "price_convention_da": 1800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1000,
+        "price_convention_da": 2100
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 200
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 350
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 450
+      }
+    ],
+    "notes": "",
+    "total_offers": 10,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_FIBRE", "VDSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 1100,
+    "max_internet_speed_mbps": 1000
   },
   {
     "convention_id": "conv_x",
@@ -179,24 +545,75 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Attestation travail/Bulletin paie",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail/Bulletin paie, Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": "Attestation de travail dûment signée ou tout autre document d’éligibilité (un bulletin de paie récent signé)."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2080 },
-      { "category": "INTERNET", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2240 },
-      { "category": "INTERNET", "technology": "VDSL_FIBRE", "speed_mbps": 100, "price_convention_da": 2400 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2700 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2800 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 3000 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 3600 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 20,
+        "price_convention_da": 2080
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FIBRE",
+        "speed_mbps": 50,
+        "price_convention_da": 2240
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FIBRE",
+        "speed_mbps": 100,
+        "price_convention_da": 2400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 200,
+        "price_convention_da": 2700
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 2800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 500,
+        "price_convention_da": 3000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1000,
+        "price_convention_da": 3600
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525
+      }
+    ],
+    "notes": "",
+    "total_offers": 10,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_FIBRE", "VDSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 2080,
+    "max_internet_speed_mbps": 1000
   },
   {
     "convention_id": "conv_y",
@@ -209,21 +626,63 @@
       "family": true,
       "family_details": "Père, mère, conjoint, enfants (Max 5 souscriptions)"
     },
-    "documents": [
-      "Pièce identité",
-      "Carte adhésion signée",
-      "Résidence"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Pièce identité, Carte adhésion signée, Résidence",
+      "basculement": ""
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2079 },
-      { "category": "INTERNET", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2239 },
-      { "category": "INTERNET", "technology": "VDSL_FIBRE", "speed_mbps": 100, "price_convention_da": 2399 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2699 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2999 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 20,
+        "price_convention_da": 2079
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FIBRE",
+        "speed_mbps": 50,
+        "price_convention_da": 2239
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FIBRE",
+        "speed_mbps": 100,
+        "price_convention_da": 2399
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 200,
+        "price_convention_da": 2699
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 2999
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525
+      }
+    ],
+    "notes": "",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_FIBRE", "VDSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 2079,
+    "max_internet_speed_mbps": 300
   },
   {
     "convention_id": "conv_z",
@@ -235,22 +694,68 @@
       "retired": true,
       "subsidiaries": true
     },
-    "documents": [
-      "Attestation travail (Actif)",
-      "Certificat travail (Retraité)",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail (Actif) ou Certificat travail (Retraité), Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": ""
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 20, "label": "Palier 1", "price_convention_da": 1799, "discount": "10%" },
-      { "category": "INTERNET", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 50, "label": "Palier 2", "price_convention_da": 2209, "discount": "15%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 100, "label": "Palier 3", "price_convention_da": 2519, "discount": "30%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 200, "label": "Palier 4", "price_convention_da": 3500, "discount": "50%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525, "discount": "30%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_VDSL_FIBRE",
+        "speed_mbps": 20,
+        "label": "Palier 1",
+        "price_convention_da": 1799,
+        "discount": "10%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_VDSL_FIBRE",
+        "speed_mbps": 50,
+        "label": "Palier 2",
+        "price_convention_da": 2209,
+        "discount": "15%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 100,
+        "label": "Palier 3",
+        "price_convention_da": 2519,
+        "discount": "30%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 200,
+        "label": "Palier 4",
+        "price_convention_da": 3500,
+        "discount": "50%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525,
+        "discount": "30%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 7,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_VDSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 1799,
+    "max_internet_speed_mbps": 200
   },
   {
     "convention_id": "conv_h",
@@ -260,24 +765,82 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Attestation travail",
-      "Copie PI",
-      "Justificatif adresse",
-      "Formulaire attribution"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail, Copie PI, Justificatif adresse, Formulaire attribution",
+      "basculement": "Attestation de travail ou tout autre document d’éligibilité signé par les Ressources Humaines, ainsi que le Formulaire d’attribution des mesures préférentielles dûment complété et signé."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075, "price_public_da": 2150 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175, "price_public_da": 2350 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1275, "price_public_da": 2550 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 30, "price_convention_da": 1100, "price_public_da": 2200 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1200, "price_public_da": 2400 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500, "price_public_da": 3000 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100, "price_public_da": 4200 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1075,
+        "price_public_da": 2150
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1175,
+        "price_public_da": 2350
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1275,
+        "price_public_da": 2550
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 30,
+        "price_convention_da": 1100,
+        "price_public_da": 2200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "price_convention_da": 1200,
+        "price_public_da": 2400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 1500,
+        "price_public_da": 3000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 2100,
+        "price_public_da": 4200
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525
+      }
+    ],
+    "notes": "Les employés ayant déjà souscrit seront automatiquement basculés vers les nouvelles offres.",
+    "total_offers": 10,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1075,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_r",
@@ -287,20 +850,72 @@
     "eligibility": {
       "details": "Réservé aux établissements (Bon de commande requis)"
     },
-    "documents": [
-      "Bon de commande signé par ordonnateur",
-      "Demande avec dénomination/adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon de commande signé par ordonnateur, Demande avec dénomination/adresse",
+      "basculement": ""
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "condition": "Etablissement Démuni", "price_convention_da": 2700 },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "condition": "Etablissement Restant", "price_convention_da": 3100 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "condition": "Etablissement Démuni", "price_convention_da": 2900 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "condition": "Etablissement Restant", "price_convention_da": 3600 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "condition": "Etablissement Démuni", "price_convention_da": 3100 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "condition": "Etablissement Restant", "price_convention_da": 4000 },
-      { "category": "4G", "plan": "Idoom 4G LTE", "volume_go": 500, "price_convention_da": 2900, "frequency": "Annuel" },
-      { "category": "TELEPHONY", "plan": "Fixe Illimité", "price_convention_da": 450 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "condition": "Etablissement Démuni",
+        "price_convention_da": 2700
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "condition": "Etablissement Restant",
+        "price_convention_da": 3100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "condition": "Etablissement Démuni",
+        "price_convention_da": 2900
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "condition": "Etablissement Restant",
+        "price_convention_da": 3600
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "condition": "Etablissement Démuni",
+        "price_convention_da": 3100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "condition": "Etablissement Restant",
+        "price_convention_da": 4000
+      },
+      {
+        "category": "4G",
+        "plan": "Idoom 4G LTE",
+        "volume_go": 500,
+        "price_convention_da": 2900,
+        "frequency": "Annuel"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Fixe Illimité",
+        "price_convention_da": 450
+      }
+    ],
+    "notes": "",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET", "4G", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 2700,
+    "max_internet_speed_mbps": 300
   },
   {
     "convention_id": "conv_p",
@@ -312,22 +927,81 @@
       "retired": true,
       "hierarchical": true
     },
-    "documents": [
-      "Attestation travail (-3 mois)",
-      "Certificat travail (Retraité)",
-      "PI"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail (-3 mois), Certificat travail (Retraité), PI",
+      "basculement": "Attestation de travail (pour le personnel actif) ou un certificat de travail (pour les retraités)."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "condition": "CADRE SUPERIEUR", "price_convention_da": 0, "note": "Gratuit" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "condition": "PERSONNEL/RETRAITE", "price_convention_da": 800 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "condition": "CADRE SUPERIEUR", "price_convention_da": 0, "note": "Gratuit" },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "condition": "PERSONNEL/RETRAITE", "price_convention_da": 800 },
-      { "category": "INTERNET", "technology": "FTTH", "speed_mbps": 1500, "condition": "CADRE SUPERIEUR", "price_convention_da": 0, "note": "Gratuit" },
-      { "category": "INTERNET", "technology": "FTTH", "speed_mbps": 1500, "condition": "PERSONNEL/RETRAITE", "price_convention_da": 1100 },
-      { "category": "HARDWARE", "product": "ONT WIFI 6", "condition": "CADRE SUPERIEUR", "price_convention_da": 3500 },
-      { "category": "HARDWARE", "product": "ONT WIFI 6", "condition": "PERSONNEL < CAT A", "price_convention_da": 2000 },
-      { "category": "HARDWARE", "product": "ONT WIFI 6", "condition": "RETRAITE", "price_convention_da": 3500 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "condition": "CADRE SUPERIEUR",
+        "price_convention_da": 0,
+        "note": "Gratuit"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "condition": "PERSONNEL/RETRAITE",
+        "price_convention_da": 800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "condition": "CADRE SUPERIEUR",
+        "price_convention_da": 0,
+        "note": "Gratuit"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "condition": "PERSONNEL/RETRAITE",
+        "price_convention_da": 800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FTTH",
+        "speed_mbps": 1500,
+        "condition": "CADRE SUPERIEUR",
+        "price_convention_da": 0,
+        "note": "Gratuit"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FTTH",
+        "speed_mbps": 1500,
+        "condition": "PERSONNEL/RETRAITE",
+        "price_convention_da": 1100
+      },
+      {
+        "category": "HARDWARE",
+        "product": "ONT WIFI 6",
+        "condition": "CADRE SUPERIEUR",
+        "price_convention_da": 3500
+      },
+      {
+        "category": "HARDWARE",
+        "product": "ONT WIFI 6",
+        "condition": "PERSONNEL < CAT A",
+        "price_convention_da": 2000
+      },
+      {
+        "category": "HARDWARE",
+        "product": "ONT WIFI 6",
+        "condition": "RETRAITE",
+        "price_convention_da": 3500
+      }
+    ],
+    "notes": "",
+    "total_offers": 9,
+    "offer_categories": ["INTERNET", "HARDWARE"],
+    "internet_technologies": ["ADSL", "VDSL", "FTTH"],
+    "min_internet_price_da": 0,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_t",
@@ -337,22 +1011,78 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Bon ouverture droit",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon ouverture droit, Copie PI, Justificatif adresse",
+      "basculement": "Bon d'ouverture de droit (formulaire de souscription) renseigné et signé par le responsable de l'action sociale habilité de L’établissement T."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1200, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 2100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1200, "discount": "50%" },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1300, "discount": "50%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 212, "discount": "15%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 562, "discount": "25%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "price_convention_da": 1200,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "price_convention_da": 2100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1200,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1300,
+        "discount": "50%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 212,
+        "discount": "15%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 562,
+        "discount": "25%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 9,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["FIBRE", "ADSL", "VDSL"],
+    "min_internet_price_da": 1100,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_v",
@@ -362,25 +1092,81 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Carte pro/PI",
-      "Attestation travail",
-      "Demande manuscrite",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Carte pro/PI, Attestation travail, Demande manuscrite, Justificatif adresse",
+      "basculement": "Attestation de travail ou tout autre document d'éligibilité aux tarifs préférentiels dûment signé par les ressources humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1275 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 30, "price_convention_da": 1100 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1200 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1300 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1800 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1075
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1175
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1275
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 30,
+        "price_convention_da": 1100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "price_convention_da": 1200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "price_convention_da": 1300
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 500,
+        "price_convention_da": 1800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 2100
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525
+      }
+    ],
+    "notes": "",
+    "total_offers": 11,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1075,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_b_shop",
@@ -394,34 +1180,143 @@
       "second_access": true,
       "second_access_condition": "Actif seulement"
     },
-    "documents": [
-      "Formulaire souscription",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Formulaire souscription, Copie PI, Justificatif adresse",
+      "basculement": "Formulaire de souscription renseigné et signé par le responsable habilité de l’établissement B."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 15, "access_type": "1er Accès", "price_convention_da": 1000 },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "access_type": "1er Accès", "price_convention_da": 1075 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "access_type": "1er Accès", "price_convention_da": 1120 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "access_type": "1er Accès", "price_convention_da": 1100 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "access_type": "1er Accès", "price_convention_da": 1120 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1000, "access_type": "1er Accès", "price_convention_da": 1440 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "access_type": "1er Accès", "price_convention_da": 1680 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "access_type": "2ème Accès", "condition": "Actif", "price_convention_da": 1300 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 600, "access_type": "2ème Accès", "condition": "Actif", "price_convention_da": 1500 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "access_type": "2ème Accès", "condition": "Actif", "price_convention_da": 2100 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 200, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 350, "discount": "30%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 450, "discount": "40%" }
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 15,
+        "access_type": "1er Accès",
+        "price_convention_da": 1000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "access_type": "1er Accès",
+        "price_convention_da": 1075
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "access_type": "1er Accès",
+        "price_convention_da": 1120
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "access_type": "1er Accès",
+        "price_convention_da": 1100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "access_type": "1er Accès",
+        "price_convention_da": 1120
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1000,
+        "access_type": "1er Accès",
+        "price_convention_da": 1440
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "access_type": "1er Accès",
+        "price_convention_da": 1680
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "access_type": "2ème Accès",
+        "condition": "Actif",
+        "price_convention_da": 1300
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 600,
+        "access_type": "2ème Accès",
+        "condition": "Actif",
+        "price_convention_da": 1500
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "access_type": "2ème Accès",
+        "condition": "Actif",
+        "price_convention_da": 2100
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 200,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 350,
+        "discount": "30%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 450,
+        "discount": "40%"
+      }
     ],
     "store_items": [
-      { "type": "MODEM", "model": "D-Link DSL-124", "price_convention_da": 3800 },
-      { "type": "MODEM", "model": "Tenda D301", "price_convention_da": 3650 },
-      { "type": "ROUTEUR", "model": "Tenda AC 23", "price_convention_da": 11340 },
-      { "type": "REPETEUR", "model": "D-Link DAP-1360", "price_convention_da": 3620 },
-      { "type": "E-LEARNING", "provider": "DOROUSCOM", "plan": "Annuel (1 matière)", "price_convention_da": 2890 },
-      { "type": "E-LEARNING", "provider": "INKIDIA", "plan": "Pack MPS Annuel", "price_convention_da": 9490 }
-    ]
+      {
+        "type": "MODEM",
+        "model": "D-Link DSL-124",
+        "price_convention_da": 3800
+      },
+      {
+        "type": "MODEM",
+        "model": "Tenda D301",
+        "price_convention_da": 3650
+      },
+      {
+        "type": "ROUTEUR",
+        "model": "Tenda AC 23",
+        "price_convention_da": 11340
+      },
+      {
+        "type": "REPETEUR",
+        "model": "D-Link DAP-1360",
+        "price_convention_da": 3620
+      },
+      {
+        "type": "E-LEARNING",
+        "provider": "DOROUSCOM",
+        "plan": "Annuel (1 matière)",
+        "price_convention_da": 2890
+      },
+      {
+        "type": "E-LEARNING",
+        "provider": "INKIDIA",
+        "plan": "Pack MPS Annuel",
+        "price_convention_da": 9490
+      }
+    ],
+    "notes": "",
+    "total_offers": 13,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1000,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_c",
@@ -433,22 +1328,81 @@
       "retired": true,
       "civil": true
     },
-    "documents": [
-      "Recommandation signée",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Recommandation signée, Copie PI, Justificatif adresse",
+      "basculement": "Recommandation signée par l’une des structures habilitées de L’établissement C, ainsi qu'une copie de la pièce d’identité."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 1300, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 600, "price_convention_da": 1500, "discount": "50%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 1600, "discount": "55.56%" },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1680, "discount": "60%" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 15, "price_convention_da": 1000, "discount": "50%" },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1100, "discount": "50%" },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1200, "discount": "50%" },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1300, "discount": "50%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "price_convention_da": 1300,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 600,
+        "price_convention_da": 1500,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1000,
+        "price_convention_da": 1600,
+        "discount": "55.56%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "price_convention_da": 1680,
+        "discount": "60%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 15,
+        "price_convention_da": 1000,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1100,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1200,
+        "discount": "50%"
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1300,
+        "discount": "50%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 9,
+    "offer_categories": ["INTERNET"],
+    "internet_technologies": ["FIBRE", "ADSL", "VDSL"],
+    "min_internet_price_da": 1000,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_d",
@@ -458,22 +1412,66 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Attestation travail/Bulletin paie",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail/Bulletin paie, Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": "Attestation de travail dûment signée, ou un bulletin de paie récent signé."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2080 },
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2240 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 100, "price_convention_da": 2400 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2800 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 3600 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525, "discount": "30%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 20,
+        "price_convention_da": 2080
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 50,
+        "price_convention_da": 2240
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 100,
+        "price_convention_da": 2400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 2800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1000,
+        "price_convention_da": 3600
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525,
+        "discount": "30%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 2080,
+    "max_internet_speed_mbps": 1000
   },
   {
     "convention_id": "conv_e",
@@ -483,20 +1481,48 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Carte pro/PI",
-      "Attestation travail",
-      "Demande manuscrite",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Carte pro/PI, Attestation travail, Demande manuscrite, Justificatif adresse",
+      "basculement": "Attestation de travail ou tout autre document d’éligibilité aux tarifs préférentiels dûment signé par les ressources humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2000 },
-      { "category": "INTERNET", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2200 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 100, "price_convention_da": 2400 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2600 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2800 }
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 20,
+        "price_convention_da": 2000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL_FIBRE",
+        "speed_mbps": 50,
+        "price_convention_da": 2200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 100,
+        "price_convention_da": 2400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 200,
+        "price_convention_da": 2600
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 2800
+      }
     ],
-    "notes": "Argumentaire commercial : Pousser les clients 10/15Mbps vers 20Mbps."
+    "notes": "Argumentaire commercial : Pousser les clients 10/15Mbps vers 20Mbps.",
+    "total_offers": 5,
+    "offer_categories": ["INTERNET"],
+    "internet_technologies": ["ADSL_FIBRE", "VDSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 2000,
+    "max_internet_speed_mbps": 300
   },
   {
     "convention_id": "conv_f",
@@ -507,23 +1533,75 @@
       "active": true,
       "retired": true
     },
-    "documents": [
-      "Bon ouverture droit signé",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon ouverture droit signé, Copie PI, Justificatif adresse",
+      "basculement": "Bon d’ouverture de droit signé par le responsable habilité de l’administration de L’Établissement F."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1300 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1400 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1500 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1300 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1620 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 1890 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 200 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 350 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 450 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1300
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1500
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "price_convention_da": 1300
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 1500
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 500,
+        "price_convention_da": 1620
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 1890
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 200
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 350
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 450
+      }
+    ],
+    "notes": "",
+    "total_offers": 10,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1300,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_g",
@@ -534,21 +1612,66 @@
       "members": true,
       "adherents": true
     },
-    "documents": [
-      "Copie PI",
-      "Carte adhésion/membre G",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Copie PI, Carte adhésion/membre G, Justificatif adresse",
+      "basculement": "Carte d'adhésion ou la carte de membre délivrée par L’établissement G."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 2000 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 480, "price_convention_da": 2200 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 600, "price_convention_da": 2400 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 2600 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 2800 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 450, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 675, "discount": "10%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "price_convention_da": 2000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 480,
+        "price_convention_da": 2200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 600,
+        "price_convention_da": 2400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1000,
+        "price_convention_da": 2600
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "price_convention_da": 2800
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 450,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 675,
+        "discount": "10%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["FIBRE"],
+    "min_internet_price_da": 2000,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_i",
@@ -558,16 +1681,36 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Copie PI",
-      "Attestation travail",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Copie PI, Attestation travail, Justificatif adresse",
+      "basculement": "Copie de la carte nationale d’identité, ainsi que l'attestation de travail ou tout autre document d’éligibilité dûment signé par les ressources humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 800 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 800 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1100 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "price_convention_da": 1100
+      }
+    ],
+    "notes": "",
+    "total_offers": 3,
+    "offer_categories": ["INTERNET"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 800,
+    "max_internet_speed_mbps": 1500
   },
   {
     "convention_id": "conv_j",
@@ -577,20 +1720,60 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Carte pro/Attestation/Bulletin paie",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Carte pro/Attestation/Bulletin paie, Copie PI, Justificatif adresse",
+      "basculement": "Carte professionnelle, une attestation de travail ou un bulletin de paie récent dûment signé par les ressources humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 2000 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 2100 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 2200 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1920 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 2080 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 2100 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2300 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 2000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 2100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 2200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "price_convention_da": 1920
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "price_convention_da": 2080
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "price_convention_da": 2100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 2300
+      }
+    ],
+    "notes": "",
+    "total_offers": 7,
+    "offer_categories": ["INTERNET"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1920,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_k",
@@ -600,21 +1783,66 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Formulaire souscription",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Formulaire souscription, Copie PI, Justificatif adresse",
+      "basculement": "Formulaire de souscription renseigné et signé par le responsable habilité de L’établissement k."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1300 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525, "discount": "30%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1075
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1175
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "price_convention_da": 1300
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 1500
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 2100
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525,
+        "discount": "30%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1075,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_m",
@@ -625,24 +1853,85 @@
       "active": true,
       "retired": true
     },
-    "documents": [
-      "Attestation travail (Actif)/Décision retraite",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail (Actif)/Décision retraite, Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": "Attestation de travail (pour le personnel actif) ou une décision de retraite (pour les retraités) ou tout autre document d’éligibilité signé par les Ressources Humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 20, "condition": "ACTIF", "price_convention_da": 1299 },
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 20, "condition": "RETRAITE", "price_convention_da": 1799 },
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 50, "condition": "ACTIF", "price_convention_da": 1399 },
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 50, "condition": "RETRAITE", "price_convention_da": 2099 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 100, "condition": "ACTIF", "price_convention_da": 1499 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "condition": "ACTIF", "price_convention_da": 1599 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "condition": "RETRAITE", "price_convention_da": 2799 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525, "discount": "30%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 20,
+        "condition": "ACTIF",
+        "price_convention_da": 1299
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 20,
+        "condition": "RETRAITE",
+        "price_convention_da": 1799
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 50,
+        "condition": "ACTIF",
+        "price_convention_da": 1399
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 50,
+        "condition": "RETRAITE",
+        "price_convention_da": 2099
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 100,
+        "condition": "ACTIF",
+        "price_convention_da": 1499
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "condition": "ACTIF",
+        "price_convention_da": 1599
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "condition": "RETRAITE",
+        "price_convention_da": 2799
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525,
+        "discount": "30%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 10,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 1299,
+    "max_internet_speed_mbps": 300
   },
   {
     "convention_id": "conv_n",
@@ -652,23 +1941,72 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Bon ouverture droit",
-      "Attestation travail/Fiche paie",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon ouverture droit, Attestation travail/Fiche paie, Copie PI, Justificatif adresse",
+      "basculement": "Bon d’ouverture de droit et l’attestation de travail ou fiche de paie."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1615 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1765 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1913 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1950 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2100 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2520 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 200, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 350, "discount": "30%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 1000", "price_convention_da": 600, "discount": "40%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1615
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1765
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1913
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 120,
+        "price_convention_da": 1950
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 2100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 2520
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 200,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 350,
+        "discount": "30%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 1000",
+        "price_convention_da": 600,
+        "discount": "40%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 9,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1615,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_o",
@@ -678,20 +2016,63 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Carte pro/Attestation",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Carte pro/Attestation, Justificatif adresse",
+      "basculement": "Attestation de travail ou tout autre document d'éligibilité aux tarifs préférentiels dûment signé par les ressources humaines."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1600 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 2000 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 2400 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2600 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 3600 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 450 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 675 }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1600
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 2000
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 240,
+        "price_convention_da": 2400
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 2600
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 3600
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 450
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 675
+      }
+    ],
+    "notes": "",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1600,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_q",
@@ -701,23 +2082,66 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Bon ouverture droit",
-      "Attestation travail/Fiche paie",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon ouverture droit, Attestation travail/Fiche paie, Copie PI, Justificatif adresse",
+      "basculement": "Bon d’ouverture de droit (formulaire de souscription) renseigné et signé par le responsable habilité de L’établissement Q, ainsi que l’attestation de travail ou fiche de paie."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1275 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 30, "price_convention_da": 1100 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1200 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1800 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100 }
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 1075
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 1175
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 100,
+        "price_convention_da": 1275
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 30,
+        "price_convention_da": 1100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 60,
+        "price_convention_da": 1200
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "price_convention_da": 1500
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 500,
+        "price_convention_da": 1800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1200,
+        "price_convention_da": 2100
+      }
     ],
-    "notes": "La demande manuscrite n'est plus requise."
+    "notes": "La demande manuscrite n'est plus requise.",
+    "total_offers": 8,
+    "offer_categories": ["INTERNET"],
+    "internet_technologies": ["ADSL", "VDSL", "FIBRE"],
+    "min_internet_price_da": 1075,
+    "max_internet_speed_mbps": 1200
   },
   {
     "convention_id": "conv_u",
@@ -732,23 +2156,78 @@
         "Cadre Dirigeant"
       ]
     },
-    "documents": [
-      "Attestation travail",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Attestation travail, Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": "Attestation de travail récente."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 15, "condition": "PERSONNEL", "price_convention_da": 1199.4 },
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 15, "condition": "AADL", "price_convention_da": 1199.4 },
-      { "category": "INTERNET", "technology": "ADSL_FIBRE", "speed_mbps": 15, "condition": "CADRE DIRIGEANT", "price_convention_da": 999.5 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "condition": "PERSONNEL", "price_convention_da": 2399.4 },
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 300, "condition": "CADRE DIRIGEANT", "price_convention_da": 1999.5 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525, "discount": "30%" },
-      { "category": "EMAIL", "plan": "Compte 100 1Go", "condition": "DIRECTION GENERALE", "price_convention_da": 0, "note": "100% remise" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 15,
+        "condition": "PERSONNEL",
+        "price_convention_da": 1199.4
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 15,
+        "condition": "AADL",
+        "price_convention_da": 1199.4
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL_FIBRE",
+        "speed_mbps": 15,
+        "condition": "CADRE DIRIGEANT",
+        "price_convention_da": 999.5
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "condition": "PERSONNEL",
+        "price_convention_da": 2399.4
+      },
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 300,
+        "condition": "CADRE DIRIGEANT",
+        "price_convention_da": 1999.5
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525,
+        "discount": "30%"
+      },
+      {
+        "category": "EMAIL",
+        "plan": "Compte 100 1Go",
+        "condition": "DIRECTION GENERALE",
+        "price_convention_da": 0,
+        "note": "100% remise"
+      }
+    ],
+    "notes": "",
+    "total_offers": 9,
+    "offer_categories": ["INTERNET", "TELEPHONY", "EMAIL"],
+    "internet_technologies": ["ADSL_FIBRE", "FIBRE"],
+    "min_internet_price_da": 999.5,
+    "max_internet_speed_mbps": 300
   },
   {
     "convention_id": "conv_w",
@@ -758,19 +2237,53 @@
     "eligibility": {
       "active": true
     },
-    "documents": [
-      "Bon ouverture droit (Action sociale)",
-      "Demande manuscrite",
-      "Copie PI",
-      "Justificatif adresse"
-    ],
+    "documents_requis": {
+      "nouvelle_demande": "Bon ouverture droit (Action sociale), Demande manuscrite, Copie PI, Justificatif adresse",
+      "basculement": "Bon d’ouverture de droit (Formulaire de souscription) renseigné et signé par le responsable de l’action sociale habilité de L’établissement W."
+    },
     "offers": [
-      { "category": "INTERNET", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1100 },
-      { "category": "INTERNET", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 800 },
-      { "category": "INTERNET", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 800 },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 250", "price_convention_da": 225, "discount": "10%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 500", "price_convention_da": 400, "discount": "20%" },
-      { "category": "TELEPHONY", "plan": "Idoom Fixe 750", "price_convention_da": 525, "discount": "30%" }
-    ]
+      {
+        "category": "INTERNET",
+        "technology": "FIBRE",
+        "speed_mbps": 1500,
+        "price_convention_da": 1100
+      },
+      {
+        "category": "INTERNET",
+        "technology": "ADSL",
+        "speed_mbps": 20,
+        "price_convention_da": 800
+      },
+      {
+        "category": "INTERNET",
+        "technology": "VDSL",
+        "speed_mbps": 50,
+        "price_convention_da": 800
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 250",
+        "price_convention_da": 225,
+        "discount": "10%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 500",
+        "price_convention_da": 400,
+        "discount": "20%"
+      },
+      {
+        "category": "TELEPHONY",
+        "plan": "Idoom Fixe 750",
+        "price_convention_da": 525,
+        "discount": "30%"
+      }
+    ],
+    "notes": "",
+    "total_offers": 6,
+    "offer_categories": ["INTERNET", "TELEPHONY"],
+    "internet_technologies": ["FIBRE", "ADSL", "VDSL"],
+    "min_internet_price_da": 800,
+    "max_internet_speed_mbps": 1500
   }
 ]

@@ -1,0 +1,776 @@
+[
+  {
+    "convention_id": "conv_l",
+    "partner_name": "المؤسسة L",
+    "aliases": ["المؤسسة L", "L"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": false,
+      "family": true,
+      "family_details": "الأصول والفروع"
+    },
+    "documents": [
+      "شهادة عمل أو كشف راتب حديث أو بطاقة مهنية",
+      "نسخة من بطاقة الهوية سارية المفعول",
+      "إثبات مقر السكن",
+      "شهادة عائلية (لذوي الحقوق)"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "label": "المستوى 1", "price_convention_da": 1075, "price_public_da": 2150 },
+      { "category": "إنترنت", "technology": "FTTH", "speed_mbps": 20, "label": "المستوى 1", "price_convention_da": 1100, "price_public_da": 2200 },
+      { "category": "إنترنت", "technology": "VDSL_FTTH", "speed_mbps": 50, "label": "المستوى 3", "price_convention_da": 1200, "price_public_da": 2400 },
+      { "category": "إنترنت", "technology": "VDSL_FTTH", "speed_mbps": 100, "label": "المستوى 4", "price_convention_da": 1300, "price_public_da": 2600 },
+      { "category": "إنترنت", "technology": "FTTH", "speed_mbps": 200, "label": "المستوى 5", "price_convention_da": 1400, "price_public_da": 2800 },
+      { "category": "إنترنت", "technology": "FTTH", "speed_mbps": 300, "label": "المستوى 6", "price_convention_da": 1500, "price_public_da": 3000 },
+      { "category": "إنترنت", "technology": "FTTH", "speed_mbps": 500, "label": "المستوى 7", "price_convention_da": 1800, "price_public_da": 3600 },
+      { "category": "إنترنت", "technology": "FTTH", "speed_mbps": 1000, "label": "المستوى 8", "price_convention_da": 2100, "price_public_da": 4200 }
+    ],
+    "notes": "الطلب الخطي لم يعد مطلوباً."
+  },
+  {
+    "convention_id": "conv_s",
+    "partner_name": "المؤسسة S",
+    "aliases": ["المؤسسة S", "S"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true,
+      "family": false
+    },
+    "documents": [
+      "شهادة عمل (للعاملين) أو وثيقة تثبت الأهلية (للمتقاعدين)",
+      "طلب خطي",
+      "نسخة من بطاقة الهوية",
+      "وثيقة تثبت عنوان المستفيد"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 20, "label": "تدفق 1", "price_convention_da": 1799, "discount": "10%" },
+      { "category": "إنترنت", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 50, "label": "تدفق 2", "price_convention_da": 2209, "discount": "15%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 100, "label": "تدفق 3", "price_convention_da": 2519, "discount": "30%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 200, "label": "تدفق 4", "price_convention_da": 3500, "discount": "50%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525, "discount": "30%" }
+    ]
+  },
+  {
+    "convention_id": "conv_a",
+    "partner_name": "المؤسسة A",
+    "aliases": ["المؤسسة A", "A"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true
+    },
+    "documents": [
+      "نسخة من البطاقة المهنية أو البطاقة الوطنية",
+      "شهادة عمل",
+      "وثيقة تثبت عنوان المستفيد"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1200, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 1300, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 480, "price_convention_da": 1120, "discount": "60%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 600, "price_convention_da": 1200, "discount": "60%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 1440, "discount": "60%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1680, "discount": "60%" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 15, "price_convention_da": 1000, "discount": "50%" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1200, "discount": "50%" },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1300, "discount": "50%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 200 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 350 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 450 }
+    ],
+    "notes": "الطلب الخطي لم يعد مطلوباً."
+  },
+  {
+    "convention_id": "conv_ab",
+    "partner_name": "المؤسسة AB",
+    "aliases": ["المؤسسة AB", "AB"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": false
+    },
+    "documents": [
+      "شهادة عمل أو وثيقة تثبت الاستحقاق",
+      "طلب مكتوب بخط اليد",
+      "نسخة من بطاقة الهوية",
+      "إثبات عنوان الموظف"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2099 },
+      { "category": "إنترنت", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2299 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 100, "price_convention_da": 2399 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2599 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2799 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 350, "discount": "30%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 375, "discount": "50%" }
+    ]
+  },
+  {
+    "convention_id": "conv_ac",
+    "partner_name": "المؤسسة AC",
+    "aliases": ["المؤسسة AC", "AC"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true,
+      "family": true,
+      "family_details": "الأصول فقط"
+    },
+    "documents": [
+      "نموذج الاشتراك معبأ وموقع من المسؤول",
+      "نسخة من بطاقة التعريف الوطنية",
+      "إثبات عنوان المستفيد"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "condition": "موظف", "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "condition": "موظف", "price_convention_da": 1200, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "condition": "موظف", "price_convention_da": 1300, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "condition": "موظف", "price_convention_da": 2100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "condition": "عائلة", "price_convention_da": 1650, "discount": "25%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "condition": "عائلة", "price_convention_da": 1800, "discount": "25%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "condition": "عائلة", "price_convention_da": 3150, "discount": "25%" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "condition": "موظف", "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "condition": "عائلة", "price_convention_da": 1650, "discount": "25%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 200, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 350, "discount": "30%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 1000", "price_convention_da": 600, "discount": "40%" }
+    ]
+  },
+  {
+    "convention_id": "conv_ad",
+    "partner_name": "المؤسسة AD",
+    "aliases": ["المؤسسة AD", "AD"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": false
+    },
+    "documents": [
+      "استمارة الاشتراك",
+      "طلب خطي",
+      "نسخة من بطاقة الهوية",
+      "وثيقة تثبت عنوان المستفيد"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 1100 },
+      { "category": "إنترنت", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 1200 },
+      { "category": "إنترنت", "technology": "VDSL_FIBRE", "speed_mbps": 100, "price_convention_da": 1300 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 1400 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1800 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 2100 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 200 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 350 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 450 }
+    ]
+  },
+  {
+    "convention_id": "conv_x",
+    "partner_name": "المؤسسة X",
+    "aliases": ["المؤسسة X", "X"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "شهادة عمل أو كشف راتب",
+      "طلب خطي",
+      "نسخة من بطاقة الهوية",
+      "وثيقة تثبت عنوان الموظف"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2080 },
+      { "category": "إنترنت", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2240 },
+      { "category": "إنترنت", "technology": "VDSL_FIBRE", "speed_mbps": 100, "price_convention_da": 2400 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2700 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2800 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 3000 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 3600 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525 }
+    ]
+  },
+  {
+    "convention_id": "conv_y",
+    "partner_name": "المؤسسة Y",
+    "aliases": ["المؤسسة Y", "Y"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true,
+      "family": true,
+      "family_details": "الأب، الأم، الزوج/الزوجة، الأبناء (حد أقصى 5 اشتراكات)"
+    },
+    "documents": [
+      "بطاقة هوية",
+      "استمارة الانخراط موقعة",
+      "وثيقة إقامة"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2079 },
+      { "category": "إنترنت", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2239 },
+      { "category": "إنترنت", "technology": "VDSL_FIBRE", "speed_mbps": 100, "price_convention_da": 2399 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2699 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2999 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525 }
+    ]
+  },
+  {
+    "convention_id": "conv_z",
+    "partner_name": "المؤسسة Z",
+    "aliases": ["المؤسسة Z", "Z", "فروع Z"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true,
+      "subsidiaries": true
+    },
+    "documents": [
+      "شهادة عمل (للعاملين)",
+      "شهادة عمل تثبت المسار المهني (للمتقاعدين)",
+      "طلب خطي",
+      "نسخة من بطاقة الهوية",
+      "وثيقة تثبت عنوان المستفيد"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 20, "label": "المستوى 1", "price_convention_da": 1799, "discount": "10%" },
+      { "category": "إنترنت", "technology": "ADSL_VDSL_FIBRE", "speed_mbps": 50, "label": "المستوى 2", "price_convention_da": 2209, "discount": "15%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 100, "label": "المستوى 3", "price_convention_da": 2519, "discount": "30%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 200, "label": "المستوى 4", "price_convention_da": 3500, "discount": "50%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525, "discount": "30%" }
+    ]
+  },
+  {
+    "convention_id": "conv_h",
+    "partner_name": "المؤسسة H",
+    "aliases": ["المؤسسة H", "H"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "شهادة عمل",
+      "نسخة من وثيقة الهوية",
+      "وثيقة تثبت العنوان",
+      "استمارة منح التسعيرات"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075, "price_public_da": 2150 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175, "price_public_da": 2350 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1275, "price_public_da": 2550 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 30, "price_convention_da": 1100, "price_public_da": 2200 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1200, "price_public_da": 2400 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500, "price_public_da": 3000 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100, "price_public_da": 4200 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525 }
+    ]
+  },
+  {
+    "convention_id": "conv_r",
+    "partner_name": "المؤسسة R",
+    "aliases": ["المؤسسة R", "R"],
+    "client_type": "B2B",
+    "eligibility": {
+      "details": "مخصص للمؤسسات (أمر شراء مطلوب)"
+    },
+    "documents": [
+      "أمر شراء موقع من طرف آمر الصرف",
+      "طلب للاستفادة"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "condition": "مؤسسة محرومة", "price_convention_da": 2700 },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "condition": "باقي المؤسسات", "price_convention_da": 3100 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "condition": "مؤسسة محرومة", "price_convention_da": 2900 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "condition": "باقي المؤسسات", "price_convention_da": 3600 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "condition": "مؤسسة محرومة", "price_convention_da": 3100 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "condition": "باقي المؤسسات", "price_convention_da": 4000 },
+      { "category": "4G", "plan": "Idoom 4G LTE", "volume_go": 500, "price_convention_da": 2900, "frequency": "سنوي" },
+      { "category": "هاتف", "plan": "ثابت غير محدود", "price_convention_da": 450 }
+    ]
+  },
+  {
+    "convention_id": "conv_p",
+    "partner_name": "المؤسسة P",
+    "aliases": ["المؤسسة P", "P"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true,
+      "hierarchical": true
+    },
+    "documents": [
+      "شهادة عمل (أقل من 3 أشهر)",
+      "شهادة عمل (للمتقاعدين)",
+      "بطاقة التعريف"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "condition": "إطار سامي", "price_convention_da": 0, "note": "مجاني" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "condition": "موظف/متقاعد", "price_convention_da": 800 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "condition": "إطار سامي", "price_convention_da": 0, "note": "مجاني" },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "condition": "موظف/متقاعد", "price_convention_da": 800 },
+      { "category": "إنترنت", "technology": "FTTH", "speed_mbps": 1500, "condition": "إطار سامي", "price_convention_da": 0, "note": "مجاني" },
+      { "category": "إنترنت", "technology": "FTTH", "speed_mbps": 1500, "condition": "موظف/متقاعد", "price_convention_da": 1100 },
+      { "category": "HARDWARE", "product": "ONT WIFI 6", "condition": "إطار سامي", "price_convention_da": 3500 },
+      { "category": "HARDWARE", "product": "ONT WIFI 6", "condition": "موظف < فئة أ", "price_convention_da": 2000 },
+      { "category": "HARDWARE", "product": "ONT WIFI 6", "condition": "متقاعد", "price_convention_da": 3500 }
+    ]
+  },
+  {
+    "convention_id": "conv_t",
+    "partner_name": "المؤسسة T",
+    "aliases": ["المؤسسة T", "T"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "وصل الاستفادة من حق (استمارة)",
+      "نسخة من بطاقة التعريف",
+      "وثيقة إثبات عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1200, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 2100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1200, "discount": "50%" },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1300, "discount": "50%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 212, "discount": "15%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 562, "discount": "25%" }
+    ]
+  },
+  {
+    "convention_id": "conv_v",
+    "partner_name": "المؤسسة V",
+    "aliases": ["المؤسسة V", "V"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "نسخة من بطاقة العمل/التعريف",
+      "شهادة عمل",
+      "طلب خطي",
+      "وثيقة تثبت العنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1275 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 30, "price_convention_da": 1100 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1200 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1300 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1800 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525 }
+    ]
+  },
+  {
+    "convention_id": "conv_b_shop",
+    "partner_name": "المؤسسة B",
+    "aliases": ["المؤسسة B", "B"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true,
+      "widows_invalids": true,
+      "second_access": true,
+      "second_access_condition": "للموظفين النشطين فقط"
+    },
+    "documents": [
+      "استمارة الاشتراك",
+      "نسخة من بطاقة التعريف",
+      "وثيقة تثبت العنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 15, "access_type": "الاشتراك الأول", "price_convention_da": 1000 },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "access_type": "الاشتراك الأول", "price_convention_da": 1075 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "access_type": "الاشتراك الأول", "price_convention_da": 1120 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "access_type": "الاشتراك الأول", "price_convention_da": 1100 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "access_type": "الاشتراك الأول", "price_convention_da": 1120 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1000, "access_type": "الاشتراك الأول", "price_convention_da": 1440 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "access_type": "الاشتراك الأول", "price_convention_da": 1680 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "access_type": "الاشتراك الثاني", "condition": "نشط", "price_convention_da": 1300 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 600, "access_type": "الاشتراك الثاني", "condition": "نشط", "price_convention_da": 1500 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "access_type": "الاشتراك الثاني", "condition": "نشط", "price_convention_da": 2100 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 200, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 350, "discount": "30%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 450, "discount": "40%" }
+    ],
+    "store_items": [
+      { "type": "مودم", "model": "D-Link DSL-124", "price_convention_da": 3800 },
+      { "type": "مودم", "model": "Tenda D301", "price_convention_da": 3650 },
+      { "type": "موجه", "model": "Tenda AC 23", "price_convention_da": 11340 },
+      { "type": "مكرر إشارة", "model": "D-Link DAP-1360", "price_convention_da": 3620 },
+      { "type": "تعليم إلكتروني", "provider": "DOROUSCOM", "plan": "سنوي (مادة واحدة)", "price_convention_da": 2890 },
+      { "type": "تعليم إلكتروني", "provider": "INKIDIA", "plan": "باقة MPS سنوية", "price_convention_da": 9490 }
+    ]
+  },
+  {
+    "convention_id": "conv_c",
+    "partner_name": "المؤسسة C",
+    "aliases": ["المؤسسة C", "C"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true,
+      "civil": true
+    },
+    "documents": [
+      "توصية ممضاة",
+      "نسخة من بطاقة الهوية",
+      "وثيقة تثبت عنوان السكن"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 1300, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 600, "price_convention_da": 1500, "discount": "50%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 1600, "discount": "55.56%" },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1680, "discount": "60%" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 15, "price_convention_da": 1000, "discount": "50%" },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1100, "discount": "50%" },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1200, "discount": "50%" },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1300, "discount": "50%" }
+    ]
+  },
+  {
+    "convention_id": "conv_d",
+    "partner_name": "المؤسسة D",
+    "aliases": ["المؤسسة D", "D"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "شهادة عمل أو كشف راتب",
+      "طلب خطي",
+      "نسخة من بطاقة الهوية",
+      "وثيقة تثبت العنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2080 },
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2240 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 100, "price_convention_da": 2400 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2800 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 3600 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525, "discount": "30%" }
+    ]
+  },
+  {
+    "convention_id": "conv_e",
+    "partner_name": "المؤسسة E",
+    "aliases": ["المؤسسة E", "E"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "نسخة من البطاقة المهنية",
+      "شهادة عمل",
+      "طلب خطي",
+      "وثيقة إثبات عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 20, "price_convention_da": 2000 },
+      { "category": "إنترنت", "technology": "VDSL_FIBRE", "speed_mbps": 50, "price_convention_da": 2200 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 100, "price_convention_da": 2400 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 200, "price_convention_da": 2600 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2800 }
+    ],
+    "notes": "الخطاب التجاري: إقناع الزبائن 10/15 ميغا بالانتقال إلى 20 ميغا."
+  },
+  {
+    "convention_id": "conv_f",
+    "partner_name": "المؤسسة F",
+    "aliases": ["المؤسسة F", "F"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true
+    },
+    "documents": [
+      "أمر فتح الحق موقع",
+      "نسخة من وثيقة الهوية",
+      "وثيقة تثبت العنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1300 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1400 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1500 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1300 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1620 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 1890 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 200 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 350 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 450 }
+    ]
+  },
+  {
+    "convention_id": "conv_g",
+    "partner_name": "المؤسسة G",
+    "aliases": ["المؤسسة G", "G"],
+    "client_type": "B2C",
+    "eligibility": {
+      "members": true,
+      "adherents": true
+    },
+    "documents": [
+      "نسخة من بطاقة التعريف",
+      "بطاقة الانخراط/العضوية",
+      "إثبات عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 2000 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 480, "price_convention_da": 2200 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 600, "price_convention_da": 2400 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1000, "price_convention_da": 2600 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 2800 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 450, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 675, "discount": "10%" }
+    ]
+  },
+  {
+    "convention_id": "conv_i",
+    "partner_name": "المؤسسة I",
+    "aliases": ["المؤسسة I", "I"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "نسخة من بطاقة التعريف",
+      "شهادة عمل",
+      "وثيقة تثبت عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 800 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 800 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1100 }
+    ]
+  },
+  {
+    "convention_id": "conv_j",
+    "partner_name": "المؤسسة J",
+    "aliases": ["المؤسسة J", "J"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "بطاقة مهنية/شهادة عمل/كشف راتب",
+      "نسخة من بطاقة الهوية",
+      "إثبات عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 2000 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 2100 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 2200 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1920 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 2080 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 2100 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2300 }
+    ]
+  },
+  {
+    "convention_id": "conv_k",
+    "partner_name": "المؤسسة K",
+    "aliases": ["المؤسسة K", "K"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "استمارة الاشتراك",
+      "نسخة من بطاقة التعريف",
+      "وثيقة تثبت عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1300 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525, "discount": "30%" }
+    ]
+  },
+  {
+    "convention_id": "conv_m",
+    "partner_name": "المؤسسة M",
+    "aliases": ["المؤسسة M", "M"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "retired": true
+    },
+    "documents": [
+      "شهادة عمل (نشاط)/مقرر التقاعد",
+      "طلب خطي",
+      "نسخة من بطاقة التعريف",
+      "وثيقة إثبات عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 20, "condition": "ناشط", "price_convention_da": 1299 },
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 20, "condition": "متقاعد", "price_convention_da": 1799 },
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 50, "condition": "ناشط", "price_convention_da": 1399 },
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 50, "condition": "متقاعد", "price_convention_da": 2099 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 100, "condition": "ناشط", "price_convention_da": 1499 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "condition": "ناشط", "price_convention_da": 1599 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "condition": "متقاعد", "price_convention_da": 2799 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525, "discount": "30%" }
+    ]
+  },
+  {
+    "convention_id": "conv_n",
+    "partner_name": "المؤسسة N",
+    "aliases": ["المؤسسة N", "N"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "استمارة الاشتراك",
+      "شهادة عمل/كشف راتب",
+      "نسخة من بطاقة الهوية",
+      "وثيقة تثبت العنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1615 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1765 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1913 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 120, "price_convention_da": 1950 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2100 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2520 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 200, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 350, "discount": "30%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 1000", "price_convention_da": 600, "discount": "40%" }
+    ]
+  },
+  {
+    "convention_id": "conv_o",
+    "partner_name": "المؤسسة O",
+    "aliases": ["المؤسسة O", "O"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "نسخة من البطاقة المهنية",
+      "شهادة عمل",
+      "وثيقة تثبت العنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1600 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 2000 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 240, "price_convention_da": 2400 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 2600 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 3600 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 450 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 675 }
+    ]
+  },
+  {
+    "convention_id": "conv_q",
+    "partner_name": "المؤسسة Q",
+    "aliases": ["المؤسسة Q", "Q"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "استمارة التسجيل",
+      "شهادة عمل/كشف راتب",
+      "نسخة من بطاقة التعريف",
+      "وثيقة تثبت العنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 1075 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 1175 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 100, "price_convention_da": 1275 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 30, "price_convention_da": 1100 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 60, "price_convention_da": 1200 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "price_convention_da": 1500 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 500, "price_convention_da": 1800 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1200, "price_convention_da": 2100 }
+    ],
+    "notes": "الطلب الخطي لم يعد مطلوباً."
+  },
+  {
+    "convention_id": "conv_u",
+    "partner_name": "المؤسسة U",
+    "aliases": ["المؤسسة U", "U"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true,
+      "conditions": [
+        "موظف",
+        "عدل",
+        "إطار مسير"
+      ]
+    },
+    "documents": [
+      "شهادة عمل",
+      "طلب خطي",
+      "نسخة من بطاقة التعريف",
+      "وثيقة إثبات عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 15, "condition": "موظف", "price_convention_da": 1199.4 },
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 15, "condition": "عدل", "price_convention_da": 1199.4 },
+      { "category": "إنترنت", "technology": "ADSL_FIBRE", "speed_mbps": 15, "condition": "إطار مسير", "price_convention_da": 999.5 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "condition": "موظف", "price_convention_da": 2399.4 },
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 300, "condition": "إطار مسير", "price_convention_da": 1999.5 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525, "discount": "30%" },
+      { "category": "EMAIL", "plan": "حساب 100 1جيغا", "condition": "المديرية العامة", "price_convention_da": 0, "note": "تخفيض 100%" }
+    ]
+  },
+  {
+    "convention_id": "conv_w",
+    "partner_name": "المؤسسة W",
+    "aliases": ["المؤسسة W", "W"],
+    "client_type": "B2C",
+    "eligibility": {
+      "active": true
+    },
+    "documents": [
+      "استمارة الاشتراك",
+      "نسخة من بطاقة التعريف",
+      "وثيقة تثبت عنوان"
+    ],
+    "offers": [
+      { "category": "إنترنت", "technology": "FIBRE", "speed_mbps": 1500, "price_convention_da": 1100 },
+      { "category": "إنترنت", "technology": "ADSL", "speed_mbps": 20, "price_convention_da": 800 },
+      { "category": "إنترنت", "technology": "VDSL", "speed_mbps": 50, "price_convention_da": 800 },
+      { "category": "هاتف", "plan": "إيدوم الثابت 250", "price_convention_da": 225, "discount": "10%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 500", "price_convention_da": 400, "discount": "20%" },
+      { "category": "هاتف", "plan": "إيدوم الثابت 750", "price_convention_da": 525, "discount": "30%" }
+    ]
+  }
+]
