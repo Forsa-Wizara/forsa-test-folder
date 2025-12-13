@@ -336,12 +336,23 @@ export default function Page() {
                 <path d="M9 13v2" />
               </svg>
             </div>
-
             {/* Titre et description */}
             <h1 className="text-3xl md:text-4xl font-bold text-black mb-3">Assistant Algerie Telecom</h1>
-            <p className="text-zinc-600 text-lg mb-12">
+            <p className="text-zinc-600 text-lg mb-8">
               Posez vos questions sur les offres, prix, éligibilité et documents requis
             </p>
+            
+            {/* Lien vers évaluation */}
+            <a 
+              href="/evaluate"
+              className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-lg bg-zinc-100 text-zinc-900 hover:bg-zinc-200 transition-colors text-sm font-medium"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Pipeline d'évaluation JSON
+            </a>
 
             {/* Formulaire de saisie central */}
             <form
